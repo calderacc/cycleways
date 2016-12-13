@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CalderaBundle\ViewStorage;
+namespace Caldera\Bundle\CyclewaysBundle\ViewStorage;
 
 use Caldera\Bundle\CalderaBundle\Entity\User;
 use Caldera\Bundle\CalderaBundle\EntityInterface\ViewableInterface;
