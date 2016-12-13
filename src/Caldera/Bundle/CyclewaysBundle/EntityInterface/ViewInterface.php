@@ -1,8 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CalderaBundle\EntityInterface;
-
-use Caldera\Bundle\CalderaBundle\Entity\User;
+namespace Caldera\Bundle\CyclewaysBundle\EntityInterface;
 
 interface ViewInterface
 {
