@@ -2,7 +2,6 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Controller;
 
-use Caldera\Bundle\CriticalmassSiteBundle\Controller\AbstractController;
 use Elastica\ResultSet;
 use Symfony\Component\HttpFoundation\Request;
 

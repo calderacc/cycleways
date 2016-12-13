@@ -2,9 +2,7 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Controller;
 
-use Caldera\Bundle\CriticalmassSiteBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class FrontpageController extends AbstractController
 {

@@ -8,7 +8,6 @@ use Caldera\Bundle\CalderaBundle\Manager\IncidentManager\IncidentManager;
 use Caldera\Bundle\CalderaBundle\Manager\PostManager\PostManager;
 use Caldera\Bundle\CalderaBundle\Manager\Util\Bounds;
 use Caldera\Bundle\CalderaBundle\Manager\Util\Coord;
-use Caldera\Bundle\CriticalmassSiteBundle\Controller\AbstractController;
 use Caldera\Bundle\CyclewaysBundle\Form\Type\IncidentType;
 use Caldera\Bundle\CyclewaysBundle\SlugGenerator\SlugGenerator;
 use Curl\Curl;

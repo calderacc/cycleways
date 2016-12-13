@@ -5,7 +5,6 @@ namespace Caldera\Bundle\CyclewaysBundle\Controller;
 use Caldera\Bundle\CalderaBundle\Entity\Incident;
 use Caldera\Bundle\CalderaBundle\Entity\Post;
 use Caldera\Bundle\CriticalmassCoreBundle\Form\Type\PostType;
-use Caldera\Bundle\CriticalmassSiteBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
