@@ -1,0 +1,15 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+    - { resource: doctrine.yml }
+    - { resource: fos.yml }
+    - { resource: framework.yml }
+    - { resource: jms.yml }
+    - { resource: swiftmailer.yml }
+    - { resource: twig.yml }
+    - { resource: vich.yml }
+    - { resource: liip.yml }
+    - { resource: elastic.yml }
+    - { resource: translation.yml }
+    - { resource: services.yml }
