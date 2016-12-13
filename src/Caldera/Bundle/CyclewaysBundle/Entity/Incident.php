@@ -1,10 +1,10 @@
 <?php
 
-namespace Caldera\Bundle\CalderaBundle\Entity;
+namespace Caldera\Bundle\CyclewaysBundle\Entity;
 
-use Caldera\Bundle\CalderaBundle\EntityInterface\CoordinateInterface;
-use Caldera\Bundle\CalderaBundle\EntityInterface\ElasticSearchPinInterface;
-use Caldera\Bundle\CalderaBundle\EntityInterface\ViewableInterface;
+use Caldera\Bundle\CyclewaysBundle\EntityInterface\CoordinateInterface;
+use Caldera\Bundle\CyclewaysBundle\EntityInterface\ElasticSearchPinInterface;
+use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewableInterface;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 use Symfony\Component\Validator\Constraints as Assert;

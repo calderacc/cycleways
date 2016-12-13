@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CalderaBundle\Entity;
+namespace Caldera\Bundle\CyclewaysBundle\Entity;
 
-use Caldera\Bundle\CalderaBundle\EntityInterface\ViewInterface;
+use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
