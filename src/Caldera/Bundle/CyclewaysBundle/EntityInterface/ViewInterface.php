@@ -2,6 +2,8 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\EntityInterface;
 
+use Caldera\Bundle\CyclewaysBundle\Entity\User;
+
 interface ViewInterface
 {
     public function getId();

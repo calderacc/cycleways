@@ -22,7 +22,7 @@ class City
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255
+     * @ORM\Column(type="string", length=255)
      * @JMS\Expose
      */
     protected $slug;
@@ -44,6 +44,18 @@ class City
      * @JMS\Expose
      */
     protected $longitude = 0;
+
+    /**
+     * @ORM\Column(type="string", length=5)
+     * @JMS\Expose
+     */
+    protected $zip;
+
+    /**
+     * @ORM\Column(type="int")
+     * @JMS\Expose
+     */
+    protected $locId;
 
     public function __construct()
     {
