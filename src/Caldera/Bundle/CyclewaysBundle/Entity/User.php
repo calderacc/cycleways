@@ -44,13 +44,10 @@ class User extends BaseUser
     }
 
     /**
-     * Set updatedAt
-     *
      * @param \DateTime $updatedAt
-     *
      * @return User
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt(\DateTime $updatedAt): User
     {
         $this->updatedAt = $updatedAt;
 
@@ -58,23 +55,18 @@ class User extends BaseUser
     }
 
     /**
-     * Get updatedAt
-     *
      * @return \DateTime
      */
-    public function getUpdatedAt()
+    public function getUpdatedAt(): \DateTime
     {
         return $this->updatedAt;
     }
 
     /**
-     * Set createdAt
-     *
      * @param \DateTime $createdAt
-     *
      * @return User
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt(\DateTime $createdAt): User
     {
         $this->createdAt = $createdAt;
 
@@ -82,11 +74,9 @@ class User extends BaseUser
     }
 
     /**
-     * Get createdAt
-     *
      * @return \DateTime
      */
-    public function getCreatedAt()
+    public function getCreatedAt(): \DateTime
     {
         return $this->createdAt;
     }

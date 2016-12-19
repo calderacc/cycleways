@@ -65,13 +65,10 @@ class PhotoView implements ViewInterface
     }
 
     /**
-     * Set photo
-     *
-     * @param \Caldera\Bundle\CyclewaysBundle\Entity\Photo $photo
-     *
+     * @param Photo $photo
      * @return PhotoView
      */
-    public function setPhoto(\Caldera\Bundle\CyclewaysBundle\Entity\Photo $photo = null)
+    public function setPhoto(Photo $photo = null): PhotoView
     {
         $this->photo = $photo;
 
@@ -79,11 +76,9 @@ class PhotoView implements ViewInterface
     }
 
     /**
-     * Get photo
-     *
-     * @return \Caldera\Bundle\CyclewaysBundle\Entity\Photo
+     * @return Photo
      */
-    public function getPhoto()
+    public function getPhoto(): ?Photo
     {
         return $this->photo;
     }

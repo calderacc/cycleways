@@ -48,23 +48,18 @@ class Post
     protected $enabled = true;
 
     /**
-     * Get id
-     *
      * @return integer
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * Set dateTime
-     *
      * @param \DateTime $dateTime
-     *
      * @return Post
      */
-    public function setDateTime($dateTime)
+    public function setDateTime(\DateTime $dateTime): Post
     {
         $this->dateTime = $dateTime;
 
@@ -72,23 +67,18 @@ class Post
     }
 
     /**
-     * Get dateTime
-     *
      * @return \DateTime
      */
-    public function getDateTime()
+    public function getDateTime(): \DateTime
     {
         return $this->dateTime;
     }
 
     /**
-     * Set text
-     *
      * @param string $text
-     *
      * @return Post
      */
-    public function setText($text)
+    public function setText(string $text): Post
     {
         $this->text = $text;
 
@@ -96,23 +86,18 @@ class Post
     }
 
     /**
-     * Get text
-     *
      * @return string
      */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
 
     /**
-     * Set enabled
-     *
      * @param boolean $enabled
-     *
      * @return Post
      */
-    public function setEnabled($enabled)
+    public function setEnabled(bool $enabled): Post
     {
         $this->enabled = $enabled;
 
@@ -120,23 +105,18 @@ class Post
     }
 
     /**
-     * Get enabled
-     *
      * @return boolean
      */
-    public function getEnabled()
+    public function getEnabled(): bool
     {
         return $this->enabled;
     }
 
     /**
-     * Set user
-     *
-     * @param \Caldera\Bundle\CyclewaysBundle\Entity\User $user
-     *
+     * @param User $user
      * @return Post
      */
-    public function setUser(\Caldera\Bundle\CyclewaysBundle\Entity\User $user = null)
+    public function setUser(User $user = null): Post
     {
         $this->user = $user;
 
@@ -144,23 +124,18 @@ class Post
     }
 
     /**
-     * Get user
-     *
-     * @return \Caldera\Bundle\CyclewaysBundle\Entity\User
+     * @return User
      */
-    public function getUser()
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
     /**
-     * Set incident
-     *
-     * @param \Caldera\Bundle\CyclewaysBundle\Entity\Incident $incident
-     *
+     * @param Incident $incident
      * @return Post
      */
-    public function setIncident(\Caldera\Bundle\CyclewaysBundle\Entity\Incident $incident = null)
+    public function setIncident(Incident $incident = null): Post
     {
         $this->incident = $incident;
 
@@ -168,11 +143,9 @@ class Post
     }
 
     /**
-     * Get incident
-     *
-     * @return \Caldera\Bundle\CyclewaysBundle\Entity\Incident
+     * @return Incident
      */
-    public function getIncident()
+    public function getIncident(): ?Incident
     {
         return $this->incident;
     }

@@ -76,23 +76,18 @@ class City
     }
 
     /**
-     * Get id
-     *
      * @return integer
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * Set slug
-     *
      * @param string $slug
-     *
      * @return City
      */
-    public function setSlug($slug)
+    public function setSlug(string $slug): City
     {
         $this->slug = $slug;
 
@@ -100,23 +95,18 @@ class City
     }
 
     /**
-     * Get slug
-     *
      * @return string
      */
-    public function getSlug()
+    public function getSlug(): string
     {
         return $this->slug;
     }
 
     /**
-     * Set name
-     *
      * @param string $name
-     *
      * @return City
      */
-    public function setName($name)
+    public function setName(string $name): City
     {
         $this->name = $name;
 
@@ -124,23 +114,18 @@ class City
     }
 
     /**
-     * Get name
-     *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
-     * Set latitude
-     *
      * @param float $latitude
-     *
      * @return City
      */
-    public function setLatitude($latitude)
+    public function setLatitude(float $latitude): City
     {
         $this->latitude = $latitude;
 
@@ -148,23 +133,18 @@ class City
     }
 
     /**
-     * Get latitude
-     *
      * @return float
      */
-    public function getLatitude()
+    public function getLatitude(): float
     {
         return $this->latitude;
     }
 
     /**
-     * Set longitude
-     *
      * @param float $longitude
-     *
      * @return City
      */
-    public function setLongitude($longitude)
+    public function setLongitude(float $longitude): City
     {
         $this->longitude = $longitude;
 
@@ -172,23 +152,18 @@ class City
     }
 
     /**
-     * Get longitude
-     *
      * @return float
      */
-    public function getLongitude()
+    public function getLongitude(): float
     {
         return $this->longitude;
     }
 
     /**
-     * Set zip
-     *
      * @param string $zip
-     *
      * @return City
      */
-    public function setZip($zip)
+    public function setZip(string $zip): City
     {
         $this->zip = $zip;
 
@@ -196,23 +171,18 @@ class City
     }
 
     /**
-     * Get zip
-     *
      * @return string
      */
-    public function getZip()
+    public function getZip(): string
     {
         return $this->zip;
     }
 
     /**
-     * Set locId
-     *
      * @param int $locId
-     *
      * @return City
      */
-    public function setLocId(int $locId)
+    public function setLocId(int $locId): City
     {
         $this->locId = $locId;
 
@@ -220,23 +190,18 @@ class City
     }
 
     /**
-     * Get locId
-     *
-     * @return \int
+     * @return integer
      */
-    public function getLocId()
+    public function getLocId(): int
     {
         return $this->locId;
     }
 
     /**
-     * Set population
-     *
      * @param integer $population
-     *
      * @return City
      */
-    public function setPopulation($population)
+    public function setPopulation(int $population): City
     {
         $this->population = $population;
 
@@ -244,23 +209,18 @@ class City
     }
 
     /**
-     * Get population
-     *
      * @return integer
      */
-    public function getPopulation()
+    public function getPopulation(): int
     {
         return $this->population;
     }
 
     /**
-     * Set area
-     *
      * @param integer $area
-     *
      * @return City
      */
-    public function setArea($area)
+    public function setArea(int $area): City
     {
         $this->area = $area;
 
@@ -268,11 +228,9 @@ class City
     }
 
     /**
-     * Get area
-     *
      * @return integer
      */
-    public function getArea()
+    public function getArea(): int
     {
         return $this->area;
     }

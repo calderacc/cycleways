@@ -2,6 +2,7 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -47,23 +48,18 @@ class IncidentTag
     }
 
     /**
-     * Get id
-     *
      * @return integer
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * Set title
-     *
      * @param string $title
-     *
      * @return IncidentTag
      */
-    public function setTitle($title)
+    public function setTitle(string $title): IncidentTag
     {
         $this->title = $title;
 
@@ -71,23 +67,18 @@ class IncidentTag
     }
 
     /**
-     * Get title
-     *
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
     /**
-     * Set fontColor
-     *
      * @param string $fontColor
-     *
      * @return IncidentTag
      */
-    public function setFontColor($fontColor)
+    public function setFontColor(string $fontColor): IncidentTag
     {
         $this->fontColor = $fontColor;
 
@@ -95,23 +86,18 @@ class IncidentTag
     }
 
     /**
-     * Get fontColor
-     *
      * @return string
      */
-    public function getFontColor()
+    public function getFontColor(): string
     {
         return $this->fontColor;
     }
 
     /**
-     * Set backgroundColor
-     *
      * @param string $backgroundColor
-     *
      * @return IncidentTag
      */
-    public function setBackgroundColor($backgroundColor)
+    public function setBackgroundColor($backgroundColor): IncidentTag
     {
         $this->backgroundColor = $backgroundColor;
 
@@ -119,23 +105,18 @@ class IncidentTag
     }
 
     /**
-     * Get backgroundColor
-     *
      * @return string
      */
-    public function getBackgroundColor()
+    public function getBackgroundColor(): string
     {
         return $this->backgroundColor;
     }
 
     /**
-     * Add incident
-     *
-     * @param \Caldera\Bundle\CalderaBundle\Entity\Incident $incident
-     *
+     * @param Incident $incident
      * @return IncidentTag
      */
-    public function addIncident(\Caldera\Bundle\CalderaBundle\Entity\Incident $incident)
+    public function addIncident(Incident $incident): IncidentTag
     {
         $this->incidents[] = $incident;
 
@@ -143,21 +124,17 @@ class IncidentTag
     }
 
     /**
-     * Remove incident
-     *
-     * @param \Caldera\Bundle\CalderaBundle\Entity\Incident $incident
+     * @param Incident $incident
      */
-    public function removeIncident(\Caldera\Bundle\CalderaBundle\Entity\Incident $incident)
+    public function removeIncident(Incident $incident): void
     {
         $this->incidents->removeElement($incident);
     }
 
     /**
-     * Get incidents
-     *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
-    public function getIncidents()
+    public function getIncidents(): Collection
     {
         return $this->incidents;
     }

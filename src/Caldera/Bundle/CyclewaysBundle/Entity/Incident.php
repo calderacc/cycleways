@@ -807,13 +807,10 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     }
 
     /**
-     * Set city
-     *
-     * @param \Caldera\Bundle\CyclewaysBundle\Entity\City $city
-     *
+     * @param City $city
      * @return Incident
      */
-    public function setCity(\Caldera\Bundle\CyclewaysBundle\Entity\City $city = null)
+    public function setCity(City $city = null): Incident
     {
         $this->city = $city;
 
@@ -821,11 +818,9 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     }
 
     /**
-     * Get city
-     *
-     * @return \Caldera\Bundle\CyclewaysBundle\Entity\City
+     * @return City
      */
-    public function getCity()
+    public function getCity(): ?City
     {
         return $this->city;
     }

@@ -410,7 +410,7 @@ class Photo implements ViewableInterface
      *
      * @return Photo
      */
-    public function setIncident(\Caldera\Bundle\CyclewaysBundle\Entity\Incident $incident = null)
+    public function setIncident(Incident $incident = null)
     {
         $this->incident = $incident;
 
@@ -418,9 +418,7 @@ class Photo implements ViewableInterface
     }
 
     /**
-     * Get incident
-     *
-     * @return \Caldera\Bundle\CyclewaysBundle\Entity\Incident
+     * @return Incident
      */
     public function getIncident()
     {

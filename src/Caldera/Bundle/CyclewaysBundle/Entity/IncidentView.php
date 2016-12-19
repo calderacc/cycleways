@@ -71,13 +71,10 @@ class IncidentView implements ViewInterface
     }
 
     /**
-     * Set incident
-     *
-     * @param \Caldera\Bundle\CyclewaysBundle\Entity\Incident $incident
-     *
+     * @param Incident $incident
      * @return IncidentView
      */
-    public function setIncident(\Caldera\Bundle\CyclewaysBundle\Entity\Incident $incident = null)
+    public function setIncident(Incident $incident = null): IncidentView
     {
         $this->incident = $incident;
 
@@ -85,11 +82,9 @@ class IncidentView implements ViewInterface
     }
 
     /**
-     * Get incident
-     *
-     * @return \Caldera\Bundle\CyclewaysBundle\Entity\Incident
+     * @return Incident
      */
-    public function getIncident()
+    public function getIncident(): ?Incident
     {
         return $this->incident;
     }
