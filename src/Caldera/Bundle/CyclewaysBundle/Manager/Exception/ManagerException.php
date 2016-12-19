@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CalderaBundle\Manager\Exception;
+namespace Caldera\Bundle\CyclewaysBundle\Manager\Exception;
 
-use Caldera\Bundle\CalderaBundle\Exception\CalderaException;
+use Caldera\Bundle\CyclewaysBundle\Exception\CalderaException;
 
 class ManagerException extends CalderaException
 {

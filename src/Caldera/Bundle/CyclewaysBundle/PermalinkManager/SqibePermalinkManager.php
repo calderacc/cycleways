@@ -2,12 +2,11 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\PermalinkManager;
 
-use Caldera\Bundle\CalderaBundle\Entity\Incident;
+use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
 use Curl\Curl;
 use stdClass;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Routing\RouterInterface;
 
 class SqibePermalinkManager
 {

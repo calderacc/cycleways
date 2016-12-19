@@ -2,7 +2,7 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\ViewStorage;
 
-use Caldera\Bundle\CalderaBundle\EntityInterface\ViewableInterface;
+use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewableInterface;
 
 interface ViewStorageCacheInterface
 {

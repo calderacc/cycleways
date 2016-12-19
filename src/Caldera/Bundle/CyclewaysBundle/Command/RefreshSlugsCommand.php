@@ -2,7 +2,7 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Command;
 
-use Caldera\Bundle\CalderaBundle\Entity\Incident;
+use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
 use Caldera\Bundle\CyclewaysBundle\PermalinkManager\SqibePermalinkManager;
 use Caldera\Bundle\CyclewaysBundle\SlugGenerator\SlugGenerator;
 use Doctrine\Bundle\DoctrineBundle\Registry;

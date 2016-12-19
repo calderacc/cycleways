@@ -2,15 +2,13 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Command;
 
-use Caldera\Bundle\CalderaBundle\Entity\Incident;
+use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
 use Caldera\Bundle\CyclewaysBundle\PermalinkManager\SqibePermalinkManager;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RequestContext;

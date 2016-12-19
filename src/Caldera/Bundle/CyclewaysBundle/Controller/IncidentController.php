@@ -2,22 +2,20 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Controller;
 
-use Caldera\Bundle\CalderaBundle\Entity\City;
-use Caldera\Bundle\CalderaBundle\Entity\Incident;
-use Caldera\Bundle\CalderaBundle\Manager\IncidentManager\IncidentManager;
-use Caldera\Bundle\CalderaBundle\Manager\PostManager\PostManager;
-use Caldera\Bundle\CalderaBundle\Manager\Util\Bounds;
-use Caldera\Bundle\CalderaBundle\Manager\Util\Coord;
+use Caldera\Bundle\CyclewaysBundle\Entity\City;
+use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
+use Caldera\Bundle\CyclewaysBundle\Manager\IncidentManager\IncidentManager;
+use Caldera\Bundle\CyclewaysBundle\Manager\PostManager\PostManager;
+use Caldera\Bundle\CyclewaysBundle\Manager\Util\Bounds;
+use Caldera\Bundle\CyclewaysBundle\Manager\Util\Coord;
 use Caldera\Bundle\CyclewaysBundle\Form\Type\IncidentType;
 use Caldera\Bundle\CyclewaysBundle\SlugGenerator\SlugGenerator;
 use Curl\Curl;
 use JMS\Serializer\SerializationContext;
-use Malenki\Slug;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class IncidentController extends AbstractController
 {

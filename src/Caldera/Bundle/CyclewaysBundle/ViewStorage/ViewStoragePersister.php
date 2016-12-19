@@ -2,9 +2,9 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\ViewStorage;
 
-use Caldera\Bundle\CalderaBundle\Entity\User;
-use Caldera\Bundle\CalderaBundle\EntityInterface\ViewableInterface;
-use Caldera\Bundle\CalderaBundle\EntityInterface\ViewInterface;
+use Caldera\Bundle\CyclewaysBundle\Entity\User;
+use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewableInterface;
+use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewInterface;
 use Doctrine\Common\Cache\MemcachedCache;
 use Doctrine\ORM\EntityManager;
 use Memcached;

@@ -2,7 +2,7 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\SlugGenerator;
 
-use Caldera\Bundle\CalderaBundle\Entity\Incident;
+use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
 use Malenki\Slug;
 
 class SlugGenerator

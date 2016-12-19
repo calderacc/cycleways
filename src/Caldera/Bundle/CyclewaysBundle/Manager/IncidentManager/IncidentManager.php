@@ -2,6 +2,9 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Manager\IncidentManager;
 
+use Caldera\Bundle\CyclewaysBundle\Manager\AbstractElasticManager;
+use Caldera\Bundle\CyclewaysBundle\Repository\IncidentRepository;
+
 class IncidentManager extends AbstractElasticManager
 {
     /** @var IncidentRepository $incidentRepository */
@@ -11,7 +14,7 @@ class IncidentManager extends AbstractElasticManager
     {
         parent::__construct($doctrine, $elasticIndex);
 
-        $this->incidentRepository = $this->doctrine->getRepository('CalderaBundle:Incident');
+        $this->incidentRepository = $this->doctrine->getRepository('CalderaCyclewaysBundle:Incident');
     }
 
     public function getIncidentsInBounds(Bounds $bounds, array $knownIndizes = []): array

@@ -2,9 +2,9 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Controller;
 
-use Caldera\Bundle\CalderaBundle\Repository\IncidentRepository;
-use Caldera\Bundle\CalderaBundle\Repository\PhotoRepository;
-use Caldera\Bundle\CalderaBundle\Repository\PostRepository;
+use Caldera\Bundle\CyclewaysBundle\Repository\IncidentRepository;
+use Caldera\Bundle\CyclewaysBundle\Repository\PhotoRepository;
+use Caldera\Bundle\CyclewaysBundle\Repository\PostRepository;
 use Caldera\Bundle\CyclewaysBundle\Entity\City;
 use Caldera\Bundle\CyclewaysBundle\Repository\CityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

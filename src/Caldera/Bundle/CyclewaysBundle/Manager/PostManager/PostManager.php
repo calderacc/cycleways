@@ -2,7 +2,9 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Manager\PostManager;
 
+use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
 use Caldera\Bundle\CyclewaysBundle\Manager\AbstractManager;
+use Caldera\Bundle\CyclewaysBundle\Repository\PostRepository;
 
 class PostManager extends AbstractManager
 {
@@ -13,7 +15,7 @@ class PostManager extends AbstractManager
     {
         parent::__construct($doctrine);
 
-        $this->postRepository = $this->doctrine->getRepository('CalderaBundle:Post');
+        $this->postRepository = $this->doctrine->getRepository('CalderaCyclewaysBundle:Post');
     }
 
     public function getPostsForIncident(Incident $incident): array
