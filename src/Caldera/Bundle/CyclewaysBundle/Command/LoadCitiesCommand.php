@@ -4,6 +4,7 @@ namespace Caldera\Bundle\CyclewaysBundle\Command;
 
 use Caldera\Bundle\CyclewaysBundle\CityLoader\CityLoader;
 use Doctrine\ORM\EntityManager;
+use Malenki\Slug;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputInterface;
@@ -34,6 +35,9 @@ class LoadCitiesCommand extends ContainerAwareCommand
             $city = $cityLoader->parseData();
 
             if ($city) {
+                $slug = new Slug($city->getName());
+                $city->setSlug($slug);
+
                 $entityManager->persist($city);
             }
 
