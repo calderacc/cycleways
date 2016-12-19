@@ -11,7 +11,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
  * @ORM\Entity(repositoryClass="Caldera\Bundle\CyclewaysBundle\Repository\CityRepository")
  * @ORM\Table(name="city")
  * @JMS\ExclusionPolicy("all")
- * @UniqueEntity("locId")
  */
 class City
 {
