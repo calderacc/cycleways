@@ -226,4 +226,55 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     {
         $this->creationDateTime = new \DateTime();
     }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setLatitude(float $latitude): CoordinateInterface
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    public function getLatitude(): ?float
+    {
+        return $this->latitude;
+    }
+
+    public function setLongitude(float $longitude): CoordinateInterface
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    public function getLongitude(): ?float
+    {
+        return $this->longitude;
+    }
+
+    public function getPin(): string
+    {
+        return $this->latitude . ',' . $this->longitude;
+    }
+
+    public function getViews(): int
+    {
+        return $this->views;
+    }
+
+    public function setViews(int $views): ViewableInterface
+    {
+        $this->views = $views;
+
+        return $this;
+    }
+
+    public function incViews(): int
+    {
+        return ++$this->views;
+    }
 }

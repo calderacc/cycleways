@@ -116,4 +116,26 @@ class Photo implements ViewableInterface
         $this->updatedAt = new \DateTime();
         $this->description = '';
     }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getViews(): int
+    {
+        return $this->views;
+    }
+
+    public function setViews(int $views): ViewableInterface
+    {
+        $this->views = $views;
+
+        return $this;
+    }
+
+    public function incViews(): int
+    {
+        return ++$this->views;
+    }
 }

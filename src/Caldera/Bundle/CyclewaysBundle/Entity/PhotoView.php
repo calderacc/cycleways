@@ -34,4 +34,33 @@ class PhotoView implements ViewInterface
      * @ORM\Column(type="datetime")
      */
     protected $dateTime;
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setUser(User $user = null): ViewInterface
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setDateTime(\DateTime $dateTime): ViewInterface
+    {
+        $this->dateTime = $dateTime;
+
+        return $this;
+    }
+
+    public function getDateTime(): \DateTime
+    {
+        return $this->dateTime;
+    }
 }
