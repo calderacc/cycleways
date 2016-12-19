@@ -69,4 +69,28 @@ class IncidentView implements ViewInterface
     {
         return $this->dateTime;
     }
+
+    /**
+     * Set incident
+     *
+     * @param \Caldera\Bundle\CyclewaysBundle\Entity\Incident $incident
+     *
+     * @return IncidentView
+     */
+    public function setIncident(\Caldera\Bundle\CyclewaysBundle\Entity\Incident $incident = null)
+    {
+        $this->incident = $incident;
+
+        return $this;
+    }
+
+    /**
+     * Get incident
+     *
+     * @return \Caldera\Bundle\CyclewaysBundle\Entity\Incident
+     */
+    public function getIncident()
+    {
+        return $this->incident;
+    }
 }

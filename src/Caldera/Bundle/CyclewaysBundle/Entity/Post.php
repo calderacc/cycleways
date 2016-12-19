@@ -46,4 +46,134 @@ class Post
      * @ORM\Column(type="boolean")
      */
     protected $enabled = true;
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set dateTime
+     *
+     * @param \DateTime $dateTime
+     *
+     * @return Post
+     */
+    public function setDateTime($dateTime)
+    {
+        $this->dateTime = $dateTime;
+
+        return $this;
+    }
+
+    /**
+     * Get dateTime
+     *
+     * @return \DateTime
+     */
+    public function getDateTime()
+    {
+        return $this->dateTime;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     *
+     * @return Post
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     *
+     * @return Post
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Caldera\Bundle\CyclewaysBundle\Entity\User $user
+     *
+     * @return Post
+     */
+    public function setUser(\Caldera\Bundle\CyclewaysBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Caldera\Bundle\CyclewaysBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set incident
+     *
+     * @param \Caldera\Bundle\CyclewaysBundle\Entity\Incident $incident
+     *
+     * @return Post
+     */
+    public function setIncident(\Caldera\Bundle\CyclewaysBundle\Entity\Incident $incident = null)
+    {
+        $this->incident = $incident;
+
+        return $this;
+    }
+
+    /**
+     * Get incident
+     *
+     * @return \Caldera\Bundle\CyclewaysBundle\Entity\Incident
+     */
+    public function getIncident()
+    {
+        return $this->incident;
+    }
 }

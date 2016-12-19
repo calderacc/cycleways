@@ -63,4 +63,28 @@ class PhotoView implements ViewInterface
     {
         return $this->dateTime;
     }
+
+    /**
+     * Set photo
+     *
+     * @param \Caldera\Bundle\CyclewaysBundle\Entity\Photo $photo
+     *
+     * @return PhotoView
+     */
+    public function setPhoto(\Caldera\Bundle\CyclewaysBundle\Entity\Photo $photo = null)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return \Caldera\Bundle\CyclewaysBundle\Entity\Photo
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
 }
