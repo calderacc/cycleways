@@ -3,6 +3,7 @@
 namespace Caldera\Bundle\CyclewaysBundle\Command;
 
 use Caldera\Bundle\CyclewaysBundle\CityLoader\CityLoader;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputInterface;
@@ -19,6 +20,9 @@ class LoadCitiesCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        /** @var EntityManager $entityManager */
+        $entityManager = $this->getContainer()->get('doctrine')->getManager();
+
         $cityLoader = new CityLoader();
 
         $cityLoader->loadData();
@@ -27,10 +31,16 @@ class LoadCitiesCommand extends ContainerAwareCommand
         $progress->start();
 
         while ($cityLoader->hasData()) {
-            $cityLoader->parseData();
+            $city = $cityLoader->parseData();
+
+            if ($city) {
+                $entityManager->persist($city);
+            }
+
             $progress->advance();
         }
 
+        $entityManager->flush();
         $progress->finish();
     }
 }
