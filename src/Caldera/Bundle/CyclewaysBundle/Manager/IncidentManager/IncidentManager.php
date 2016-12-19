@@ -1,14 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CalderaBundle\Manager\IncidentManager;
-
-use Caldera\Bundle\CalderaBundle\Entity\City;
-use Caldera\Bundle\CalderaBundle\Entity\Incident;
-use Caldera\Bundle\CalderaBundle\Manager\AbstractElasticManager;
-use Caldera\Bundle\CalderaBundle\Manager\AbstractManager;
-use Caldera\Bundle\CalderaBundle\Manager\Util\Bounds;
-use Caldera\Bundle\CalderaBundle\Repository\IncidentRepository;
-use Caldera\Bundle\CalderaBundle\Repository\PostRepository;
+namespace Caldera\Bundle\CyclewaysBundle\Manager\IncidentManager;
 
 class IncidentManager extends AbstractElasticManager
 {

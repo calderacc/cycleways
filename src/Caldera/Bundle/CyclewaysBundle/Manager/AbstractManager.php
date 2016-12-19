@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CalderaBundle\Manager;
+namespace Caldera\Bundle\CyclewaysBundle\Manager;
 
 use Doctrine\Bundle\DoctrineBundle\Registry;
 
