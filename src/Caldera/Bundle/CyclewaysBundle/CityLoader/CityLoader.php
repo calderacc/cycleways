@@ -12,6 +12,8 @@ class CityLoader
     const FIELD_LATITUDE = 4;
     const FIELD_LONGITUDE = 5;
     const FIELD_ZIP = 7;
+    const FIELD_POPULATION = 9;
+    const FIELD_AREA = 10;
 
     protected $lines = [];
 

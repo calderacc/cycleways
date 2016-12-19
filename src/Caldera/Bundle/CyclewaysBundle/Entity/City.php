@@ -58,6 +58,18 @@ class City
      */
     protected $locId;
 
+    /**
+     * @ORM\Column(type="integer")
+     * @JMS\Expose
+     */
+    protected $population;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @JMS\Expose
+     */
+    protected $area;
+
     public function __construct()
     {
 
@@ -215,5 +227,53 @@ class City
     public function getLocId()
     {
         return $this->locId;
+    }
+
+    /**
+     * Set population
+     *
+     * @param integer $population
+     *
+     * @return City
+     */
+    public function setPopulation($population)
+    {
+        $this->population = $population;
+
+        return $this;
+    }
+
+    /**
+     * Get population
+     *
+     * @return integer
+     */
+    public function getPopulation()
+    {
+        return $this->population;
+    }
+
+    /**
+     * Set area
+     *
+     * @param integer $area
+     *
+     * @return City
+     */
+    public function setArea($area)
+    {
+        $this->area = $area;
+
+        return $this;
+    }
+
+    /**
+     * Get area
+     *
+     * @return integer
+     */
+    public function getArea()
+    {
+        return $this->area;
     }
 }
