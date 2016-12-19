@@ -23,12 +23,12 @@ abstract class AbstractController extends Controller
 
     protected function getIncidentRepository(): IncidentRepository
     {
-        return $this->getDoctrine()->getRepository('CalderaBundle:Incident');
+        return $this->getDoctrine()->getRepository('CalderaCyclewaysBundle:Incident');
     }
 
     protected function getPhotoRepository(): PhotoRepository
     {
-        return $this->getDoctrine()->getRepository('CalderaBundle:Photo');
+        return $this->getDoctrine()->getRepository('CalderaCyclewaysBundle:Photo');
     }
 
     protected function getPostRepository(): PostRepository
