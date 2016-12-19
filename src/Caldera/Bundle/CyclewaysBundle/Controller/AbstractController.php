@@ -16,6 +16,11 @@ abstract class AbstractController extends Controller
             ->isGranted('IS_AUTHENTICATED_FULLY');
     }
 
+    protected function getCityRepository(): CityRepository
+    {
+        return $this->getDoctrine()->getRepository('CalderaCyclewaysBundle:City');
+    }
+
     protected function getIncidentRepository(): IncidentRepository
     {
         return $this->getDoctrine()->getRepository('CalderaBundle:Incident');
