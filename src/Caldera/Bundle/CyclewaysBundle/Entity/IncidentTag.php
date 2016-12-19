@@ -18,7 +18,7 @@ class IncidentTag
     protected $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Caldera\Bundle\CalderaBundle\Entity\Incident")
+     * @ORM\ManyToMany(targetEntity="Incident")
      * @ORM\JoinTable(name="incident_incident_tag",
      *      joinColumns={@ORM\JoinColumn(name="incident_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
