@@ -5,11 +5,13 @@ namespace Caldera\Bundle\CyclewaysBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="Caldera\Bundle\CyclewaysBundle\Repository\CityRepository")
  * @ORM\Table(name="city")
  * @JMS\ExclusionPolicy("all")
+ * @UniqueEntity("locId")
  */
 class City
 {
