@@ -1,0 +1,3 @@
+[submodule "src/Caldera/Bundle/CyclewaysBundle/Resources/public/js"]
+	path = src/Caldera/Bundle/CyclewaysBundle/Resources/public/js
+	url = https://github.com/calderacc/js-stuff.git
