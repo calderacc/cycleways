@@ -7,7 +7,7 @@ use Caldera\Bundle\CyclewaysBundle\Entity\City;
 class CityLoader
 {
     const SOURCE_URL = 'http://www.fa-technik.adfc.de/code/opengeodb/DE.tab';
-    const FIELD_LOCID = 3;
+    const FIELD_LOCID = 0;
     const FIELD_CITY = 3;
     const FIELD_LATITUDE = 4;
     const FIELD_LONGITUDE = 5;
