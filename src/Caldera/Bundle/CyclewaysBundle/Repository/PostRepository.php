@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityRepository;
 
 class PostRepository extends EntityRepository
 {
-    public function getPostsForIncident(Incident $incident)
+    public function getPostsForIncident(Incident $incident): array
     {
         $builder = $this->createQueryBuilder('post');
 
