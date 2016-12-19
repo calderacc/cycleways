@@ -4,11 +4,11 @@ namespace Caldera\Bundle\CyclewaysBundle\EntityInterface;
 
 interface CoordinateInterface
 {
-    public function setLatitude($latitude);
+    public function setLatitude(float $latitude): CoordinateInterface;
 
-    public function getLatitude();
+    public function getLatitude(): ?float;
 
-    public function setLongitude($longitude);
+    public function setLongitude(float $longitude): CoordinateInterface;
 
-    public function getLongitude();
+    public function getLongitude(): ?float;
 }
