@@ -18,16 +18,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class LoadCitiesCommand extends ContainerAwareCommand
 {
-    /**
-     * @var EntityManager $manager
-     */
-    protected $manager;
-
-    /**
-     * @var OutputInterface $output
-     */
-    protected $output;
-
     protected function configure()
     {
         $this
