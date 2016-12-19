@@ -2,3 +2,11 @@ services:
     caldera.cycleways.permalink_manager.sqibe:
         class: Caldera\Bundle\CyclewaysBundle\PermalinkManager\SqibePermalinkManager
         arguments: [ '@router', '%sqibe.api_url%', '%sqibe.api_username%', '%sqibe.api_password%' ]
+
+    caldera.cycleways.manager.incident_manager:
+        class: Caldera\Bundle\CyclewaysBundle\Manager\IncidentManager\IncidentManager
+        arguments: ['@doctrine', '@fos_elastica.manager']
+
+    caldera.cycleways.manager.post_manager:
+        class: Caldera\Bundle\CyclewaysBundle\Manager\PostManager\PostManager
+        arguments: ['@doctrine']

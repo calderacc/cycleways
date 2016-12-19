@@ -23,12 +23,12 @@ class IncidentController extends AbstractController
 {
     protected function getPostManager(): PostManager
     {
-        return $this->get('caldera.manager.post_manager');
+        return $this->get('caldera.cycleways.manager.post_manager');
     }
 
     protected function getIncidentManager(): IncidentManager
     {
-        return $this->get('caldera.manager.incident_manager');
+        return $this->get('caldera.cycleways.manager.incident_manager');
     }
 
     public function mapAction(Request $request, $citySlug)
