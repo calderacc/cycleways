@@ -18,6 +18,17 @@ abstract class AbstractController extends Controller
             ->isGranted('IS_AUTHENTICATED_FULLY');
     }
 
+    protected function getCityBySlug(string $slug): City
+    {
+        $city = $this->getCityRepository()->findOneBySlug($slug);
+
+        if (!$city) {
+            throw $this->createNotFoundException();
+        }
+
+        return $city;
+    }
+
     protected function getCityRepository(): CityRepository
     {
         return $this->getDoctrine()->getRepository('CalderaCyclewaysBundle:City');
