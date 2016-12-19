@@ -33,7 +33,7 @@ class IncidentController extends AbstractController
 
     public function mapAction(Request $request, $citySlug)
     {
-        $city = $this->getCheckedCity($citySlug);
+        $city = $this->getCityBySlug($citySlug);
 
         return $this->render(
             'CalderaCyclewaysBundle:Incident:map.html.twig',
@@ -192,7 +192,7 @@ class IncidentController extends AbstractController
     
     public function listAction(Request $request, $citySlug): Response
     {
-        $city = $this->getCheckedCity($citySlug);
+        $city = $this->getCityBySlug($citySlug);
 
         $incidents = $this->getIncidentManager()->getIncidentsForCity($city);
 
