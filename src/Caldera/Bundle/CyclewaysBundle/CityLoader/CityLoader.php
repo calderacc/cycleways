@@ -40,11 +40,13 @@ class CityLoader
             $city = new City();
 
             $city
-                ->setName($parts[self::FIELD_CITY])
-                ->setLatitude($parts[self::FIELD_LATITUDE])
-                ->setLongitude($parts[self::FIELD_LONGITUDE])
-                ->setZip($parts[self::FIELD_ZIP])
                 ->setLocId((int) $parts[self::FIELD_LOCID])
+                ->setName($parts[self::FIELD_CITY])
+                ->setLatitude((float) $parts[self::FIELD_LATITUDE])
+                ->setLongitude((float) $parts[self::FIELD_LONGITUDE])
+                ->setZip($parts[self::FIELD_ZIP])
+                ->setPopulation((int) $parts[self::FIELD_POPULATION])
+                ->setArea((int) $parts[self::FIELD_AREA])
             ;
 
             return $city;
