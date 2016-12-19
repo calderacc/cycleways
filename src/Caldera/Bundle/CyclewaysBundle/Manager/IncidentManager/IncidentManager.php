@@ -2,6 +2,7 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Manager\IncidentManager;
 
+use Caldera\Bundle\CyclewaysBundle\Entity\City;
 use Caldera\Bundle\CyclewaysBundle\Manager\AbstractElasticManager;
 use Caldera\Bundle\CyclewaysBundle\Repository\IncidentRepository;
 
