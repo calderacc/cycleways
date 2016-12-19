@@ -52,7 +52,7 @@ class City
     protected $zip;
 
     /**
-     * @ORM\Column(type="int")
+     * @ORM\Column(type="integer")
      * @JMS\Expose
      */
     protected $locId;
