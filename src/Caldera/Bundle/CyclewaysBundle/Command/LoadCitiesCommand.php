@@ -10,6 +10,7 @@ use Caldera\Bundle\CyclewaysBundle\CityLoader\CityLoader;
 use Doctrine\ORM\EntityManager;
 use Lsw\MemcacheBundle\Cache\LoggingMemcacheInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -40,8 +41,14 @@ class LoadCitiesCommand extends ContainerAwareCommand
 
         $cityLoader->loadData();
 
+        $progress = new ProgressBar($output, $cityLoader->countData());
+        $progress->start();
+
         while ($cityLoader->hasData()) {
             $cityLoader->parseData();
+            $progress->advance();
         }
+
+        $progress->finish();
     }
 }
