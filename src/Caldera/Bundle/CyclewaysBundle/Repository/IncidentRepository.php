@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CalderaBundle\Repository;
+namespace Caldera\Bundle\CyclewaysBundle\Repository;
 
 use Caldera\Bundle\CalderaBundle\Entity\Ride;
 use Doctrine\ORM\EntityRepository;
