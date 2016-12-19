@@ -94,7 +94,7 @@ class ViewStoragePersister implements ViewStoragePersisterInterface
 
     protected function getView(string $className): ViewInterface
     {
-        $viewClassName = 'Caldera\Bundle\CalderaBundle\Entity\\' . $className . 'View';
+        $viewClassName = 'Caldera\Bundle\CyclewaysBundle\Entity\\' . $className . 'View';
 
         $view = new $viewClassName;
 
@@ -103,14 +103,14 @@ class ViewStoragePersister implements ViewStoragePersisterInterface
 
     protected function getUser(int $userId): User
     {
-        $user = $this->manager->getRepository('CalderaBundle:User')->find($userId);
+        $user = $this->manager->getRepository('CyclewaysBundle:User')->find($userId);
 
         return $user;
     }
 
     protected function getEntity(string $className, int $entityId): ViewableInterface
     {
-        $entity = $this->manager->getRepository('CalderaBundle:' . $className)->find($entityId);
+        $entity = $this->manager->getRepository('CyclewaysBundle:' . $className)->find($entityId);
 
         return $entity;
     }

@@ -10,7 +10,7 @@ use JMS\Serializer\Annotation as JMS;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="Caldera\Bundle\CalderaBundle\Repository\IncidentRepository")
+ * @ORM\Entity(repositoryClass="Caldera\Bundle\CyclewaysBundle\Repository\IncidentRepository")
  * @ORM\Table(name="incident")
  * @JMS\ExclusionPolicy("all")
  */

@@ -47,7 +47,7 @@ class RefreshPermalinksCommand extends ContainerAwareCommand
         $context->setScheme('https');
         $context->setBaseUrl('');
 
-        $incidents = $this->doctrine->getRepository('CalderaBundle:Incident')->findAll();
+        $incidents = $this->doctrine->getRepository('CyclewaysBundle:Incident')->findAll();
 
         $progress = new ProgressBar($output, count($incidents));
 

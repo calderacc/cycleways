@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="post")
- * @ORM\Entity(repositoryClass="Caldera\Bundle\CalderaBundle\Repository\PostRepository")
+ * @ORM\Entity(repositoryClass="Caldera\Bundle\CyclewaysBundle\Repository\PostRepository")
  */
 class Post
 {
