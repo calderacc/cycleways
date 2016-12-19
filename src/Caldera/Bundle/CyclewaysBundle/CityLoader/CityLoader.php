@@ -7,6 +7,8 @@ use Caldera\Bundle\CyclewaysBundle\Entity\City;
 class CityLoader
 {
     const SOURCE_URL = 'http://www.fa-technik.adfc.de/code/opengeodb/DE.tab';
+    const FIELD_LOCID = 3;
+    const FIELD_CITY = 3;
     const FIELD_LATITUDE = 4;
     const FIELD_LONGITUDE = 5;
     const FIELD_ZIP = 7;
@@ -26,26 +28,35 @@ class CityLoader
         return $this;
     }
 
-    public function parseData(): City
+    public function parseData(): ?City
     {
         $line = array_shift($this->lines);
 
         $parts = explode("\t", $line);
 
         if (count($parts) == 16 && $parts[self::FIELD_ZIP]) {
-            var_dump($parts);
-            die;
+            $city = new City();
+
+            $city
+                ->setName($parts[self::FIELD_CITY])
+                ->setLatitude($parts[self::FIELD_LATITUDE])
+                ->setLongitude($parts[self::FIELD_LONGITUDE])
+                ->setZip($parts[self::FIELD_ZIP])
+                ->setLocId((int) $parts[self::FIELD_LOCID])
+            ;
+
+            return $city;
         }
 
-
-
-
-        $city = new City();
-
-        return $city;
+        return null;
     }
 
     public function hasData(): int
+    {
+        return count($this->lines) > 0;
+    }
+
+    public function countData(): int
     {
         return count($this->lines);
     }
