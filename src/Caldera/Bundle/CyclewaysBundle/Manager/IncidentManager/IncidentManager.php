@@ -50,6 +50,6 @@ class IncidentManager extends AbstractElasticManager
 
     public function getIncidentsForCity(City $city): array
     {
-        return $this->incidentRepository->findAll();
+        return $this->incidentRepository->findByCity($city);
     }
 }
