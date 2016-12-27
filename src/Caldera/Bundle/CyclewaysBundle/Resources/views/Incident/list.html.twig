@@ -12,6 +12,7 @@
             </div>
         </div>
 
+        {% if incidents|length %}
         <div class="row">
             <div class="col-md-12">
                 <table class="table">
@@ -42,5 +43,15 @@
                 </table>
             </div>
         </div>
+        {% else %}
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="alert alert-info">
+                        Für {{ city.name }} wurden keine Gefahrenstellen gefunden. Entweder ist es hier besonders sicher oder es wurden bislang keine Gefahrenstellen gemeldet.
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
     </div>
 {% endblock %}
