@@ -234,4 +234,12 @@ class City
     {
         return $this->area;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 }
