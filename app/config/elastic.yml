@@ -30,4 +30,3 @@ fos_elastica:
                         provider: ~
                         listener: ~
                         finder: ~
-                    indexable_callback: 'indexable'
