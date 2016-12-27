@@ -182,10 +182,10 @@ class IncidentController extends AbstractController
 
         $this->storeView($incident);
 
-        $this->getMetadata()
+        /*$this->getMetadata()
             ->setTitle($this->generatePageTitle($incident))
             ->setDescription($incident->getDescription());
-
+*/
         return $this->render(
             'CalderaCyclewaysBundle:Incident:show.html.twig',
             [

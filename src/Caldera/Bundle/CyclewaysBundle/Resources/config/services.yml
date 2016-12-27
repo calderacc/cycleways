@@ -18,3 +18,27 @@ services:
     caldera.view_storage.persister:
         class: Caldera\Bundle\CyclewaysBundle\ViewStorage\ViewStoragePersister
         arguments: ['@doctrine.cache.memcached', '@doctrine']
+
+    caldera.parser.multistep:
+        class: Caldera\Bundle\CyclewaysBundle\Parser\MultiStepParser\MultiStepParser
+        calls:
+            - [ addStep, [ '@caldera.parser.multistep.link' ]]
+            - [ addStep, [ '@caldera.parser.multistep.markdown' ]]
+            - [ addStep, [ '@caldera.parser.multistep.anchor' ]]
+
+    caldera.parser.multistep.markdown:
+        class: Caldera\Bundle\CyclewaysBundle\Parser\MultiStepParser\Step\MarkdownParserStep
+        arguments: [ '@markdown.parser' ]
+
+    caldera.parser.multistep.link:
+        class: Caldera\Bundle\CyclewaysBundle\Parser\MultiStepParser\Step\LinkParserStep
+
+    caldera.parser.multistep.anchor:
+        class: Caldera\Bundle\CyclewaysBundle\Parser\MultiStepParser\Step\AnchorParserStep
+
+    caldera_criticalmass.twig.extension:
+        class: Caldera\Bundle\CyclewaysBundle\Twig\Extension\TwigParseExtension
+            arguments:
+                - '@caldera.parser.multistep'
+            tags:
+                - { name: twig.extension }
