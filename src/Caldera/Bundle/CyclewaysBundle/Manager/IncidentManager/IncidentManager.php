@@ -43,7 +43,7 @@ class IncidentManager extends AbstractElasticManager
 
         $query->setSize(500);
 
-        $result = $this->elasticManager->getRepository('CyclewaysBundle:Incident')->find($query);
+        $result = $this->elasticManager->getRepository('CalderaCyclewaysBundle:Incident')->find($query);
 
         return $result;
     }
