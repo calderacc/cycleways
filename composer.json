@@ -29,7 +29,8 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "php-curl-class/php-curl-class": "^7.0",
-        "malenki/slug": "1.0.0"
+        "malenki/slug": "1.0.0",
+        "calderacc/geobasic": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -56,6 +57,7 @@
     "config": {
 
     },
+    "minimum-stability": "dev",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-bin-dir": "bin",
