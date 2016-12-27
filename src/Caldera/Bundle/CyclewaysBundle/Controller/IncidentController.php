@@ -197,7 +197,7 @@ class IncidentController extends AbstractController
         );
     }
     
-    public function listAction(Request $request, $citySlug): Response
+    public function listAction(Request $request, string $citySlug): Response
     {
         $city = $this->getCityBySlug($citySlug);
 
