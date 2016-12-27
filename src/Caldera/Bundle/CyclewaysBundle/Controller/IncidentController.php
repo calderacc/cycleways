@@ -43,6 +43,15 @@ class IncidentController extends AbstractController
 
     public function loadAction(Request $request): Response
     {
+        if (
+            !$request->request->get('northWestLatitude') ||
+            !$request->request->get('northWestLongitude') ||
+            !$request->request->get('southEastLatitude') ||
+            !$request->request->get('southEastLongitude')
+        ) {
+            throw $this->createNotFoundException();
+        }
+
         $northWest = new Coord(
             $request->request->get('northWestLatitude'),
             $request->request->get('northWestLongitude')
