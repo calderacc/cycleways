@@ -32,7 +32,8 @@
         "php-curl-class/php-curl-class": "^7.0",
         "malenki/slug": "1.0.0",
         "calderacc/geobasic": "0.1",
-        "leaseweb/memcache-bundle": "*"
+        "leaseweb/memcache-bundle": "*",
+        "symfony/monolog-bundle": "^3.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
