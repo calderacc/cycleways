@@ -2,8 +2,8 @@
 
 {% block breadcrumb %}
 <li class="breadcrumb-item">
-    <a href="{{ path('caldera_cycleways_incident_list_city', { citySlug: incident.city.mainSlugString }) }}">
-        {{ incident.city.city }}
+    <a href="{{ path('caldera_cycleways_incident_list_city', { citySlug: incident.city.slug }) }}">
+        {{ incident.city.name }}
     </a>
 </li>
 <li class="breadcrumb-item active">
@@ -144,7 +144,7 @@
                             Adresse
                         </dt>
                         <dd>
-                            {{ incident.street }}, {{ incident.city.city }}
+                            {{ incident.street }}, {{ incident.city.name }}
                         </dd>
 
                         <dt>

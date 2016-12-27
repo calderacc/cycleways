@@ -38,7 +38,7 @@ services:
 
     caldera_criticalmass.twig.extension:
         class: Caldera\Bundle\CyclewaysBundle\Twig\Extension\TwigParseExtension
-            arguments:
-                - '@caldera.parser.multistep'
-            tags:
-                - { name: twig.extension }
+        arguments:
+            - '@caldera.parser.multistep'
+        tags:
+            - { name: twig.extension }
