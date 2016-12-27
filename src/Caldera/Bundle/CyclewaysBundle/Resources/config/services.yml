@@ -10,3 +10,11 @@ services:
     caldera.cycleways.manager.post_manager:
         class: Caldera\Bundle\CyclewaysBundle\Manager\PostManager\PostManager
         arguments: ['@doctrine']
+
+    caldera.view_storage.cache:
+        class: Caldera\Bundle\CyclewaysBundle\ViewStorage\ViewStorageCache
+        arguments: ['@doctrine.cache.memcached', '@security.token_storage']
+
+    caldera.view_storage.persister:
+        class: Caldera\Bundle\CyclewaysBundle\ViewStorage\ViewStoragePersister
+        arguments: ['@doctrine.cache.memcached', '@doctrine']

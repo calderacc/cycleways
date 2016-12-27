@@ -23,7 +23,8 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
-            new Caldera\Bundle\CyclewaysBundle\CalderaCyclewaysBundle()
+            new Caldera\Bundle\CyclewaysBundle\CalderaCyclewaysBundle(),
+            new Lsw\MemcacheBundle\LswMemcacheBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

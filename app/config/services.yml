@@ -5,6 +5,16 @@ parameters:
 
 services:
     twig.extension.text:
-       class: Twig_Extensions_Extension_Text
-       tags:
+        class: Twig_Extensions_Extension_Text
+        tags:
             - { name: twig.extension }
+
+    memcached:
+        class: Memcached
+        calls:
+            - [ addServer, [ '127.0.0.1', 11211 ]]
+
+    doctrine.cache.memcached:
+        class: Doctrine\Common\Cache\MemcachedCache
+        calls:
+            - [setMemcached, ['@memcached']]
