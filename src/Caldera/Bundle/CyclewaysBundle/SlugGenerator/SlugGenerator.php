@@ -13,7 +13,7 @@ class SlugGenerator
 
     public function generateSlug(Incident $incident): string
     {
-        $slug = new Slug($incident->getTitle().' '.$incident->getStreet().' '.$incident->getDistrict().' '.$incident->getCity()->getCity().' '.$incident->getId());
+        $slug = new Slug($incident->getTitle().' '.$incident->getStreet().' '.$incident->getDistrict().' '.$incident->getCity()->getName().' '.$incident->getId());
         $incident->setSlug($slug);
 
         return $slug;
