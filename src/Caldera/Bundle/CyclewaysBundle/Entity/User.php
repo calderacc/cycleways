@@ -29,7 +29,7 @@ class User extends BaseUser
     protected $username;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     protected $updatedAt;
 
