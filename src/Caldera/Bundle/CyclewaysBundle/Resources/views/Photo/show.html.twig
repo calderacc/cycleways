@@ -4,12 +4,12 @@
 
 {% block breadcrumb %}
     <li class="breadcrumb-item">
-        <a href="{{ path('caldera_cycleways_incident_list_city', { citySlug: incident.city.mainSlugString }) }}">
-            {{ incident.city.city }}
+        <a href="{{ path('caldera_cycleways_incident_list_city', { citySlug: incident.city.slug }) }}">
+            {{ incident.city.name }}
         </a>
     </li>
     <li class="breadcrumb-item">
-        <a href="{{ path('caldera_cycleways_incident_show', { citySlug: incident.city.mainSlugString, slug: incident.slug }) }}">
+        <a href="{{ path('caldera_cycleways_incident_show', { citySlug: incident.city.slug, slug: incident.slug }) }}">
             {{ incident.title }}
         </a>
     </li>
