@@ -81,7 +81,7 @@ class IncidentController extends AbstractController
 
     public function addAction(Request $request, $citySlug)
     {
-        $city = $this->getCheckedCity($citySlug);
+        $city = $this->getCityBySlug($citySlug);
 
         $incident = new Incident();
         $incident->setUser($this->getUser());
