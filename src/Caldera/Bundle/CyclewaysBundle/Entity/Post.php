@@ -35,7 +35,6 @@ class Post
      */
     protected $dateTime;
 
-
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank()
@@ -46,6 +45,11 @@ class Post
      * @ORM\Column(type="boolean")
      */
     protected $enabled = true;
+
+    public function __construct()
+    {
+        $this->dateTime = new \DateTime();
+    }
 
     /**
      * @return integer
@@ -88,7 +92,7 @@ class Post
     /**
      * @return string
      */
-    public function getText(): string
+    public function getText(): ?string
     {
         return $this->text;
     }
