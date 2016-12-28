@@ -15,7 +15,7 @@ liip_imagine:
                 thumbnail: { size: [1600, 1600], mode: inset }
                 watermark:
                     image: ../src/Caldera/Bundle/CyclewaysBundle/Resources/public/images/watermark/cycleways.png
-                    size: 0.15
+                    size: 0.25
                     position: bottomright
         gallery_photo_large:
             quality: 60
