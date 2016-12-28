@@ -27,7 +27,7 @@ class SearchController extends AbstractController
     {
         $mngr = $this->get('fos_elastica.index_manager');
 
-        $search = $mngr->getIndex('criticalmass')->createSearch();
+        $search = $mngr->getIndex('cycleways')->createSearch();
 
         return $search->search($query);
     }
@@ -41,7 +41,7 @@ class SearchController extends AbstractController
         /** @var ResultSet $resultSet */
         $resultSet = $this->performSearch($query);
 
-        $transformer = $this->get('fos_elastica.elastica_to_model_transformer.collection.criticalmass');
+        $transformer = $this->get('fos_elastica.elastica_to_model_transformer.collection.cycleways');
 
         $results = $transformer->transform($resultSet->getResults());
 
