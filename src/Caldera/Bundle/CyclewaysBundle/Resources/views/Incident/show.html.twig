@@ -1,5 +1,7 @@
 {% extends 'CalderaCyclewaysBundle:Template:StandardTemplate.html.twig' %}
 
+{% block title %}{{ incident.title }}{% endblock %}
+
 {% block breadcrumb %}
 <li class="breadcrumb-item">
     <a href="{{ path('caldera_cycleways_incident_list_city', { citySlug: incident.city.slug }) }}">
