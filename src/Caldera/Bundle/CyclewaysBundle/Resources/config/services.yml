@@ -13,11 +13,11 @@ services:
 
     caldera.view_storage.cache:
         class: Caldera\Bundle\CyclewaysBundle\ViewStorage\ViewStorageCache
-        arguments: ['@doctrine.cache.memcached', '@security.token_storage']
+        arguments: ['@security.token_storage']
 
     caldera.view_storage.persister:
         class: Caldera\Bundle\CyclewaysBundle\ViewStorage\ViewStoragePersister
-        arguments: ['@doctrine.cache.memcached', '@doctrine']
+        arguments: ['@doctrine']
 
     caldera.parser.multistep:
         class: Caldera\Bundle\CyclewaysBundle\Parser\MultiStepParser\MultiStepParser

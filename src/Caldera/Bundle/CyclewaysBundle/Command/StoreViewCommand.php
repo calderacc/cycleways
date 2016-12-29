@@ -16,11 +16,6 @@ class StoreViewCommand extends ContainerAwareCommand
     protected $manager;
 
     /**
-     * @var LoggingMemcacheInterface $memcache
-     */
-    protected $memcache;
-
-    /**
      * @var OutputInterface $output
      */
     protected $output;
@@ -28,7 +23,7 @@ class StoreViewCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('criticalmass:storeviews')
+            ->setName('cycleways:view:store')
             ->setDescription('Store saved views');
     }
 

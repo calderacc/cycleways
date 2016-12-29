@@ -5,14 +5,15 @@ namespace Caldera\Bundle\CyclewaysBundle\ViewStorage;
 use Caldera\Bundle\CyclewaysBundle\Entity\User;
 use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewableInterface;
 use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewInterface;
-use Doctrine\Common\Cache\MemcachedCache;
+use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\ORM\EntityManager;
-use Memcached;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class ViewStoragePersister implements ViewStoragePersisterInterface
 {
+    /** @var Registry $doctrine */
     protected $doctrine;
 
     /** @var EntityManager $manager */
@@ -24,9 +25,12 @@ class ViewStoragePersister implements ViewStoragePersisterInterface
     /** @var OutputInterface $output */
     protected $output = null;
 
-    public function __construct(MemcachedCache $cache, $doctrine)
+    /** @var FilesystemAdapter $cache */
+    protected $cache = null;
+
+    public function __construct(Registry $doctrine)
     {
-        $this->cache = $cache;
+        $this->cache = new FilesystemAdapter();
         $this->doctrine = $doctrine;
         $this->manager = $doctrine->getManager();
     }
@@ -40,15 +44,15 @@ class ViewStoragePersister implements ViewStoragePersisterInterface
 
     public function persistViews(): ViewStoragePersisterInterface
     {
-        /** @var Memcached $cache */
-        $cache = $this->cache->getMemcached();
+        $viewStorageItem = $this->cache->getItem('view_storage');
 
-        $viewStorage = $cache->get('view_storage');
-        $cache->delete('view_storage');
-
-        if (!$viewStorage || !is_array($viewStorage) || !count($viewStorage)) {
+        if (!$viewStorageItem->isHit()) {
             return $this;
         }
+
+        $viewStorage = $viewStorageItem->get();
+
+        $this->cache->deleteItem('view_storage');
 
         foreach ($viewStorage as $view) {
             $this->storeView($view);
@@ -103,14 +107,14 @@ class ViewStoragePersister implements ViewStoragePersisterInterface
 
     protected function getUser(int $userId): User
     {
-        $user = $this->manager->getRepository('CyclewaysBundle:User')->find($userId);
+        $user = $this->manager->getRepository('CalderaCyclewaysBundle:User')->find($userId);
 
         return $user;
     }
 
     protected function getEntity(string $className, int $entityId): ViewableInterface
     {
-        $entity = $this->manager->getRepository('CyclewaysBundle:' . $className)->find($entityId);
+        $entity = $this->manager->getRepository('CalderaCyclewaysBundle:' . $className)->find($entityId);
 
         return $entity;
     }
