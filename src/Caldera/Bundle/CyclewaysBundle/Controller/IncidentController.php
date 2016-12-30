@@ -29,7 +29,7 @@ class IncidentController extends AbstractController
         return $this->get('caldera.cycleways.manager.incident_manager');
     }
 
-    public function mapAction(Request $request, $citySlug)
+    public function mapAction(Request $request, $citySlug): Response
     {
         $city = $this->getCityBySlug($citySlug);
 
@@ -107,7 +107,7 @@ class IncidentController extends AbstractController
         }
     }
 
-    public function addGetAction(Request $request, Incident $incident, City $city, Form $form)
+    public function addGetAction(Request $request, Incident $incident, City $city, Form $form): Response
     {
         return $this->render(
             'CalderaCyclewaysBundle:Incident:edit.html.twig',
@@ -168,7 +168,7 @@ class IncidentController extends AbstractController
         );
     }
 
-    public function showAction(Request $request, string $slug)
+    public function showAction(Request $request, string $slug): Response
     {
         /** @var Incident $incident */
         $incident = $this->getIncidentRepository()->findOneBySlug($slug);
@@ -228,7 +228,7 @@ class IncidentController extends AbstractController
         $viewStorage->countView($incident);
     }
     
-    public function googleMapsCoordAction(Request $request)
+    public function googleMapsCoordAction(Request $request): JsonResponse
     {
         $googleLocation = $request->query->get('googleUrl');
 
