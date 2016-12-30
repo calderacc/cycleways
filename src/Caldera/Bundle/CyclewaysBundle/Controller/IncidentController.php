@@ -174,7 +174,7 @@ class IncidentController extends AbstractController
         $incident = $this->getIncidentRepository()->findOneBySlug($slug);
 
         if (!$incident) {
-            return $this->createNotFoundException();
+            throw $this->createNotFoundException();
         }
 
         $posts = $this->getPostManager()->getPostsForIncident($incident);
