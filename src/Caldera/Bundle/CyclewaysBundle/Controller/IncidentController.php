@@ -4,8 +4,6 @@ namespace Caldera\Bundle\CyclewaysBundle\Controller;
 
 use Caldera\Bundle\CyclewaysBundle\Entity\City;
 use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
-use Caldera\Bundle\CyclewaysBundle\Manager\IncidentManager\IncidentManager;
-use Caldera\Bundle\CyclewaysBundle\Manager\PostManager\PostManager;
 use Caldera\Bundle\CyclewaysBundle\Form\Type\IncidentType;
 use Caldera\Bundle\CyclewaysBundle\SlugGenerator\SlugGenerator;
 use Caldera\GeoBasic\Bounds\Bounds;
@@ -19,16 +17,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class IncidentController extends AbstractController
 {
-    protected function getPostManager(): PostManager
-    {
-        return $this->get('caldera.cycleways.manager.post_manager');
-    }
-
-    protected function getIncidentManager(): IncidentManager
-    {
-        return $this->get('caldera.cycleways.manager.incident_manager');
-    }
-
     public function mapAction(Request $request, $citySlug): Response
     {
         $city = $this->getCityBySlug($citySlug);

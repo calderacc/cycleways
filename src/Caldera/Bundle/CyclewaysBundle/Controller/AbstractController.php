@@ -2,6 +2,8 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Controller;
 
+use Caldera\Bundle\CyclewaysBundle\Manager\IncidentManager\IncidentManager;
+use Caldera\Bundle\CyclewaysBundle\Manager\PostManager\PostManager;
 use Caldera\Bundle\CyclewaysBundle\Repository\IncidentRepository;
 use Caldera\Bundle\CyclewaysBundle\Repository\PhotoRepository;
 use Caldera\Bundle\CyclewaysBundle\Repository\PostRepository;
@@ -27,6 +29,16 @@ abstract class AbstractController extends Controller
         }
 
         return $city;
+    }
+
+    protected function getPostManager(): PostManager
+    {
+        return $this->get('caldera.cycleways.manager.post_manager');
+    }
+
+    protected function getIncidentManager(): IncidentManager
+    {
+        return $this->get('caldera.cycleways.manager.incident_manager');
     }
 
     protected function getCityRepository(): CityRepository
