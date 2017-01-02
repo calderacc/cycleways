@@ -24,6 +24,8 @@ class ApiController extends AbstractController
 
         $incidentList = $this->getIncidentManager()->getIncidentsByType(Incident::INCIDENT_DEADLY_ACCIDENT, $year);
 
-        return new JsonResponse($incidentList);
+        $jsonResponse = $this->get('jms_serializer')->serialize($incidentList, 'json');
+
+        return new JsonResponse($jsonResponse, 200, []);
     }
 }
