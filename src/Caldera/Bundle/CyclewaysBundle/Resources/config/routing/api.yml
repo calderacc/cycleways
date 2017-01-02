@@ -1,0 +1,3 @@
+caldera_cycleways_api_api:
+    path:     /
+    defaults: { _controller: CalderaCyclewaysBundle:Api:api }
