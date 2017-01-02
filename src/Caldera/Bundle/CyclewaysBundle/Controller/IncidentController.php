@@ -61,8 +61,7 @@ class IncidentController extends AbstractController
         $results = $this->getIncidentManager()->getIncidentsInBounds($bounds, $knownIndizes);
 
         $serializer = $this->get('jms_serializer');
-        $context = SerializationContext::create()->setGroups(['cycleways']);
-        $serializedData = $serializer->serialize($results, 'json', $context);
+        $serializedData = $serializer->serialize($results, 'json');
 
         return new Response($serializedData);
     }
