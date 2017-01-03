@@ -25,5 +25,4 @@ fos_js_routing:
 
 caldera_cycleways:
     resource: "@CalderaCyclewaysBundle/Resources/config/routing.yml"
-    host: "%domain.cycleways%"
     prefix:   /
