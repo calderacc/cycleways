@@ -6,10 +6,8 @@ use Caldera\Bundle\CyclewaysBundle\Entity\City;
 use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
 use Caldera\Bundle\CyclewaysBundle\Form\Type\IncidentType;
 use Caldera\Bundle\CyclewaysBundle\SlugGenerator\SlugGenerator;
-use Caldera\GeoBasic\Bounds\Bounds;
 use Caldera\GeoBasic\Coord\Coord;
 use Curl\Curl;
-use JMS\Serializer\SerializationContext;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -214,7 +212,7 @@ class IncidentController extends AbstractController
 
         $viewStorage->countView($incident);
     }
-    
+
     public function googleMapsCoordAction(Request $request): JsonResponse
     {
         $googleLocation = $request->query->get('googleUrl');
@@ -240,5 +238,20 @@ class IncidentController extends AbstractController
         ];
 
         return new JsonResponse($resultArray);
+    }
+
+    public function addresslookupAction(Request $request): JsonResponse
+    {
+        $latitude = $request->query->get('lat');
+        $longitude = $request->query->get('lng');
+
+        $nominatim = 'https://nominatim.openstreetmap.org/reverse?lat=' . $latitude . '&lon=' . $longitude .'&format=json';
+
+        $curl = new Curl();
+        $curl->get($nominatim);
+
+        var_dump($curl->response);
+
+        return new JsonResponse([]);
     }
 }

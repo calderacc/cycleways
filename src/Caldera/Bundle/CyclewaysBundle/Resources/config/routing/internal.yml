@@ -4,6 +4,12 @@ caldera_cycleways_incident_streetview_check:
     options:
         expose: true
 
+caldera_cycleways_incident_address_lookup:
+    path:     /addresslookup
+    defaults: { _controller: CalderaCyclewaysBundle:Incident:addressLookup }
+    options:
+        expose: true
+
 caldera_cycleways_incident_source:
     path:     /incidents
     defaults: { _controller: CalderaCyclewaysBundle:Incident:load }
