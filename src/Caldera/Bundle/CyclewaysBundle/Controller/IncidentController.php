@@ -239,19 +239,4 @@ class IncidentController extends AbstractController
 
         return new JsonResponse($resultArray);
     }
-
-    public function addresslookupAction(Request $request): JsonResponse
-    {
-        $latitude = $request->query->get('lat');
-        $longitude = $request->query->get('lng');
-
-        $nominatim = 'https://nominatim.openstreetmap.org/reverse?lat=' . $latitude . '&lon=' . $longitude .'&format=json';
-
-        $curl = new Curl();
-        $curl->get($nominatim);
-
-        var_dump($curl->response);
-
-        return new JsonResponse([]);
-    }
 }
