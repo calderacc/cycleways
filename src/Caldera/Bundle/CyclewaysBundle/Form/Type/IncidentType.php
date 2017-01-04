@@ -52,10 +52,12 @@ class IncidentType extends AbstractType
             ->add('street', TextType::class)
             ->add('houseNumber', TextType::class)
             ->add('suburb', TextType::class)
-            ->add('town', TextType::class)
-            ->add('streetviewLink', TextType::class)
             ->add('district', TextType::class)
+            ->add('town', TextType::class)
+            ->add('village', TextType::class)
+            ->add('city', TextType::class)
             ->add('zipCode', HiddenType::class)
+            ->add('streetviewLink', TextType::class)
             ->add('latitude', HiddenType::class)
             ->add('longitude', HiddenType::class);
     }
