@@ -6,6 +6,7 @@ use Caldera\Bundle\CyclewaysBundle\Entity\City;
 use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
 use Caldera\Bundle\CyclewaysBundle\Form\Type\IncidentType;
 use Caldera\Bundle\CyclewaysBundle\SlugGenerator\SlugGenerator;
+use Caldera\GeoBasic\Bounds\Bounds;
 use Caldera\GeoBasic\Coord\Coord;
 use Curl\Curl;
 use Symfony\Component\Form\Form;
