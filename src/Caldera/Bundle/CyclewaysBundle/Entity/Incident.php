@@ -260,13 +260,6 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return ++$this->views;
     }
 
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Incident
-     */
     public function setSlug($slug)
     {
         $this->slug = $slug;
@@ -274,23 +267,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get slug
-     *
-     * @return string
-     */
     public function getSlug()
     {
         return $this->slug;
     }
 
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Incident
-     */
     public function setTitle($title)
     {
         $this->title = $title;
@@ -298,23 +279,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get title
-     *
-     * @return string
-     */
     public function getTitle()
     {
         return $this->title;
     }
 
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Incident
-     */
     public function setDescription($description)
     {
         $this->description = $description;
@@ -322,23 +291,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get description
-     *
-     * @return string
-     */
     public function getDescription()
     {
         return $this->description;
     }
 
-    /**
-     * Set geometryType
-     *
-     * @param string $geometryType
-     *
-     * @return Incident
-     */
     public function setGeometryType($geometryType)
     {
         $this->geometryType = $geometryType;
@@ -346,23 +303,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get geometryType
-     *
-     * @return string
-     */
     public function getGeometryType()
     {
         return $this->geometryType;
     }
 
-    /**
-     * Set incidentType
-     *
-     * @param string $incidentType
-     *
-     * @return Incident
-     */
     public function setIncidentType($incidentType)
     {
         $this->incidentType = $incidentType;
@@ -370,23 +315,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get incidentType
-     *
-     * @return string
-     */
     public function getIncidentType()
     {
         return $this->incidentType;
     }
 
-    /**
-     * Set dangerLevel
-     *
-     * @param string $dangerLevel
-     *
-     * @return Incident
-     */
     public function setDangerLevel($dangerLevel)
     {
         $this->dangerLevel = $dangerLevel;
@@ -394,23 +327,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get dangerLevel
-     *
-     * @return string
-     */
     public function getDangerLevel()
     {
         return $this->dangerLevel;
     }
 
-    /**
-     * Set address
-     *
-     * @param string $address
-     *
-     * @return Incident
-     */
     public function setAddress($address)
     {
         $this->address = $address;
@@ -418,23 +339,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get address
-     *
-     * @return string
-     */
     public function getAddress()
     {
         return $this->address;
     }
 
-    /**
-     * Set street
-     *
-     * @param string $street
-     *
-     * @return Incident
-     */
     public function setStreet($street)
     {
         $this->street = $street;
@@ -442,23 +351,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get street
-     *
-     * @return string
-     */
     public function getStreet()
     {
         return $this->street;
     }
 
-    /**
-     * Set houseNumber
-     *
-     * @param string $houseNumber
-     *
-     * @return Incident
-     */
     public function setHouseNumber($houseNumber)
     {
         $this->houseNumber = $houseNumber;
@@ -466,23 +363,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get houseNumber
-     *
-     * @return string
-     */
     public function getHouseNumber()
     {
         return $this->houseNumber;
     }
 
-    /**
-     * Set zipCode
-     *
-     * @param string $zipCode
-     *
-     * @return Incident
-     */
     public function setZipCode($zipCode)
     {
         $this->zipCode = $zipCode;
@@ -490,23 +375,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get zipCode
-     *
-     * @return string
-     */
     public function getZipCode()
     {
         return $this->zipCode;
     }
 
-    /**
-     * Set suburb
-     *
-     * @param string $suburb
-     *
-     * @return Incident
-     */
     public function setSuburb($suburb)
     {
         $this->suburb = $suburb;
@@ -514,23 +387,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get suburb
-     *
-     * @return string
-     */
     public function getSuburb()
     {
         return $this->suburb;
     }
 
-    /**
-     * Set district
-     *
-     * @param string $district
-     *
-     * @return Incident
-     */
     public function setDistrict($district)
     {
         $this->district = $district;
@@ -538,11 +399,6 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get district
-     *
-     * @return string
-     */
     public function getDistrict()
     {
         return $this->district;
@@ -558,13 +414,6 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->town;
     }
 
-    /**
-     * Set polyline
-     *
-     * @param string $polyline
-     *
-     * @return Incident
-     */
     public function setPolyline($polyline)
     {
         $this->polyline = $polyline;
@@ -572,23 +421,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get polyline
-     *
-     * @return string
-     */
     public function getPolyline()
     {
         return $this->polyline;
     }
 
-    /**
-     * Set dateTime
-     *
-     * @param \DateTime $dateTime
-     *
-     * @return Incident
-     */
     public function setDateTime($dateTime)
     {
         $this->dateTime = $dateTime;
@@ -596,23 +433,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get dateTime
-     *
-     * @return \DateTime
-     */
     public function getDateTime()
     {
         return $this->dateTime;
     }
 
-    /**
-     * Set expires
-     *
-     * @param boolean $expires
-     *
-     * @return Incident
-     */
     public function setExpires($expires)
     {
         $this->expires = $expires;
@@ -620,23 +445,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get expires
-     *
-     * @return boolean
-     */
     public function getExpires()
     {
         return $this->expires;
     }
 
-    /**
-     * Set visibleFrom
-     *
-     * @param \DateTime $visibleFrom
-     *
-     * @return Incident
-     */
     public function setVisibleFrom($visibleFrom)
     {
         $this->visibleFrom = $visibleFrom;
@@ -644,23 +457,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get visibleFrom
-     *
-     * @return \DateTime
-     */
     public function getVisibleFrom()
     {
         return $this->visibleFrom;
     }
 
-    /**
-     * Set visibleTo
-     *
-     * @param \DateTime $visibleTo
-     *
-     * @return Incident
-     */
     public function setVisibleTo($visibleTo)
     {
         $this->visibleTo = $visibleTo;
@@ -668,23 +469,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get visibleTo
-     *
-     * @return \DateTime
-     */
     public function getVisibleTo()
     {
         return $this->visibleTo;
     }
 
-    /**
-     * Set enabled
-     *
-     * @param boolean $enabled
-     *
-     * @return Incident
-     */
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
@@ -692,23 +481,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get enabled
-     *
-     * @return boolean
-     */
     public function getEnabled()
     {
         return $this->enabled;
     }
 
-    /**
-     * Set creationDateTime
-     *
-     * @param \DateTime $creationDateTime
-     *
-     * @return Incident
-     */
     public function setCreationDateTime($creationDateTime)
     {
         $this->creationDateTime = $creationDateTime;
@@ -716,23 +493,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get creationDateTime
-     *
-     * @return \DateTime
-     */
     public function getCreationDateTime()
     {
         return $this->creationDateTime;
     }
 
-    /**
-     * Set permalink
-     *
-     * @param string $permalink
-     *
-     * @return Incident
-     */
     public function setPermalink($permalink)
     {
         $this->permalink = $permalink;
@@ -740,23 +505,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get permalink
-     *
-     * @return string
-     */
     public function getPermalink()
     {
         return $this->permalink;
     }
 
-    /**
-     * Set streetviewLink
-     *
-     * @param string $streetviewLink
-     *
-     * @return Incident
-     */
     public function setStreetviewLink($streetviewLink)
     {
         $this->streetviewLink = $streetviewLink;
@@ -764,23 +517,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get streetviewLink
-     *
-     * @return string
-     */
     public function getStreetviewLink()
     {
         return $this->streetviewLink;
     }
 
-    /**
-     * Set user
-     *
-     * @param \Caldera\Bundle\CyclewaysBundle\Entity\User $user
-     *
-     * @return Incident
-     */
     public function setUser(\Caldera\Bundle\CyclewaysBundle\Entity\User $user = null)
     {
         $this->user = $user;
@@ -788,11 +529,6 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this;
     }
 
-    /**
-     * Get user
-     *
-     * @return \Caldera\Bundle\CyclewaysBundle\Entity\User
-     */
     public function getUser()
     {
         return $this->user;
