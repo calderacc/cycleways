@@ -64,55 +64,44 @@ class IncidentController extends AbstractController
         return new Response($serializedData);
     }
 
-    public function addAction(Request $request, $citySlug)
+    public function addAction(Request $request)
     {
-        $city = $this->getCityBySlug($citySlug);
-
         $incident = new Incident();
         $incident->setUser($this->getUser());
-        $incident->setCity($city);
 
         $form = $this->createForm(
             IncidentType::class,
             $incident,
             [
-                'action' => $this->generateUrl(
-                    'caldera_cycleways_incident_add',
-                    [
-                        'citySlug' => $city->getSlug()
-                    ]
-                )
+                'action' => $this->generateUrl('caldera_cycleways_incident_add')
             ]
         );
 
         if ('POST' == $request->getMethod()) {
-            return $this->addPostAction($request, $incident, $city, $form);
+            return $this->addPostAction($request, $incident, $form);
         } else {
-            return $this->addGetAction($request, $incident, $city, $form);
+            return $this->addGetAction($request, $incident, $form);
         }
     }
 
-    public function addGetAction(Request $request, Incident $incident, City $city, Form $form): Response
+    public function addGetAction(Request $request, Incident $incident, Form $form): Response
     {
         return $this->render(
             'CalderaCyclewaysBundle:Incident:edit.html.twig',
             [
                 'incident' => null,
-                'city' => $city,
                 'form' => $form->createView()
             ]
         );
     }
 
-    public function addPostAction(Request $request, Incident $incident, City $city, Form $form)
+    public function addPostAction(Request $request, Incident $incident, Form $form)
     {
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            $incident->setCity($city);
-            
             // first persist incident to create an id
             $em->persist($incident);
             $em->flush();
@@ -147,8 +136,7 @@ class IncidentController extends AbstractController
             'CalderaCyclewaysBundle:Incident:edit.html.twig',
             array(
                 'incident' => $incident,
-                'form' => $form->createView(),
-                'city' => $city
+                'form' => $form->createView()
             )
         );
     }

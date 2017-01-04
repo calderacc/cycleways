@@ -1,13 +1,13 @@
 {% extends 'CalderaCyclewaysBundle:Template:StandardTemplate.html.twig' %}
 
-{% block title %}Gefahrenstellen in {{ city.name }}{% endblock %}
+{% block title %}Gefahrenstellen ergänzen{% endblock %}
 
 {% block content %}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h1>
-                    Gefahrenstellen in {{ city.name }} ergänzen
+                    Gefahrenstelle ergänzen
                 </h1>
             </div>
         </div>
@@ -175,7 +175,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="btn-group pull-right">
-                    <a href="{{ path('caldera_cycleways_incident_map_city', { citySlug: city.slug }) }}" class="btn btn-default">
+                    <a href="{{ path('caldera_cycleways_frontpage') }}" class="btn btn-default">
                         Abbrechen
                     </a>
 
@@ -191,7 +191,7 @@
 
     <script>
         CriticalMass.loadModule('CyclewaysIncidentEditPage', null, null, function (incidentPage) {
-            incidentPage.setFous([{{ city.latitude }}, {{ city.longitude }}], 10);
+            {#incidentPage.setFous([{{ city.latitude }}, {{ city.longitude }}], 10);#}
         });
     </script>
 {% endblock %}
