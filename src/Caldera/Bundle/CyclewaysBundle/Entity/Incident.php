@@ -128,6 +128,12 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     protected $district;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @JMS\Expose
+     */
+    protected $town;
+
+    /**
      * @ORM\Column(type="text", nullable=true)
      * @JMS\Expose
      */
@@ -540,6 +546,16 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     public function getDistrict()
     {
         return $this->district;
+    }
+
+    public function setTown($town)
+    {
+        $this->town = $town;
+    }
+
+    public function getTown()
+    {
+        return $this->town;
     }
 
     /**
