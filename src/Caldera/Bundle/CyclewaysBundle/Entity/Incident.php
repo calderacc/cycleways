@@ -47,13 +47,6 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     protected $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="City", inversedBy="incidents")
-     * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
-     * @JMS\Expose
-     */
-    protected $city;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @JMS\Expose
      */
@@ -132,6 +125,18 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
      * @JMS\Expose
      */
     protected $town;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @JMS\Expose
+     */
+    protected $village;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @JMS\Expose
+     */
+    protected $city;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -414,6 +419,30 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->town;
     }
 
+    public function setVillage($village)
+    {
+        $this->village = $village;
+
+        return $this;
+    }
+
+    public function getVillage()
+    {
+        return $this->village;
+    }
+
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getCity()
+    {
+        return $this->city;
+    }
+
     public function setPolyline($polyline)
     {
         $this->polyline = $polyline;
@@ -532,24 +561,5 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * @param City $city
-     * @return Incident
-     */
-    public function setCity(City $city = null): Incident
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * @return City
-     */
-    public function getCity(): ?City
-    {
-        return $this->city;
     }
 }
