@@ -42,12 +42,11 @@ class SqibePermalinkManager
 
         $response = $this->postCurl($data);
 
-        if (!isset($response->shurturl)) {
+        if (!isset($response->shorturl)) {
             return '';
         }
 
         $permalink = $response->shorturl;
-
         $incident->setPermalink($permalink);
 
         return $permalink;
