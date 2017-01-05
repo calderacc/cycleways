@@ -25,7 +25,7 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.title) %} has-error has-feedback{% endif %}">
+                        <div class="form-group{% if form_errors(form.title) %} has-danger{% endif %}">
                             <label class="control-label" for="">Titel:</label>
                             {{ form_widget(form.title, { 'attr' : { 'class': 'form-control'} }) }}
                             <p class="help-block">
@@ -37,7 +37,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.description) %} has-error has-feedback{% endif %}">
+                        <div class="form-group{% if form_errors(form.description) %} has-danger{% endif %}">
                             <label class="control-label" for="">Beschreibung:</label>
                             {{ form_widget(form.description, { 'attr' : { 'class': 'form-control'} }) }}
                             <p class="help-block">
@@ -49,7 +49,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.street) or form_errors(form.houseNumber) %} has-error has-feedback{% endif %}">
+                        <div class="form-group{% if form_errors(form.street) or form_errors(form.houseNumber) %} has-danger{% endif %}">
                             <label class="control-label" for="">Adresse:</label>
                             <div class="row">
                                 <div class="col-md-9">
@@ -69,7 +69,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.incidentType) %} has-error has-feedback{% endif %}">
+                        <div class="form-group{% if form_errors(form.incidentType) %} has-danger{% endif %}">
                             <label class="control-label" for="">Art der Gefahrenstelle:</label>
                             {{ form_widget(form.incidentType, { 'attr' : { 'class': 'form-control'} }) }}
                             <p class="help-block">
@@ -81,7 +81,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.dangerLevel) %} has-error has-feedback{% endif %}">
+                        <div class="form-group{% if form_errors(form.dangerLevel) %} has-danger{% endif %}">
                             <label class="control-label" for="">Höhe der Gefahr:</label>
                             {{ form_widget(form.dangerLevel, { 'attr' : { 'class': 'form-control'} }) }}
                             <p class="help-block">
@@ -95,7 +95,7 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.streetviewLink) %} has-error has-feedback{% endif %}">
+                        <div class="form-group{% if form_errors(form.streetviewLink) %} has-danger{% endif %}">
                             <label class="control-label" for="">Link zu Google Streetview:</label>
                             {{ form_widget(form.streetviewLink, { 'attr' : { 'class': 'form-control'} }) }}
                         </div>
@@ -104,7 +104,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.dateTime) %} has-error has-feedback{% endif %}">
+                        <div class="form-group{% if form_errors(form.dateTime) %} has-danger{% endif %}">
                             <label class="control-label" for="">Zeitpunkt des Vorfalls:</label>
                             {{ form_widget(form.dateTime, { 'attr' : { 'class': 'form-control'} }) }}
                         </div>
@@ -113,7 +113,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.expires) %} has-error has-feedback{% endif %}">
+                        <div class="form-group{% if form_errors(form.expires) %} has-danger{% endif %}">
                             <label class="control-label" for="">Gefahrenstelle ist zeitlich begrenzt:</label>
                             {{ form_widget(form.expires, { 'attr' : { 'class': 'form-control'} }) }}
                         </div>
@@ -122,7 +122,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.visibleFrom) %} has-error has-feedback{% endif %}">
+                        <div class="form-group{% if form_errors(form.visibleFrom) %} has-danger{% endif %}">
                             <label class="control-label" for="">Beginn:</label>
                             {{ form_widget(form.visibleFrom, { 'attr' : { 'class': 'form-control'} }) }}
                             <p class="help-block">
@@ -134,7 +134,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.visibleTo) %} has-error has-feedback{% endif %}">
+                        <div class="form-group{% if form_errors(form.visibleTo) %} has-danger{% endif %}">
                             <label class="control-label" for="">Ende:</label>
                             {{ form_widget(form.visibleTo, { 'attr' : { 'class': 'form-control'} }) }}
                             <p class="help-block">
