@@ -141,7 +141,7 @@
                             Adresse
                         </dt>
                         <dd>
-                            {{ [incident.street, incident.houseNumber, incident.zipCode, incident.district, incident.suburb, incident.village, incident.town, incident.city]|join(', ') }}
+                            {{ incident.street }}, {{ getCityName(incident) }}
                         </dd>
 
                         <dt>

@@ -36,9 +36,14 @@ services:
     caldera.parser.multistep.anchor:
         class: Caldera\Bundle\CyclewaysBundle\Parser\MultiStepParser\Step\AnchorParserStep
 
-    caldera_criticalmass.twig.extension:
+    caldera.cycleways.twig.extension.parse:
         class: Caldera\Bundle\CyclewaysBundle\Twig\Extension\TwigParseExtension
         arguments:
             - '@caldera.parser.multistep'
+        tags:
+            - { name: twig.extension }
+
+    caldera.cycleways.twig.extension.cycleways:
+        class: Caldera\Bundle\CyclewaysBundle\Twig\Extension\TwigCyclewaysExtension
         tags:
             - { name: twig.extension }
