@@ -47,7 +47,7 @@ class PhotoController extends AbstractController
         $photo->setUser($this->getUser());
 
         $photo->setIncident($incident);
-        $photo->setCity($incident->getCity());
+        //$photo->setCity($incident->getCity());
 
         $em->persist($photo);
         $em->flush();
