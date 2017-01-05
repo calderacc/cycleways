@@ -26,6 +26,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.title) %} has-danger{% endif %}">
+                            {% if form_errors(form.title) %}
+                            <div class="alert alert-danger">{{ form_errors(form.title) }}</div>
+                            {% endif %}
                             <label class="control-label" for="">Titel:</label>
                             {{ form_widget(form.title, { 'attr' : { 'class': 'form-control'} }) }}
                             <p class="help-block">
@@ -38,6 +41,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.description) %} has-danger{% endif %}">
+                            {% if form_errors(form.description) %}
+                            <div class="alert alert-danger">{{ form_errors(form.description) }}</div>
+                            {% endif %}
                             <label class="control-label" for="">Beschreibung:</label>
                             {{ form_widget(form.description, { 'attr' : { 'class': 'form-control'} }) }}
                             <p class="help-block">
