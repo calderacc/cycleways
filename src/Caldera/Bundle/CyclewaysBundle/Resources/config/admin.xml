@@ -5,10 +5,20 @@
         http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="caldera.cycleways.admin.Incident" class="Caldera\Bundle\CyclewaysBundle\Admin\IncidentAdmin">
+        <service id="caldera.cycleways.admin.incident" class="Caldera\Bundle\CyclewaysBundle\Admin\IncidentAdmin">
             <tag name="sonata.admin" manager_type="orm" group="Inhalt" label="Gefahrenstellen" />
             <argument />
             <argument>Caldera\Bundle\CyclewaysBundle\Entity\Incident</argument>
+            <argument />
+            <call method="setTranslationDomain">
+                <argument>CalderaCyclewaysBundle</argument>
+            </call>
+        </service>
+
+        <service id="caldera.cycleways.admin.user" class="Caldera\Bundle\CyclewaysBundle\Admin\UserAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Nutzer" label="Benutzer" />
+            <argument />
+            <argument>Caldera\Bundle\CyclewaysBundle\Entity\User</argument>
             <argument />
             <call method="setTranslationDomain">
                 <argument>CalderaCyclewaysBundle</argument>
