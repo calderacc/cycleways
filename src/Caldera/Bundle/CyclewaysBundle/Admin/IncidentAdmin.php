@@ -19,14 +19,26 @@ class IncidentAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->with('Beschreibung', ['class' => 'col-md-6'])
             ->add('title', TextType::class, [
                 'label' => 'Titel'
             ])
             ->add('description', TextareaType::class)
+            ->add('enabled', CheckboxType::class)
+            ->end()
+
+            ->with('Typ', ['class' => 'col-md-6'])
+            ->add('incidentType', TextType::class)
+            ->add('dangerLevel', TextType::class)
+            ->end()
+
+            ->with('Nutzer', ['class' => 'col-md-6'])
             ->add('user', EntityType::class, [
                 'class' => 'Caldera\Bundle\CyclewaysBundle\Entity\User'
             ])
-            ->add('slug', TextType::class)
+            ->end()
+
+            ->with('Adresse', ['class' => 'col-md-6'])
             ->add('street', TextType::class)
             ->add('houseNumber', TextType::class)
             ->add('zipCode', TextType::class)
@@ -35,19 +47,27 @@ class IncidentAdmin extends AbstractAdmin
             ->add('town', TextType::class)
             ->add('village', TextType::class)
             ->add('city', TextType::class)
+            ->end()
+
+            ->with('Nutzer', ['class' => 'col-md-6'])
+            ->add('slug', TextType::class)
             ->add('permalink', TextType::class)
+            ->end()
+
+            ->with('Nutzer', ['class' => 'col-md-6'])
             ->add('latitude', TextType::class)
             ->add('longitude', TextType::class)
+            ->add('polyline', TextType::class)
+            ->add('geometryType', TextType::class)
+            ->end()
+
+            ->with('Datum', ['class' => 'col-md-6'])
             ->add('dateTime', DateTimeType::class)
             ->add('creationDateTime', DateTimeType::class)
+            ->add('expires', CheckboxType::class)
             ->add('visibleFrom', DateTimeType::class)
             ->add('visibleTo', DateTimeType::class)
-            ->add('expires', CheckboxType::class)
-            ->add('enabled', CheckboxType::class)
-            ->add('polyline', TextType::class)
-            ->add('incidentType', TextType::class)
-            ->add('geometryType', TextType::class)
-            ->add('dangerLevel', TextType::class)
+            ->end()
         ;
     }
 
