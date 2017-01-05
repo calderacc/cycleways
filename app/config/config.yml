@@ -13,3 +13,4 @@ imports:
     - { resource: elastic.yml }
     - { resource: translation.yml }
     - { resource: services.yml }
+    - { resource: sonata.yml }
