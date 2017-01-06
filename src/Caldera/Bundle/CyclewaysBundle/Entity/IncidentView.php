@@ -70,10 +70,6 @@ class IncidentView implements ViewInterface
         return $this->dateTime;
     }
 
-    /**
-     * @param Incident $incident
-     * @return IncidentView
-     */
     public function setIncident(Incident $incident = null): IncidentView
     {
         $this->incident = $incident;
@@ -81,9 +77,6 @@ class IncidentView implements ViewInterface
         return $this;
     }
 
-    /**
-     * @return Incident
-     */
     public function getIncident(): ?Incident
     {
         return $this->incident;

@@ -139,308 +139,162 @@ class Photo implements ViewableInterface
         return ++$this->views;
     }
 
-    /**
-     * Set latitude
-     *
-     * @param float $latitude
-     *
-     * @return Photo
-     */
-    public function setLatitude($latitude)
+    public function setLatitude(float $latitude): Photo
     {
         $this->latitude = $latitude;
 
         return $this;
     }
 
-    /**
-     * Get latitude
-     *
-     * @return float
-     */
-    public function getLatitude()
+    public function getLatitude(): ?float
     {
         return $this->latitude;
     }
 
-    /**
-     * Set longitude
-     *
-     * @param float $longitude
-     *
-     * @return Photo
-     */
-    public function setLongitude($longitude)
+    public function setLongitude(float $longitude): Photo
     {
         $this->longitude = $longitude;
 
         return $this;
     }
 
-    /**
-     * Get longitude
-     *
-     * @return float
-     */
-    public function getLongitude()
+    public function getLongitude(): ?float
     {
         return $this->longitude;
     }
 
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Photo
-     */
-    public function setDescription($description)
+    public function setDescription(string $description): Photo
     {
         $this->description = $description;
 
         return $this;
     }
 
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    /**
-     * Set enabled
-     *
-     * @param boolean $enabled
-     *
-     * @return Photo
-     */
-    public function setEnabled($enabled)
+    public function setEnabled(bool $enabled): Photo
     {
         $this->enabled = $enabled;
 
         return $this;
     }
 
-    /**
-     * Get enabled
-     *
-     * @return boolean
-     */
-    public function getEnabled()
+    public function getEnabled(): bool
     {
         return $this->enabled;
     }
 
-    /**
-     * Set deleted
-     *
-     * @param boolean $deleted
-     *
-     * @return Photo
-     */
-    public function setDeleted($deleted)
+    public function setDeleted(bool $deleted): Photo
     {
         $this->deleted = $deleted;
 
         return $this;
     }
 
-    /**
-     * Get deleted
-     *
-     * @return boolean
-     */
-    public function getDeleted()
+    public function getDeleted(): bool
     {
         return $this->deleted;
     }
 
-    /**
-     * Set dateTime
-     *
-     * @param \DateTime $dateTime
-     *
-     * @return Photo
-     */
-    public function setDateTime($dateTime)
+    public function setDateTime(\DateTime $dateTime): Photo
     {
         $this->dateTime = $dateTime;
 
         return $this;
     }
 
-    /**
-     * Get dateTime
-     *
-     * @return \DateTime
-     */
-    public function getDateTime()
+    public function getDateTime(): ?\DateTime
     {
         return $this->dateTime;
     }
 
-    /**
-     * Set creationDateTime
-     *
-     * @param \DateTime $creationDateTime
-     *
-     * @return Photo
-     */
-    public function setCreationDateTime($creationDateTime)
+    public function setCreationDateTime(\DateTime $creationDateTime): Photo
     {
         $this->creationDateTime = $creationDateTime;
 
         return $this;
     }
 
-    /**
-     * Get creationDateTime
-     *
-     * @return \DateTime
-     */
-    public function getCreationDateTime()
+    public function getCreationDateTime(): ?\DateTime
     {
         return $this->creationDateTime;
     }
 
-    /**
-     * Set imageName
-     *
-     * @param string $imageName
-     *
-     * @return Photo
-     */
-    public function setImageName($imageName)
+    public function setImageName(string $imageName): Photo
     {
         $this->imageName = $imageName;
 
         return $this;
     }
 
-    /**
-     * Get imageName
-     *
-     * @return string
-     */
-    public function getImageName()
+    public function getImageName(): ?string
     {
         return $this->imageName;
     }
 
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Photo
-     */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt(\DateTime $updatedAt): Photo
     {
         $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * Set user
-     *
-     * @param \Caldera\Bundle\CyclewaysBundle\Entity\User $user
-     *
-     * @return Photo
-     */
-    public function setUser(\Caldera\Bundle\CyclewaysBundle\Entity\User $user = null)
+    public function setUser(User $user = null): Photo
     {
         $this->user = $user;
 
         return $this;
     }
 
-    /**
-     * Get user
-     *
-     * @return \Caldera\Bundle\CyclewaysBundle\Entity\User
-     */
-    public function getUser()
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    /**
-     * Set city
-     *
-     * @param \Caldera\Bundle\CyclewaysBundle\Entity\City $city
-     *
-     * @return Photo
-     */
-    public function setCity(\Caldera\Bundle\CyclewaysBundle\Entity\City $city = null)
+    public function setCity(City $city = null): Photo
     {
         $this->city = $city;
 
         return $this;
     }
 
-    /**
-     * Get city
-     *
-     * @return \Caldera\Bundle\CyclewaysBundle\Entity\City
-     */
-    public function getCity()
+    public function getCity(): City
     {
         return $this->city;
     }
 
-    /**
-     * Set incident
-     *
-     * @param \Caldera\Bundle\CyclewaysBundle\Entity\Incident $incident
-     *
-     * @return Photo
-     */
-    public function setIncident(Incident $incident = null)
+    public function setIncident(Incident $incident = null): Photo
     {
         $this->incident = $incident;
 
         return $this;
     }
 
-    /**
-     * @return Incident
-     */
-    public function getIncident()
+    public function getIncident(): ?Incident
     {
         return $this->incident;
     }
 
-    /**
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
-     */
-    public function setImageFile(File $image = null)
+    public function setImageFile(File $image = null): Photo
     {
         $this->imageFile = $image;
 
         if ($image) {
             $this->updatedAt = new \DateTime('now');
         }
+
+        return $this;
     }
 
-    /**
-     * @return File
-     */
-    public function getImageFile()
+    public function getImageFile(): ?File
     {
         return $this->imageFile;
     }

@@ -51,18 +51,11 @@ class Post
         $this->dateTime = new \DateTime();
     }
 
-    /**
-     * @return integer
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @param \DateTime $dateTime
-     * @return Post
-     */
     public function setDateTime(\DateTime $dateTime): Post
     {
         $this->dateTime = $dateTime;
@@ -70,18 +63,11 @@ class Post
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
     public function getDateTime(): \DateTime
     {
         return $this->dateTime;
     }
 
-    /**
-     * @param string $text
-     * @return Post
-     */
     public function setText(string $text): Post
     {
         $this->text = $text;
@@ -89,18 +75,11 @@ class Post
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getText(): ?string
     {
         return $this->text;
     }
 
-    /**
-     * @param boolean $enabled
-     * @return Post
-     */
     public function setEnabled(bool $enabled): Post
     {
         $this->enabled = $enabled;
@@ -108,18 +87,11 @@ class Post
         return $this;
     }
 
-    /**
-     * @return boolean
-     */
     public function getEnabled(): bool
     {
         return $this->enabled;
     }
 
-    /**
-     * @param User $user
-     * @return Post
-     */
     public function setUser(User $user = null): Post
     {
         $this->user = $user;
@@ -127,18 +99,11 @@ class Post
         return $this;
     }
 
-    /**
-     * @return User
-     */
     public function getUser(): ?User
     {
         return $this->user;
     }
 
-    /**
-     * @param Incident $incident
-     * @return Post
-     */
     public function setIncident(Incident $incident = null): Post
     {
         $this->incident = $incident;
@@ -146,9 +111,6 @@ class Post
         return $this;
     }
 
-    /**
-     * @return Incident
-     */
     public function getIncident(): ?Incident
     {
         return $this->incident;

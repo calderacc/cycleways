@@ -551,7 +551,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->streetviewLink;
     }
 
-    public function setUser(\Caldera\Bundle\CyclewaysBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
