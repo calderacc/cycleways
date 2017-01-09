@@ -562,4 +562,40 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     {
         return $this->user;
     }
+
+    /**
+     * @JMS\VirtualProperty
+     * @JMS\SerializedName("Timestamp")
+     */
+    public function getTimestamp()
+    {
+        return $this->dateTime->format('U');
+    }
+
+    /**
+     * @JMS\VirtualProperty
+     * @JMS\SerializedName("CreationTimestamp")
+     */
+    public function getCreationTimestamp()
+    {
+        return $this->creationDateTime->format('U');
+    }
+
+    /**
+     * @JMS\VirtualProperty
+     * @JMS\SerializedName("VisibleFromTimestamp")
+     */
+    public function getVisibleFromTimestamp()
+    {
+        return $this->creationDateTime->format('U');
+    }
+
+    /**
+     * @JMS\VirtualProperty
+     * @JMS\SerializedName("VisibleToTimestamp")
+     */
+    public function getVisibleToTimestamp()
+    {
+        return $this->creationDateTime->format('U');
+    }
 }
