@@ -156,6 +156,15 @@
                         <dd>
                             {{ incident.creationDateTime|date('d.m.Y H:i') }} Uhr
                         </dd>
+
+                        {% if incident.dateTime and (incident.incidentType is constant('INCIDENT_ACCIDENT', incident) or incident.incidentType is constant('INCIDENT_DEADLY_ACCIDENT', incident)) %}
+                        <dt>
+                            Unfallzeitpunkt
+                        </dt>
+                        <dd>
+                            {{ incident.dateTime|date('d.m.Y H:i') }} Uhr
+                        </dd>
+                        {% endif %}
                     </dl>
                 </div>
 
