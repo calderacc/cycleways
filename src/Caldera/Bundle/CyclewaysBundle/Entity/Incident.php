@@ -598,4 +598,17 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     {
         return $this->creationDateTime->format('U');
     }
+
+    public function getCyclewaysId(): string
+    {
+        if (!$this->permalink) {
+            return 'undefined';
+        }
+
+        $code = substr($this->permalink, -5);
+
+        $cyclewaysId = strtoupper($code);
+
+        return $cyclewaysId;
+    }
 }
