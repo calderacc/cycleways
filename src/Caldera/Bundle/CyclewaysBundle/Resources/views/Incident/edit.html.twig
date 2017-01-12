@@ -112,7 +112,15 @@
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.dateTime) %} has-danger{% endif %}">
                             <label class="control-label" for="">Zeitpunkt des Vorfalls:</label>
-                            {{ form_widget(form.dateTime, { 'attr' : { 'class': 'form-control'} }) }}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="date" id="incident_dateTime_date" name="incident[dateTime][date]" class="form-control datepicker" required="required" placeholder="Datum" />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <input type="time" id="incident_dateTime_time" name="incident[dateTime][time]" class="form-control" required="required" placeholder="Uhrzeit" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -126,26 +134,28 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.visibleFrom) %} has-danger{% endif %}">
-                            <label class="control-label" for="">Beginn:</label>
-                            {{ form_widget(form.visibleFrom, { 'attr' : { 'class': 'form-control'} }) }}
-                            <p class="help-block">
-                                Ab wann gilt diese Gefahrenstelle?
-                            </p>
+                <div id="daterange" class="input-daterange">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group{% if form_errors(form.visibleFrom) %} has-danger{% endif %}">
+                                <label class="control-label" for="">Beginn:</label>
+                                {{ form_widget(form.visibleFrom, { 'attr' : { 'class': 'form-control'} }) }}
+                                <p class="help-block">
+                                    Ab wann gilt diese Gefahrenstelle?
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.visibleTo) %} has-danger{% endif %}">
-                            <label class="control-label" for="">Ende:</label>
-                            {{ form_widget(form.visibleTo, { 'attr' : { 'class': 'form-control'} }) }}
-                            <p class="help-block">
-                                Bis wann gilt diese Gefahrenstelle?
-                            </p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group{% if form_errors(form.visibleTo) %} has-danger{% endif %}">
+                                <label class="control-label" for="">Ende:</label>
+                                {{ form_widget(form.visibleTo, { 'attr' : { 'class': 'form-control'} }) }}
+                                <p class="help-block">
+                                    Bis wann gilt diese Gefahrenstelle?
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
