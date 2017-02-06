@@ -212,6 +212,9 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     public function __construct()
     {
         $this->creationDateTime = new \DateTime();
+        $this->dateTime = new \DateTime();
+        $this->visibleFrom = new \DateTime();
+        $this->visibleTo = new \DateTime();
     }
 
     public function getId(): int
