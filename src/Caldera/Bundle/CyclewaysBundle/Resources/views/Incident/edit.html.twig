@@ -136,7 +136,7 @@
 
                 <div id="daterange" class="input-daterange">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group{% if form_errors(form.visibleFrom) %} has-danger{% endif %}">
                                 <label class="control-label" for="">Beginn:</label>
                                 {{ form_widget(form.visibleFrom, { 'attr' : { 'class': 'form-control'} }) }}
@@ -145,10 +145,8 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group{% if form_errors(form.visibleTo) %} has-danger{% endif %}">
                                 <label class="control-label" for="">Ende:</label>
                                 {{ form_widget(form.visibleTo, { 'attr' : { 'class': 'form-control'} }) }}
