@@ -114,11 +114,11 @@
                             <label class="control-label" for="">Zeitpunkt des Vorfalls:</label>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="date" id="incident_dateTime_date" name="incident[dateTime][date]" class="form-control datepicker" required="required" placeholder="Datum" />
+                                    {{ form_widget(form.dateTime.date, { attr: { class: 'form-control datepicker' } }) }}
                                 </div>
 
                                 <div class="col-md-6">
-                                    <input type="time" id="incident_dateTime_time" name="incident[dateTime][time]" class="form-control" required="required" placeholder="Uhrzeit" />
+                                    {{ form_widget(form.dateTime.time, { attr: { class: 'form-control' } }) }}
                                 </div>
                             </div>
                         </div>

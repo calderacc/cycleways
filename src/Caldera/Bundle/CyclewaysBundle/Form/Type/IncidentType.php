@@ -48,11 +48,15 @@ class IncidentType extends AbstractType
             ->add('dateTime', DateTimeType::class,
                 [
                     'date_widget' => 'single_text',
-                    'time_widget' => 'single_text',
-                    'format' => 'yyyy-MM-dd HH:mm',
                 ])
-            ->add('visibleFrom', TextType::class)
-            ->add('visibleTo', TextType::class)
+            ->add('visibleFrom', DateType::class,
+                [
+                    'widget' => 'single_text',
+                ])
+            ->add('visibleTo',  DateType::class,
+                [
+                    'widget' => 'single_text',
+                ])
             ->add('expires', CheckboxType::class)
             ->add('street', TextType::class)
             ->add('houseNumber', TextType::class)
