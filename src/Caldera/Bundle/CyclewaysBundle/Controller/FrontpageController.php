@@ -12,7 +12,7 @@ class FrontpageController extends AbstractController
     {
         $endDateTime = new \DateTime();
         $startDateTime = new \DateTime();
-        $monthInterval = new \DateInterval('P1M');
+        $monthInterval = new \DateInterval('P3M');
         $startDateTime->sub($monthInterval);
 
         /**

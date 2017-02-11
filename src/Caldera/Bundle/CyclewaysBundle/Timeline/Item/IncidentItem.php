@@ -22,9 +22,9 @@ class IncidentItem extends AbstractItem
     public $title;
 
     /**
-     * @var string $text
+     * @var string $description
      */
-    public $text;
+    public $description;
 
     public function getUsername(): string
     {
@@ -62,14 +62,14 @@ class IncidentItem extends AbstractItem
         return $this;
     }
 
-    public function getText(): string
+    public function getDescription(): string
     {
-        return $this->text;
+        return $this->description;
     }
 
-    public function setText(string $text): IncidentItem
+    public function setDescription(string $description): IncidentItem
     {
-        $this->text = $text;
+        $this->description = $description;
 
         return $this;
     }

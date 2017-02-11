@@ -25,5 +25,34 @@ class IncidentRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    public function findForTimelineIncidentCollector(\DateTime $startDateTime = null, \DateTime $endDateTime = null, int $limit = null): array
+    {
+        $builder = $this->createQueryBuilder('incident');
+
+        $builder->select('incident');
+
+        $builder->where($builder->expr()->eq('incident.enabled', 1));
+
+        if ($startDateTime) {
+            $builder->andWhere($builder->expr()->gte('incident.creationDateTime', '\'' . $startDateTime->format('Y-m-d H:i:s') . '\''));
+        }
+
+        if ($endDateTime) {
+            $builder->andWhere($builder->expr()->lte('incident.creationDateTime', '\'' . $endDateTime->format('Y-m-d H:i:s') . '\''));
+        }
+
+        if ($limit) {
+            $builder->setMaxResults($limit);
+        }
+
+        $builder->addOrderBy('incident.creationDateTime', 'DESC');
+
+        $query = $builder->getQuery();
+
+        $result = $query->getResult();
+
+        return $result;
+    }
 }
 
