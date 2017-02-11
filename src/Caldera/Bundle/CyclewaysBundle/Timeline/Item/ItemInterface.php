@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CriticalmassCoreBundle\Timeline\Item;
+namespace Caldera\Bundle\CyclewaysBundle\Timeline\Item;
 
 interface ItemInterface
 {

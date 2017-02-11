@@ -1,10 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CriticalmassCoreBundle\Timeline\Item;
+namespace Caldera\Bundle\CyclewaysBundle\Timeline\Item;
 
-use Caldera\Bundle\CalderaBundle\Entity\Thread;
-
-class ThreadPostItem extends AbstractItem
+class IncidentPostItem extends AbstractItem
 {
     /**
      * @var string $username
