@@ -2,7 +2,7 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Timeline\Item;
 
-use Caldera\Bundle\CalderaBundle\Entity\Thread;
+use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
 
 class IncidentItem extends AbstractItem
 {
@@ -12,9 +12,9 @@ class IncidentItem extends AbstractItem
     public $username;
 
     /**
-     * @var Thread $thread
+     * @var Incident $incident
      */
-    public $thread;
+    public $incident;
 
     /**
      * @var string $title
@@ -26,76 +26,51 @@ class IncidentItem extends AbstractItem
      */
     public $text;
 
-    /**
-     * @return string
-     */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
 
-    /**
-     * @param string $username
-     */
-    public function setUsername($username)
+    public function setUsername(string $username): IncidentItem
     {
         $this->username = $username;
 
         return $this;
     }
 
-    /**
-     * @return Thread
-     */
-    public function getThread()
+    public function getIncident(): Incident
     {
-        return $this->thread;
+        return $this->incident;
     }
 
-    /**
-     * @param Thread $thread
-     */
-    public function setThread($thread)
+    public function setIncident(Incident $incident): IncidentItem
     {
-        $this->thread = $thread;
+        $this->incident = $incident;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * @param string $title
-     */
-    public function setTitle($title)
+    public function setTitle(string $title): IncidentItem
     {
         $this->title = $title;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
 
-    /**
-     * @param string $text
-     */
-    public function setText($text)
+    public function setText(string $text): IncidentItem
     {
         $this->text = $text;
 
         return $this;
     }
-
 }

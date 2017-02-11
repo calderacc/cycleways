@@ -1,11 +1,11 @@
 <?php
 
-namespace Caldera\Bundle\CriticalmassCoreBundle\Timeline\Collector;
+namespace Caldera\Bundle\CyclewaysBundle\Timeline\Collector;
 
 use Caldera\Bundle\CalderaBundle\Entity\Thread;
 use Caldera\Bundle\CriticalmassCoreBundle\Timeline\Item\ThreadItem;
 
-class ThreadCollector extends AbstractTimelineCollector
+class IncidentCollector extends AbstractTimelineCollector
 {
     protected function fetchEntities()
     {

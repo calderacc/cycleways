@@ -1,8 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CriticalmassCoreBundle\Timeline\Collector;
-
-use Caldera\Bundle\CriticalmassCoreBundle\Timeline\Item\ItemInterface;
+namespace Caldera\Bundle\CyclewaysBundle\Timeline\Collector;
 
 abstract class AbstractTimelineCollector
 {

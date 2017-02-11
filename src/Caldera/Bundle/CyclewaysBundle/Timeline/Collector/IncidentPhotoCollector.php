@@ -1,11 +1,11 @@
 <?php
 
-namespace Caldera\Bundle\CriticalmassCoreBundle\Timeline\Collector;
+namespace Caldera\Bundle\CyclewaysBundle\Timeline\Collector;
 
 use Caldera\Bundle\CalderaBundle\Entity\Photo;
 use Caldera\Bundle\CriticalmassCoreBundle\Timeline\Item\RidePhotoItem;
 
-class RidePhotoCollector extends AbstractTimelineCollector
+class IncidentPhotoCollector extends AbstractTimelineCollector
 {
     protected function fetchEntities()
     {
