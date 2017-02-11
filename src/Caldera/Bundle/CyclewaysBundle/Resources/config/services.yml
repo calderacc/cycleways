@@ -47,3 +47,6 @@ services:
         class: Caldera\Bundle\CyclewaysBundle\Twig\Extension\TwigCyclewaysExtension
         tags:
             - { name: twig.extension }
+
+imports:
+  - { resource: ./services/timeline.yml }
