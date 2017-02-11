@@ -1,10 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CriticalmassCoreBundle\Timeline\Collector;
+namespace Caldera\Bundle\CyclewaysBundle\Timeline\Collector;
 
-use Caldera\Bundle\CriticalmassCoreBundle\Timeline\Item\ThreadPostItem;
-
-class ThreadPostCollector extends AbstractTimelineCollector
+class IncidentPostCollector extends AbstractTimelineCollector
 {
     protected function fetchEntities()
     {

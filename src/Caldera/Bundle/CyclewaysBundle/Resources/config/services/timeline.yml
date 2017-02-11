@@ -1,12 +1,12 @@
 services:
     cycleways.timeline.cached:
-        class: Caldera\Bundle\CriticalmassCoreBundle\Timeline\CachedTimeline
+        class: Caldera\Bundle\CyclewaysBundle\Timeline\CachedTimeline
         arguments: [ '@doctrine', '@templating' ]
         calls:
             - [addCollector, ['@cycleways.timeline.collector.incident']]
 
     cycleways.timeline:
-        class: Caldera\Bundle\CriticalmassCoreBundle\Timeline\Timeline
+        class: Caldera\Bundle\CyclewaysBundle\Timeline\Timeline
         arguments: [ '@doctrine', '@templating' ]
         calls:
             - [addCollector, ['@cycleways.timeline.collector.incident']]

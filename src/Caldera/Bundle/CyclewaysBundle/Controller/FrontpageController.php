@@ -2,7 +2,7 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Controller;
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Caldera\Bundle\CyclewaysBundle\Timeline\Timeline;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -10,6 +10,20 @@ class FrontpageController extends AbstractController
 {
     public function indexAction(Request $request): Response
     {
+        $endDateTime = new \DateTime();
+        $startDateTime = new \DateTime();
+        $monthInterval = new \DateInterval('P1M');
+        $startDateTime->sub($monthInterval);
+
+        /**
+         * @var Timeline $timeline
+         */
+        $timelineContent = $this
+            ->get('cycleways.timeline')
+            ->setDateRange($startDateTime, $endDateTime)
+            ->execute()
+            ->getTimelineContent();
+
         return $this->render('CalderaCyclewaysBundle:Frontpage:index.html.twig');
     }
 }
