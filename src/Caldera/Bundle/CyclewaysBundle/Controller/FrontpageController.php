@@ -4,16 +4,12 @@ namespace Caldera\Bundle\CyclewaysBundle\Controller;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class FrontpageController extends AbstractController
 {
-    public function indexAction(Request $request): RedirectResponse
+    public function indexAction(Request $request): Response
     {
-        return $this->redirectToRoute(
-            'caldera_cycleways_incident_map_city',
-            [
-                'citySlug' => 'hamburg'
-            ]
-        );
+        return $this->render('CalderaCyclewaysBundle:Frontpage:index.html.twig');
     }
 }
