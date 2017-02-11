@@ -2,6 +2,8 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Timeline\Collector;
 
+use Caldera\Bundle\CyclewaysBundle\Timeline\Item\ItemInterface;
+
 abstract class AbstractTimelineCollector
 {
     protected $doctrine;
