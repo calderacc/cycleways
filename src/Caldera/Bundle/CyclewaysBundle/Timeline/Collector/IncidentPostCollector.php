@@ -17,7 +17,7 @@ class IncidentPostCollector extends AbstractTimelineCollector
         return $entities;
     }
 
-    protected function convertGroupedEntities(array $groupedEntities)
+    protected function convertGroupedEntities(array $groupedEntities): void
     {
         /**
          * @var Post $postEntity

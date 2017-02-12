@@ -5,7 +5,7 @@ namespace Caldera\Bundle\CyclewaysBundle\Timeline\Item;
 abstract class AbstractItem implements ItemInterface
 {
     /**
-     * @var mixed $uniqId
+     * @var string $uniqId
      */
     protected $uniqId;
 
@@ -19,25 +19,19 @@ abstract class AbstractItem implements ItemInterface
         $this->uniqId = uniqid();
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getDateTime()
+    public function getDateTime(): \DateTime
     {
         return $this->dateTime;
     }
 
-    /**
-     * @param \DateTime $dateTime
-     */
-    public function setDateTime(\DateTime $dateTime)
+    public function setDateTime(\DateTime $dateTime): ItemInterface
     {
         $this->dateTime = $dateTime;
 
         return $this;
     }
 
-    public function getUniqId()
+    public function getUniqId(): string
     {
         return $this->uniqId;
     }

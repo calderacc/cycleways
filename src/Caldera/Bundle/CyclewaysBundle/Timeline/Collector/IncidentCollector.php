@@ -9,17 +9,17 @@ use Caldera\Bundle\CyclewaysBundle\Timeline\Item\IncidentItem;
 
 class IncidentCollector extends AbstractTimelineCollector
 {
-    protected function fetchEntities()
+    protected function fetchEntities(): array
     {
         return $this->doctrine->getRepository('CalderaCyclewaysBundle:Incident')->findForTimelineIncidentCollector($this->startDateTime, $this->endDateTime);
     }
 
-    protected function groupEntities(array $entities)
+    protected function groupEntities(array $entities): array
     {
         return $entities;
     }
 
-    protected function convertGroupedEntities(array $groupedEntities)
+    protected function convertGroupedEntities(array $groupedEntities): void
     {
         /**
          * @var Incident $incidentEntity

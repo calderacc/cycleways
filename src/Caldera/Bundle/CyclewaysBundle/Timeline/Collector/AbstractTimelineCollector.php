@@ -49,5 +49,7 @@ abstract class AbstractTimelineCollector
         $itemKey = $dateTimeString . '-' . $item->getUniqId();
 
         $this->items[$itemKey] = $item;
+
+        return $this;
     }
 }
