@@ -4,6 +4,8 @@ services:
         arguments: [ '@doctrine', '@templating' ]
         calls:
             - [addCollector, ['@cycleways.timeline.collector.incident']]
+            - [addCollector, ['@cycleways.timeline.collector.incident_photo']]
+            - [addCollector, ['@cycleways.timeline.collector.incident_post']]
 
     cycleways.timeline:
         class: Caldera\Bundle\CyclewaysBundle\Timeline\Timeline

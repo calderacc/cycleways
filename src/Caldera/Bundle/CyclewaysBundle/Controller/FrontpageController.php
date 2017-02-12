@@ -19,7 +19,7 @@ class FrontpageController extends AbstractController
          * @var Timeline $timeline
          */
         $timelineContent = $this
-            ->get('cycleways.timeline')
+            ->get('cycleways.timeline.cached')
             ->setDateRange($startDateTime, $endDateTime)
             ->execute()
             ->getTimelineContent();
