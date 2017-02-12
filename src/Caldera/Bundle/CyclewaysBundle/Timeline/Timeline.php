@@ -4,10 +4,13 @@ namespace Caldera\Bundle\CyclewaysBundle\Timeline;
 
 use Caldera\Bundle\CyclewaysBundle\Timeline\Collector\AbstractTimelineCollector;
 use Caldera\Bundle\CyclewaysBundle\Timeline\Item\ItemInterface;
+use Doctrine\Bundle\DoctrineBundle\Registry;
 
 class Timeline
 {
+    /** @var Registry $doctrine */
     protected $doctrine;
+
     protected $templating;
 
     protected $collectorList = [];
@@ -17,20 +20,20 @@ class Timeline
     protected $startDateTime = null;
     protected $endDateTime = null;
 
-    public function __construct($doctrine, $templating)
+    public function __construct(Registry $doctrine, $templating)
     {
         $this->doctrine = $doctrine;
         $this->templating = $templating;
     }
 
-    public function addCollector(AbstractTimelineCollector $collector)
+    public function addCollector(AbstractTimelineCollector $collector): Timeline
     {
         array_push($this->collectorList, $collector);
 
         return $this;
     }
 
-    public function setDateRange(\DateTime $startDateTime, \DateTime $endDateTime)
+    public function setDateRange(\DateTime $startDateTime, \DateTime $endDateTime): Timeline
     {
         $this->startDateTime = $startDateTime;
         $this->endDateTime = $endDateTime;
@@ -38,14 +41,14 @@ class Timeline
         return $this;
     }
 
-    public function execute()
+    public function execute(): Timeline
     {
         $this->process();
 
         return $this;
     }
 
-    protected function process()
+    protected function process(): Timeline
     {
         /**
          * @var AbstractTimelineCollector $collector
@@ -67,7 +70,7 @@ class Timeline
         return $this;
     }
 
-    protected function paginate()
+    protected function paginate(): Timeline
     {
         $lastDateTime = new \DateTime();
         $threeMonthDateInterval = new \DateInterval('P12M');
@@ -87,7 +90,7 @@ class Timeline
         return $this;
     }
 
-    protected function createContent()
+    protected function createContent(): Timeline
     {
         foreach ($this->items as $item) {
             $templateName = $this->templateNameForItem($item);
@@ -103,7 +106,7 @@ class Timeline
         return $this;
     }
 
-    protected function templateNameForItem(ItemInterface $item)
+    protected function templateNameForItem(ItemInterface $item): string
     {
         $itemFullClassName = get_class($item);
 
@@ -116,7 +119,7 @@ class Timeline
         return $templateName;
     }
 
-    public function getTimelineContent()
+    public function getTimelineContent(): string
     {
         return $this->content;
     }
