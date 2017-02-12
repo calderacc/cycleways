@@ -73,7 +73,7 @@ class Timeline
     protected function paginate(): Timeline
     {
         $lastDateTime = new \DateTime();
-        $threeMonthDateInterval = new \DateInterval('P12M');
+        $threeMonthDateInterval = new \DateInterval('P3M');
         $lastDateTime->sub($threeMonthDateInterval);
 
         $maxItems = 50;
@@ -83,7 +83,7 @@ class Timeline
             ++$counter;
 
             if ($item->getDateTime() < $lastDateTime || $counter > $maxItems) {
-                //unset($this->items[$key]);
+                unset($this->items[$key]);
             }
         }
 
