@@ -32,7 +32,7 @@ class IncidentCollector extends AbstractTimelineCollector
                 ->setIncident($incidentEntity)
                 ->setTitle($incidentEntity->getTitle())
                 ->setDescription($incidentEntity->getDescription())
-                ->setDateTime($incidentEntity->getDateTime())
+                ->setDateTime($incidentEntity->getCreationDateTime())
             ;
 
             $this->addItem($item);
