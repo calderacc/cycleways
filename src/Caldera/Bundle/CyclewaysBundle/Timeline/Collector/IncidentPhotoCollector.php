@@ -2,17 +2,17 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Timeline\Collector;
 
-use Caldera\Bundle\CalderaBundle\Entity\Photo;
-use Caldera\Bundle\CriticalmassCoreBundle\Timeline\Item\RidePhotoItem;
+use Caldera\Bundle\CyclewaysBundle\Entity\Photo;
+use Caldera\Bundle\CyclewaysBundle\Timeline\Item\IncidentPhotoItem;
 
 class IncidentPhotoCollector extends AbstractTimelineCollector
 {
-    protected function fetchEntities()
+    protected function fetchEntities(): array
     {
-        return $this->doctrine->getRepository('CalderaBundle:Photo')->findForTimelinePhotoCollector($this->startDateTime, $this->endDateTime);
+        return $this->doctrine->getRepository('CalderaCyclewaysBundle:Photo')->findForTimelinePhotoCollector($this->startDateTime, $this->endDateTime);
     }
 
-    protected function groupEntities(array $photoEntities)
+    protected function groupEntities(array $photoEntities): array
     {
         $groupedEntities = [];
 
@@ -21,36 +21,37 @@ class IncidentPhotoCollector extends AbstractTimelineCollector
          */
         foreach ($photoEntities as $photoEntity) {
             $userKey = $photoEntity->getUser()->getId();
-            $rideKey = $photoEntity->getRide()->getId();
+            $incidentKey = $photoEntity->getIncident()->getId();
             $photoKey = $photoEntity->getId();
 
             if (!array_key_exists($userKey, $groupedEntities) || !is_array($groupedEntities[$userKey])) {
                 $groupedEntities[$userKey] = [];
             }
 
-            $groupedEntities[$userKey][$rideKey][$photoKey] = $photoEntity;
+            $groupedEntities[$userKey][$incidentKey][$photoKey] = $photoEntity;
         }
 
         return $groupedEntities;
     }
 
-    protected function convertGroupedEntities(array $groupedEntities)
+    protected function convertGroupedEntities(array $groupedEntities): void
     {
         foreach ($groupedEntities as $userGroup) {
-            foreach ($userGroup as $rideGroup) {
-                $item = new RidePhotoItem();
-                $item->setCounter(count($rideGroup));
+            foreach ($userGroup as $incidentGroup) {
+                $item = new IncidentPhotoItem();
+                $item->setCounter(count($incidentGroup));
 
                 // grab a random photo as preview
-                $previewPhotoId = array_rand($rideGroup);
-                $item->setPreviewPhoto($rideGroup[$previewPhotoId]);
+                $previewPhotoId = array_rand($incidentGroup);
+                $item->setPreviewPhoto($incidentGroup[$previewPhotoId]);
 
                 // take last photo to fetch $user and $ride and $dateTime
-                $lastPhoto = array_pop($rideGroup);
+                /** @var Photo $lastPhoto */
+                $lastPhoto = array_pop($incidentGroup);
+
                 $item->setUsername($lastPhoto->getUser()->getUsername());
-                $item->setRide($lastPhoto->getRide());
-                $item->setCity($lastPhoto->getCity());
-                $item->setRideTitle($lastPhoto->getRide()->getFancyTitle());
+                $item->setIncident($lastPhoto->getIncident());
+                $item->setIncidentTitle($lastPhoto->getIncident()->getTitle());
                 $item->setDateTime($lastPhoto->getCreationDateTime());
 
                 $this->addItem($item);

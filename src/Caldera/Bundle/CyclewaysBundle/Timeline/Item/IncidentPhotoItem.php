@@ -2,6 +2,9 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Timeline\Item;
 
+use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
+use Caldera\Bundle\CyclewaysBundle\Entity\Photo;
+
 class IncidentPhotoItem extends AbstractItem
 {
     /**
@@ -10,19 +13,14 @@ class IncidentPhotoItem extends AbstractItem
     protected $username;
 
     /**
-     * @var Ride $ride
+     * @var Incident $incident
      */
-    protected $ride;
+    protected $incident;
 
     /**
-     * @var City $city
+     * @var string $incidentTitle
      */
-    protected $city;
-
-    /**
-     * @var string $rideTitle
-     */
-    protected $rideTitle;
+    protected $incidentTitle;
 
     /**
      * @var integer $counter
@@ -34,111 +32,63 @@ class IncidentPhotoItem extends AbstractItem
      */
     protected $previewPhoto;
 
-    /**
-     * @return string
-     */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
 
-    /**
-     * @param string $username
-     */
-    public function setUsername($username)
+    public function setUsername(string $username): IncidentPhotoItem
     {
         $this->username = $username;
 
         return $this;
     }
 
-    /**
-     * @return Ride
-     */
-    public function getRide()
+    public function getIncident(): Incident
     {
-        return $this->ride;
+        return $this->incident;
     }
 
-    /**
-     * @param Ride $ride
-     */
-    public function setRide($ride)
+    public function setIncident(Incident $incident): IncidentPhotoItem
     {
-        $this->ride = $ride;
+        $this->incident = $incident;
 
         return $this;
     }
 
-    /**
-     * @return City
-     */
-    public function getCity()
+    public function getIncidentTitle(): string
     {
-        return $this->city;
+        return $this->incidentTitle;
     }
 
-    /**
-     * @param City $city
-     */
-    public function setCity($city)
+    public function setIncidentTitle(string $incidentTitle): IncidentPhotoItem
     {
-        $this->city = $city;
+        $this->incidentTitle = $incidentTitle;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getRideTitle()
-    {
-        return $this->rideTitle;
-    }
-
-    /**
-     * @param string $rideTitle
-     */
-    public function setRideTitle($rideTitle)
-    {
-        $this->rideTitle = $rideTitle;
-
-        return $this;
-    }
-
-    /**
-     * @return integer
-     */
-    public function getCounter()
+    public function getCounter(): int
     {
         return $this->counter;
     }
 
-    /**
-     * @param integer $counter
-     */
-    public function setCounter($counter)
+    public function setCounter(int $counter): IncidentPhotoItem
     {
         $this->counter = $counter;
 
         return $this;
     }
 
-    /**
-     * @param Photo $previewPhoto
-     */
-    public function setPreviewPhoto(Photo $previewPhoto)
+    public function getPreviewPhoto(): Photo
+    {
+        return $this->previewPhoto;
+    }
+
+    public function setPreviewPhoto(Photo $previewPhoto): IncidentPhotoItem
     {
         $this->previewPhoto = $previewPhoto;
 
         return $this;
-    }
-
-    /**
-     * @return Photo
-     */
-    public function getPreviewPhoto()
-    {
-        return $this->previewPhoto;
     }
 }

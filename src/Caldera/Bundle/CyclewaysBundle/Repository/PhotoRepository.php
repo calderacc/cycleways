@@ -55,5 +55,34 @@ class PhotoRepository extends EntityRepository
 
         return $result;
     }
+
+
+    public function findForTimelinePhotoCollector(\DateTime $startDateTime = null, \DateTime $endDateTime = null, int $limit = null): array
+    {
+        $builder = $this->createQueryBuilder('photo');
+
+        $builder->select('photo');
+
+        $builder->where($builder->expr()->eq('photo.enabled', 1));
+        $builder->andWhere($builder->expr()->eq('photo.deleted', 0));
+
+        if ($startDateTime) {
+            $builder->andWhere($builder->expr()->gte('photo.creationDateTime', '\'' . $startDateTime->format('Y-m-d H:i:s') . '\''));
+        }
+
+        if ($endDateTime) {
+            $builder->andWhere($builder->expr()->lte('photo.creationDateTime', '\'' . $endDateTime->format('Y-m-d H:i:s') . '\''));
+        }
+
+        if ($limit) {
+            $builder->setMaxResults($limit);
+        }
+
+        $builder->addOrderBy('photo.creationDateTime', 'DESC');
+
+        $query = $builder->getQuery();
+
+        return $query->getResult();
+    }
 }
 

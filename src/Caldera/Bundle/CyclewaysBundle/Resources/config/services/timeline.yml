@@ -10,7 +10,12 @@ services:
         arguments: [ '@doctrine', '@templating' ]
         calls:
             - [addCollector, ['@cycleways.timeline.collector.incident']]
+            - [addCollector, ['@cycleways.timeline.collector.incident_photo']]
 
     cycleways.timeline.collector.incident:
         class: Caldera\Bundle\CyclewaysBundle\Timeline\Collector\IncidentCollector
+        arguments: [ '@doctrine' ]
+
+    cycleways.timeline.collector.incident_photo:
+        class: Caldera\Bundle\CyclewaysBundle\Timeline\Collector\IncidentPhotoCollector
         arguments: [ '@doctrine' ]
