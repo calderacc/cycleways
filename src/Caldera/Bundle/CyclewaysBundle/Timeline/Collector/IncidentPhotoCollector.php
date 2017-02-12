@@ -49,10 +49,12 @@ class IncidentPhotoCollector extends AbstractTimelineCollector
                 /** @var Photo $lastPhoto */
                 $lastPhoto = array_pop($incidentGroup);
 
-                $item->setUsername($lastPhoto->getUser()->getUsername());
-                $item->setIncident($lastPhoto->getIncident());
-                $item->setIncidentTitle($lastPhoto->getIncident()->getTitle());
-                $item->setDateTime($lastPhoto->getCreationDateTime());
+                $item
+                    ->setUsername($lastPhoto->getUser()->getUsername())
+                    ->setIncident($lastPhoto->getIncident())
+                    ->setIncidentTitle($lastPhoto->getIncident()->getTitle())
+                    ->setDateTime($lastPhoto->getCreationDateTime())
+                ;
 
                 $this->addItem($item);
             }

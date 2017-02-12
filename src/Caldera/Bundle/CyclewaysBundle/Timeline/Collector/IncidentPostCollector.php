@@ -25,11 +25,13 @@ class IncidentPostCollector extends AbstractTimelineCollector
         foreach ($groupedEntities as $postEntity) {
             $item = new IncidentPostItem();
 
-            $item->setUsername($postEntity->getUser()->getUsername());
-            $item->setIncidentTitle($postEntity->getIncident()->getTitle());
-            $item->setIncident($postEntity->getIncident());
-            $item->setText($postEntity->getText());
-            $item->setDateTime($postEntity->getDateTime());
+            $item
+                ->setUsername($postEntity->getUser()->getUsername())
+                ->setIncidentTitle($postEntity->getIncident()->getTitle())
+                ->setIncident($postEntity->getIncident())
+                ->setText($postEntity->getText())
+                ->setDateTime($postEntity->getDateTime())
+            ;
 
             $this->addItem($item);
         }
