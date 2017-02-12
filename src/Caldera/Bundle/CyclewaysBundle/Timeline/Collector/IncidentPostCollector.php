@@ -2,14 +2,17 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Timeline\Collector;
 
+use Caldera\Bundle\CyclewaysBundle\Entity\Post;
+use Caldera\Bundle\CyclewaysBundle\Timeline\Item\IncidentPostItem;
+
 class IncidentPostCollector extends AbstractTimelineCollector
 {
-    protected function fetchEntities()
+    protected function fetchEntities(): array
     {
-        return $this->doctrine->getRepository('CalderaBundle:Post')->findForTimelineThreadPostCollector($this->startDateTime, $this->endDateTime);
+        return $this->doctrine->getRepository('CalderaCyclewaysBundle:Post')->findForTimelineIncidentPostCollector($this->startDateTime, $this->endDateTime);
     }
 
-    protected function groupEntities(array $entities)
+    protected function groupEntities(array $entities): array
     {
         return $entities;
     }
@@ -17,15 +20,15 @@ class IncidentPostCollector extends AbstractTimelineCollector
     protected function convertGroupedEntities(array $groupedEntities)
     {
         /**
-         * @var Post $threadEntity
+         * @var Post $postEntity
          */
         foreach ($groupedEntities as $postEntity) {
-            $item = new ThreadPostItem();
+            $item = new IncidentPostItem();
 
             $item->setUsername($postEntity->getUser()->getUsername());
-            $item->setThreadTitle($postEntity->getThread()->getTitle());
-            $item->setThread($postEntity->getThread());
-            $item->setText($postEntity->getMessage());
+            $item->setIncidentTitle($postEntity->getIncident()->getTitle());
+            $item->setIncident($postEntity->getIncident());
+            $item->setText($postEntity->getText());
             $item->setDateTime($postEntity->getDateTime());
 
             $this->addItem($item);

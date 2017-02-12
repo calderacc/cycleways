@@ -2,6 +2,8 @@
 
 namespace Caldera\Bundle\CyclewaysBundle\Timeline\Item;
 
+use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
+
 class IncidentPostItem extends AbstractItem
 {
     /**
@@ -10,86 +12,62 @@ class IncidentPostItem extends AbstractItem
     public $username;
 
     /**
-     * @var Thread $thread
+     * @var Incident $incident
      */
-    public $thread;
+    public $incident;
 
     /**
-     * @var string $threadTitle
+     * @var string $incidentTitle
      */
-    public $threadTitle;
+    public $incidentTitle;
 
     /**
      * @var string $text
      */
     public $text;
 
-    /**
-     * @return string
-     */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
 
-    /**
-     * @param string $username
-     */
-    public function setUsername($username)
+    public function setUsername(string $username): IncidentPostItem
     {
         $this->username = $username;
 
         return $this;
     }
 
-    /**
-     * @return Thread
-     */
-    public function getThread()
+    public function getIncident(): Incident
     {
-        return $this->thread;
+        return $this->incident;
     }
 
-    /**
-     * @param Thread $thread
-     */
-    public function setThread($thread)
+    public function setIncident(Incident $incident): IncidentPostItem
     {
-        $this->thread = $thread;
+        $this->incident = $incident;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getThreadTitle()
+    public function getIncidentTitle(): string
     {
-        return $this->title;
+        return $this->incidentTitle;
     }
 
-    /**
-     * @param string $threadTitle
-     */
-    public function setThreadTitle($threadTitle)
+    public function setIncidentTitle(string $incidentTitle): IncidentPostItem
     {
-        $this->threadTitle = $threadTitle;
+        $this->incidentTitle = $incidentTitle;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
 
-    /**
-     * @param string $text
-     */
-    public function setText($text)
+    public function setText(string $text): IncidentPostItem
     {
         $this->text = $text;
 

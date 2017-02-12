@@ -14,15 +14,15 @@
                 <strong>
                     {{ item.username }}
                 </strong>
-                hat auf ein Diskussionsthema geantwortet:
+                hat auf eine Gefahrenstelle geantwortet:
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-12">
-                <a href="{{ objectPath(item.thread) }}">
+                <a href="{{ path('caldera_cycleways_incident_show', { slug: item.incident.slug }) }}">
                     <h4>
-                        {{ item.threadTitle }}
+                        {{ item.incidentTitle }}
                     </h4>
                 </a>
             </div>

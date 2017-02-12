@@ -11,6 +11,7 @@ services:
         calls:
             - [addCollector, ['@cycleways.timeline.collector.incident']]
             - [addCollector, ['@cycleways.timeline.collector.incident_photo']]
+            - [addCollector, ['@cycleways.timeline.collector.incident_post']]
 
     cycleways.timeline.collector.incident:
         class: Caldera\Bundle\CyclewaysBundle\Timeline\Collector\IncidentCollector
@@ -18,4 +19,8 @@ services:
 
     cycleways.timeline.collector.incident_photo:
         class: Caldera\Bundle\CyclewaysBundle\Timeline\Collector\IncidentPhotoCollector
+        arguments: [ '@doctrine' ]
+
+    cycleways.timeline.collector.incident_post:
+        class: Caldera\Bundle\CyclewaysBundle\Timeline\Collector\IncidentPostCollector
         arguments: [ '@doctrine' ]
