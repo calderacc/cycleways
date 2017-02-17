@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Repository;
+namespace AppBundle\Repository;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
+use AppBundle\Entity\Incident;
 use Doctrine\ORM\EntityRepository;
 
 class PostRepository extends EntityRepository

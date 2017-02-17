@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Parser\MultiStepParser;
+namespace AppBundle\Parser\MultiStepParser;
 
-use Caldera\Bundle\CyclewaysBundle\Parser\ParserInterface;
+use AppBundle\Parser\ParserInterface;
 
 class MultiStepParser implements ParserInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Entity;
+namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;

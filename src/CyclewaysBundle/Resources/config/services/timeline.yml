@@ -1,6 +1,6 @@
 services:
     cycleways.timeline.cached:
-        class: Caldera\Bundle\CyclewaysBundle\Timeline\CachedTimeline
+        class: AppBundle\Timeline\CachedTimeline
         arguments: [ '@doctrine', '@templating' ]
         calls:
             - [addCollector, ['@cycleways.timeline.collector.incident']]
@@ -8,7 +8,7 @@ services:
             - [addCollector, ['@cycleways.timeline.collector.incident_post']]
 
     cycleways.timeline:
-        class: Caldera\Bundle\CyclewaysBundle\Timeline\Timeline
+        class: AppBundle\Timeline\Timeline
         arguments: [ '@doctrine', '@templating' ]
         calls:
             - [addCollector, ['@cycleways.timeline.collector.incident']]
@@ -16,13 +16,13 @@ services:
             - [addCollector, ['@cycleways.timeline.collector.incident_post']]
 
     cycleways.timeline.collector.incident:
-        class: Caldera\Bundle\CyclewaysBundle\Timeline\Collector\IncidentCollector
+        class: AppBundle\Timeline\Collector\IncidentCollector
         arguments: [ '@doctrine' ]
 
     cycleways.timeline.collector.incident_photo:
-        class: Caldera\Bundle\CyclewaysBundle\Timeline\Collector\IncidentPhotoCollector
+        class: AppBundle\Timeline\Collector\IncidentPhotoCollector
         arguments: [ '@doctrine' ]
 
     cycleways.timeline.collector.incident_post:
-        class: Caldera\Bundle\CyclewaysBundle\Timeline\Collector\IncidentPostCollector
+        class: AppBundle\Timeline\Collector\IncidentPostCollector
         arguments: [ '@doctrine' ]

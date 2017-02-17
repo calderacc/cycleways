@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\PermalinkManager;
+namespace AppBundle\PermalinkManager;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
+use AppBundle\Entity\Incident;
 use Curl\Curl;
 use stdClass;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;

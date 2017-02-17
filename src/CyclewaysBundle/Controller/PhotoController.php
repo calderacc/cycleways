@@ -1,10 +1,10 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Controller;
+namespace AppBundle\Controller;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
-use Caldera\Bundle\CyclewaysBundle\Entity\Photo;
-use Caldera\Bundle\CyclewaysBundle\Traits\ViewStorageTrait;
+use AppBundle\Entity\Incident;
+use AppBundle\Entity\Photo;
+use AppBundle\Traits\ViewStorageTrait;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

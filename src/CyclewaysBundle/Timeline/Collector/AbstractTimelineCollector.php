@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Timeline\Collector;
+namespace AppBundle\Timeline\Collector;
 
-use Caldera\Bundle\CyclewaysBundle\Timeline\Item\ItemInterface;
+use AppBundle\Timeline\Item\ItemInterface;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 
 abstract class AbstractTimelineCollector

@@ -1,9 +1,9 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Command;
+namespace AppBundle\Command;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
-use Caldera\Bundle\CyclewaysBundle\PermalinkManager\SqibePermalinkManager;
+use AppBundle\Entity\Incident;
+use AppBundle\PermalinkManager\SqibePermalinkManager;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;

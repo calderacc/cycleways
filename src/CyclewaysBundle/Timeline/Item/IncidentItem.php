@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Timeline\Item;
+namespace AppBundle\Timeline\Item;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
+use AppBundle\Entity\Incident;
 
 class IncidentItem extends AbstractItem
 {

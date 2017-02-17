@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Twig\Extension;
+namespace AppBundle\Twig\Extension;
 
-use Caldera\Bundle\CyclewaysBundle\Parser\ParserInterface;
+use AppBundle\Parser\ParserInterface;
 
 class TwigParseExtension extends \Twig_Extension
 {

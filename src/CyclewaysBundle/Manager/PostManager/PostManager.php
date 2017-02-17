@@ -1,10 +1,10 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Manager\PostManager;
+namespace AppBundle\Manager\PostManager;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
-use Caldera\Bundle\CyclewaysBundle\Manager\AbstractManager;
-use Caldera\Bundle\CyclewaysBundle\Repository\PostRepository;
+use AppBundle\Entity\Incident;
+use AppBundle\Manager\AbstractManager;
+use AppBundle\Repository\PostRepository;
 
 class PostManager extends AbstractManager
 {

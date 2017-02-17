@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\ViewStorage;
+namespace AppBundle\ViewStorage;
 
 interface ViewStoragePersisterInterface
 {

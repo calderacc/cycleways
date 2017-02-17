@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Repository;
+namespace AppBundle\Repository;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Photo;
+use AppBundle\Entity\Photo;
 use Doctrine\ORM\EntityRepository;
 
 class PhotoRepository extends EntityRepository

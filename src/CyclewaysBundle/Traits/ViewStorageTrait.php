@@ -1,10 +1,10 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Traits;
+namespace AppBundle\Traits;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Photo;
-use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewableInterface;
-use Caldera\Bundle\CyclewaysBundle\ViewStorage\ViewStorageCacheInterface;
+use AppBundle\Entity\Photo;
+use AppBundle\EntityInterface\ViewableInterface;
+use AppBundle\ViewStorage\ViewStorageCacheInterface;
 
 trait ViewStorageTrait
 {

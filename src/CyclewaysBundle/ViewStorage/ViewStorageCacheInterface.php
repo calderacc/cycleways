@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\ViewStorage;
+namespace AppBundle\ViewStorage;
 
-use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewableInterface;
+use AppBundle\EntityInterface\ViewableInterface;
 
 interface ViewStorageCacheInterface
 {

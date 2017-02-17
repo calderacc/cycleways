@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Parser\MultiStepParser\Step;
+namespace AppBundle\Parser\MultiStepParser\Step;
 
-use Caldera\Bundle\CyclewaysBundle\Parser\MultiStepParser\StepInterface;
+use AppBundle\Parser\MultiStepParser\StepInterface;
 
 class MarkdownParserStep implements StepInterface
 {

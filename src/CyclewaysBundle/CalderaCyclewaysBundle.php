@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle;
+namespace AppBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

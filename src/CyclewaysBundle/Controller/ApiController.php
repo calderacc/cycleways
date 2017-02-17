@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Controller;
+namespace AppBundle\Controller;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
+use AppBundle\Entity\Incident;
 use Elastica\Exception\NotImplementedException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

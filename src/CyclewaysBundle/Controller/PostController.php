@@ -1,10 +1,10 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Controller;
+namespace AppBundle\Controller;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
-use Caldera\Bundle\CyclewaysBundle\Entity\Post;
-use Caldera\Bundle\CyclewaysBundle\Form\Type\PostType;
+use AppBundle\Entity\Incident;
+use AppBundle\Entity\Post;
+use AppBundle\Form\Type\PostType;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

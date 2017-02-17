@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Timeline;
+namespace AppBundle\Timeline;
 
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\Cache\Adapter\ApcuAdapter;

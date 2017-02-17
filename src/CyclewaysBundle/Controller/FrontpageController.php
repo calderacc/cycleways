@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Controller;
+namespace AppBundle\Controller;
 
-use Caldera\Bundle\CyclewaysBundle\Timeline\Timeline;
+use AppBundle\Timeline\Timeline;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

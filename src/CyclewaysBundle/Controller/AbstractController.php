@@ -1,14 +1,14 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Controller;
+namespace AppBundle\Controller;
 
-use Caldera\Bundle\CyclewaysBundle\Manager\IncidentManager\IncidentManager;
-use Caldera\Bundle\CyclewaysBundle\Manager\PostManager\PostManager;
-use Caldera\Bundle\CyclewaysBundle\Repository\IncidentRepository;
-use Caldera\Bundle\CyclewaysBundle\Repository\PhotoRepository;
-use Caldera\Bundle\CyclewaysBundle\Repository\PostRepository;
-use Caldera\Bundle\CyclewaysBundle\Entity\City;
-use Caldera\Bundle\CyclewaysBundle\Repository\CityRepository;
+use AppBundle\Manager\IncidentManager\IncidentManager;
+use AppBundle\Manager\PostManager\PostManager;
+use AppBundle\Repository\IncidentRepository;
+use AppBundle\Repository\PhotoRepository;
+use AppBundle\Repository\PostRepository;
+use AppBundle\Entity\City;
+use AppBundle\Repository\CityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 abstract class AbstractController extends Controller

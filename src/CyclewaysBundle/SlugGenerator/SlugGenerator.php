@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\SlugGenerator;
+namespace AppBundle\SlugGenerator;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
+use AppBundle\Entity\Incident;
 use Malenki\Slug;
 
 class SlugGenerator

@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Timeline\Item;
+namespace AppBundle\Timeline\Item;
 
 abstract class AbstractItem implements ItemInterface
 {

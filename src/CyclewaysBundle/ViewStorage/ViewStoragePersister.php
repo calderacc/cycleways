@@ -1,10 +1,10 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\ViewStorage;
+namespace AppBundle\ViewStorage;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\User;
-use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewableInterface;
-use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewInterface;
+use AppBundle\Entity\User;
+use AppBundle\EntityInterface\ViewableInterface;
+use AppBundle\EntityInterface\ViewInterface;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
@@ -98,7 +98,7 @@ class ViewStoragePersister implements ViewStoragePersisterInterface
 
     protected function getView(string $className): ViewInterface
     {
-        $viewClassName = 'Caldera\Bundle\CyclewaysBundle\Entity\\' . $className . 'View';
+        $viewClassName = 'AppBundle\Entity\\' . $className . 'View';
 
         $view = new $viewClassName;
 

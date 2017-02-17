@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Twig\Extension;
+namespace AppBundle\Twig\Extension;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
+use AppBundle\Entity\Incident;
 
 class TwigCyclewaysExtension extends \Twig_Extension
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Controller;
+namespace AppBundle\Controller;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
-use Caldera\Bundle\CyclewaysBundle\Form\Type\IncidentType;
-use Caldera\Bundle\CyclewaysBundle\SlugGenerator\SlugGenerator;
+use AppBundle\Entity\Incident;
+use AppBundle\Form\Type\IncidentType;
+use AppBundle\SlugGenerator\SlugGenerator;
 use Caldera\GeoBasic\Bounds\Bounds;
 use Caldera\GeoBasic\Coord\Coord;
 use Curl\Curl;

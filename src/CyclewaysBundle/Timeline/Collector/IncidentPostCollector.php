@@ -1,9 +1,9 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Timeline\Collector;
+namespace AppBundle\Timeline\Collector;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Post;
-use Caldera\Bundle\CyclewaysBundle\Timeline\Item\IncidentPostItem;
+use AppBundle\Entity\Post;
+use AppBundle\Timeline\Item\IncidentPostItem;
 
 class IncidentPostCollector extends AbstractTimelineCollector
 {

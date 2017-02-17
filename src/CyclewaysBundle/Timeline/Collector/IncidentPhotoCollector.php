@@ -1,9 +1,9 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Timeline\Collector;
+namespace AppBundle\Timeline\Collector;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Photo;
-use Caldera\Bundle\CyclewaysBundle\Timeline\Item\IncidentPhotoItem;
+use AppBundle\Entity\Photo;
+use AppBundle\Timeline\Item\IncidentPhotoItem;
 
 class IncidentPhotoCollector extends AbstractTimelineCollector
 {

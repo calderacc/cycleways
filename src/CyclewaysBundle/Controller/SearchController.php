@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Controller;
+namespace AppBundle\Controller;
 
 use Elastica\ResultSet;
 use Symfony\Component\HttpFoundation\Request;

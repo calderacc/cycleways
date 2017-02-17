@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Command;
+namespace AppBundle\Command;
 
-use Caldera\Bundle\CyclewaysBundle\CityLoader\CityLoader;
+use AppBundle\CityLoader\CityLoader;
 use Doctrine\ORM\EntityManager;
 use Malenki\Slug;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;

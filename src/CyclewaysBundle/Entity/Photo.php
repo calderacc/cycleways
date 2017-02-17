@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Entity;
+namespace AppBundle\Entity;
 
-use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewableInterface;
+use AppBundle\EntityInterface\ViewableInterface;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 use Symfony\Component\HttpFoundation\File\File;
@@ -12,7 +12,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * @ORM\Table(name="photo")
  * @Vich\Uploadable
- * @ORM\Entity(repositoryClass="Caldera\Bundle\CyclewaysBundle\Repository\PhotoRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PhotoRepository")
  * @JMS\ExclusionPolicy("all")
  */
 class Photo implements ViewableInterface
@@ -358,11 +358,11 @@ class Photo implements ViewableInterface
     /**
      * Set user
      *
-     * @param \Caldera\Bundle\CyclewaysBundle\Entity\User $user
+     * @param \AppBundle\Entity\User $user
      *
      * @return Photo
      */
-    public function setUser(\Caldera\Bundle\CyclewaysBundle\Entity\User $user = null)
+    public function setUser(\AppBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -372,7 +372,7 @@ class Photo implements ViewableInterface
     /**
      * Get user
      *
-     * @return \Caldera\Bundle\CyclewaysBundle\Entity\User
+     * @return \AppBundle\Entity\User
      */
     public function getUser()
     {
@@ -382,11 +382,11 @@ class Photo implements ViewableInterface
     /**
      * Set city
      *
-     * @param \Caldera\Bundle\CyclewaysBundle\Entity\City $city
+     * @param \AppBundle\Entity\City $city
      *
      * @return Photo
      */
-    public function setCity(\Caldera\Bundle\CyclewaysBundle\Entity\City $city = null)
+    public function setCity(\AppBundle\Entity\City $city = null)
     {
         $this->city = $city;
 
@@ -396,7 +396,7 @@ class Photo implements ViewableInterface
     /**
      * Get city
      *
-     * @return \Caldera\Bundle\CyclewaysBundle\Entity\City
+     * @return \AppBundle\Entity\City
      */
     public function getCity()
     {
@@ -406,7 +406,7 @@ class Photo implements ViewableInterface
     /**
      * Set incident
      *
-     * @param \Caldera\Bundle\CyclewaysBundle\Entity\Incident $incident
+     * @param \AppBundle\Entity\Incident $incident
      *
      * @return Photo
      */

@@ -1,16 +1,16 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Entity;
+namespace AppBundle\Entity;
 
-use Caldera\Bundle\CyclewaysBundle\EntityInterface\CoordinateInterface;
-use Caldera\Bundle\CyclewaysBundle\EntityInterface\ElasticSearchPinInterface;
-use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewableInterface;
+use AppBundle\EntityInterface\CoordinateInterface;
+use AppBundle\EntityInterface\ElasticSearchPinInterface;
+use AppBundle\EntityInterface\ViewableInterface;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="Caldera\Bundle\CyclewaysBundle\Repository\IncidentRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\IncidentRepository")
  * @ORM\Table(name="incident")
  * @JMS\ExclusionPolicy("all")
  */
@@ -554,7 +554,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->streetviewLink;
     }
 
-    public function setUser(\Caldera\Bundle\CyclewaysBundle\Entity\User $user = null)
+    public function setUser(\AppBundle\Entity\User $user = null)
     {
         $this->user = $user;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Timeline;
+namespace AppBundle\Timeline;
 
-use Caldera\Bundle\CyclewaysBundle\Timeline\Collector\AbstractTimelineCollector;
-use Caldera\Bundle\CyclewaysBundle\Timeline\Item\ItemInterface;
+use AppBundle\Timeline\Collector\AbstractTimelineCollector;
+use AppBundle\Timeline\Item\ItemInterface;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\Templating\EngineInterface;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Admin;
+namespace AppBundle\Admin;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\Incident;
+use AppBundle\Entity\Incident;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -57,7 +57,7 @@ class IncidentAdmin extends AbstractAdmin
 
             ->with('Nutzer', ['class' => 'col-md-6'])
             ->add('user', EntityType::class, [
-                'class' => 'Caldera\Bundle\CyclewaysBundle\Entity\User'
+                'class' => 'AppBundle\Entity\User'
             ])
             ->end()
 

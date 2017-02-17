@@ -1,9 +1,9 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\ViewStorage;
+namespace AppBundle\ViewStorage;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\User;
-use Caldera\Bundle\CyclewaysBundle\EntityInterface\ViewableInterface;
+use AppBundle\Entity\User;
+use AppBundle\EntityInterface\ViewableInterface;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 

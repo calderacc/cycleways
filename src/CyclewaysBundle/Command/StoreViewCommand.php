@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Command;
+namespace AppBundle\Command;
 
-use Caldera\Bundle\CyclewaysBundle\ViewStorage\ViewStoragePersisterInterface;
+use AppBundle\ViewStorage\ViewStoragePersisterInterface;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;

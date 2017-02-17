@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Parser;
+namespace AppBundle\Parser;
 
 interface ParserInterface
 {

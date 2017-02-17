@@ -1,8 +1,8 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\CityLoader;
+namespace AppBundle\CityLoader;
 
-use Caldera\Bundle\CyclewaysBundle\Entity\City;
+use AppBundle\Entity\City;
 
 class CityLoader
 {

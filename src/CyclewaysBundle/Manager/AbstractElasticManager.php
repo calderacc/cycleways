@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\Manager;
+namespace AppBundle\Manager;
 
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use FOS\ElasticaBundle\Elastica\Index;

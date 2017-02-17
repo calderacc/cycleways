@@ -1,6 +1,6 @@
 <?php
 
-namespace Caldera\Bundle\CyclewaysBundle\EntityInterface;
+namespace AppBundle\EntityInterface;
 
 interface ViewableInterface
 {
