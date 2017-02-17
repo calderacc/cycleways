@@ -8,16 +8,14 @@ define(['Map', 'leaflet-polyline', 'leaflet-extramarkers', 'Container', 'jquery'
     };
 
     AutoMap.prototype._defaults = {
-        tileLayerUrl: 'https://api.tiles.mapbox.com/v4/maltehuebner.i1c90m12/{z}/{x}/{y}.png',
-        mapBoxAccessToken: 'pk.eyJ1IjoibWFsdGVodWVibmVyIiwiYSI6IjB5c2QtNXcifQ.I7OHZr0wtAvqE0wIY_psfg',
+        tileLayerUrl: 'https://tiles.caldera.cc/wikimedia-map/{z}/{x}/{y}.png',
         mapAttribution: '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         stylesheetAddress: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css',
         detectRetina: true,
         defaultLatitude: 51.0851708,
         defaultLongitude: 5.9692092,
         defaultZoom: 5,
-        showZoomControl: false,
-        zoomControlPosition: 'bottomright'
+        showZoomControl: false
     };
 
     // do not call Map constructor directly as this will execute the map
