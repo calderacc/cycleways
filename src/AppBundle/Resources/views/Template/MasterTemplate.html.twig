@@ -5,23 +5,23 @@
 
     <title>{% block title %}{% endblock %} — Cycleways</title>
 
-    <link rel="stylesheet" href="{{ asset('bundles/calderacycleways/css/cycleways.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('bundles/calderacycleways/css/external/bootstrap4/bootstrap.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('bundles/calderacycleways/css/external/leaflet/leaflet-0.7.7.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('bundles/calderacycleways/css/external/leaflet/extramarkers.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('bundles/calderacycleways/css/external/fontawesome/font-awesome.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('bundles/calderacycleways/css/external/dropzone/dropzone.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('bundles/calderacycleways/css/external/bootstrap-datepicker/bootstrap-datepicker.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/cycleways.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/external/bootstrap4/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/external/leaflet/leaflet-0.7.7.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/external/leaflet/extramarkers.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/external/fontawesome/font-awesome.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/external/dropzone/dropzone.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/external/bootstrap-datepicker/bootstrap-datepicker.min.css') }}"/>
 
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 
     <script>
-        var bundleBaseDirectory = '/bundles/calderacycleways/';
+        var bundleBaseDirectory = '/bundles/app/';
     </script>
 
-    <script src="{{ asset('bundles/calderacycleways/js/external/requirejs/require.js') }}"></script>
-    <script src="{{ asset('bundles/calderacycleways/js/CriticalMass.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/external/requirejs/require.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/CriticalMass.js') }}"></script>
 
     {% block additionalHeaderElements %}{% endblock %}
 </head>
@@ -44,8 +44,8 @@
 
 {% block masterContent %}{% endblock %}
 
-<script src="{{ asset('bundles/calderacycleways/js/external/jquery/jquery-3.1.0.min.js') }}"></script>
-<script src="{{ asset('bundles/calderacycleways/js/external/bootstrap4/bootstrap.min.js') }}"></script>
+<script src="{{ asset('bundles/app/js/external/jquery/jquery-3.1.0.min.js') }}"></script>
+<script src="{{ asset('bundles/app/js/external/bootstrap4/bootstrap.min.js') }}"></script>
 
 {% block additionalFooterElements %}{% endblock %}
 </body>
