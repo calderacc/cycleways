@@ -1,4 +1,4 @@
-define(['leaflet', 'CityMarker', 'LocationMarker', 'leaflet-locate'], function () {
+define(['leaflet', 'leaflet-locate'], function () {
     Map = function (mapId, settings) {
         this._mapId = mapId;
 
