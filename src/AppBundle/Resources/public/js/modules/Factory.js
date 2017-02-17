@@ -32,10 +32,6 @@ define([], function () {
 
                 if (entityProperty == 'timestamp') {
                     entity[prefix + entityProperty] = new Date(object[property] * 1000);
-                } else if (entityProperty == 'city') {
-                    entity[prefix + entityProperty] = this.createCity(object[property]);
-                } else if (entityProperty == 'user') {
-                    entity[prefix + entityProperty] = this.createUser(object[property]);
                 } else {
                     entity[prefix + entityProperty] = object[property];
                 }
