@@ -205,7 +205,7 @@
     </div>
 
     <script>
-        CriticalMass.loadModule('CyclewaysIncidentShowPage', null, null, function (incidentPage) {
+        Cycleways.loadModule('CyclewaysIncidentShowPage', null, null, function (incidentPage) {
             incidentPage.setIncident('{{ incident|serialize|raw|e('js') }}');
             incidentPage.focus();
         });

@@ -1,6 +1,6 @@
-var CriticalMass = CriticalMass || {};
+var Cycleways = Cycleways || {};
 
-CriticalMass.loadModule = function(name, context, options, callback) {
+Cycleways.loadModule = function(name, context, options, callback) {
     require([name], function(Module) {
         var module = new Module(context, options);
 
