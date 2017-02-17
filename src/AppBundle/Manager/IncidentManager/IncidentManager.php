@@ -16,7 +16,7 @@ class IncidentManager extends AbstractElasticManager
     {
         parent::__construct($doctrine, $elasticIndex);
 
-        $this->incidentRepository = $this->doctrine->getRepository('CalderaCyclewaysBundle:Incident');
+        $this->incidentRepository = $this->doctrine->getRepository('AppBundle:Incident');
     }
 
     public function getIncidentsInBounds(Bounds $bounds, array $knownIndizes = []): array
@@ -43,7 +43,7 @@ class IncidentManager extends AbstractElasticManager
 
         $query->setSize(500);
 
-        $result = $this->elasticManager->getRepository('CalderaCyclewaysBundle:Incident')->find($query);
+        $result = $this->elasticManager->getRepository('AppBundle:Incident')->find($query);
 
         return $result;
     }

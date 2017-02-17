@@ -44,7 +44,7 @@ class RefreshSlugsCommand extends ContainerAwareCommand
         $this->manager = $this->doctrine->getManager();
         $this->slugGenerator = new SlugGenerator();
 
-        $incidents = $this->doctrine->getRepository('CalderaCyclewaysBundle:Incident')->findAll();
+        $incidents = $this->doctrine->getRepository('AppBundle:Incident')->findAll();
 
         $progress = new ProgressBar($output, count($incidents));
 

@@ -30,7 +30,7 @@ class PhotoController extends AbstractController
     protected function uploadGetAction(Request $request, Incident $incident): Response
     {
         return $this->render(
-            'CalderaCyclewaysBundle:Photo:upload.html.twig',
+            'AppBundle:Photo:upload.html.twig',
             [
                 'incident' => $incident
             ]
@@ -71,7 +71,7 @@ class PhotoController extends AbstractController
 
         $this->countPhotoView($photo);
 
-        return $this->render('CalderaCyclewaysBundle:Photo:show.html.twig',
+        return $this->render('AppBundle:Photo:show.html.twig',
             [
                 'photo' => $photo,
                 'nextPhoto' => $nextPhoto,

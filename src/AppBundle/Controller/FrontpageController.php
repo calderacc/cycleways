@@ -25,7 +25,7 @@ class FrontpageController extends AbstractController
             ->getTimelineContent();
 
         return $this->render(
-            'CalderaCyclewaysBundle:Frontpage:index.html.twig',
+            'AppBundle:Frontpage:index.html.twig',
             [
                 'timelineContent' => $timelineContent
             ]);

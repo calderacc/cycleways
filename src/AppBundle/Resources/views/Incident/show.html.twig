@@ -1,4 +1,4 @@
-{% extends 'CalderaCyclewaysBundle:Template:StandardTemplate.html.twig' %}
+{% extends 'AppBundle:Template:StandardTemplate.html.twig' %}
 
 {% block title %}{{ incident.title }}{% endblock %}
 
@@ -70,7 +70,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         {% for post in posts %}
-                                            {% include('CalderaCyclewaysBundle:Post:post.html.twig') with { 'post':  post } %}
+                                            {% include('AppBundle:Post:post.html.twig') with { 'post':  post } %}
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                 <div class="row mt-1">
                                     <div class="col-md-12">
                                         {% if app.getUser() %}
-                                            {{ render(controller('CalderaCyclewaysBundle:Post:write', { incident: incident })) }}
+                                            {{ render(controller('AppBundle:Post:write', { incident: incident })) }}
                                         {% else %}
                                             <div class="alert alert-info">
                                                 <strong>Schade!</strong>

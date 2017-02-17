@@ -1,7 +1,7 @@
-{% extends 'CalderaCyclewaysBundle:Template:MasterTemplate.html.twig' %}
+{% extends 'AppBundle:Template:MasterTemplate.html.twig' %}
 
 {% block masterContent %}
-    {% include('CalderaCyclewaysBundle:Template:Includes/_navigation.html.twig') with { 'fullscreenMap': 'false' } %}
+    {% include('AppBundle:Template:Includes/_navigation.html.twig') with { 'fullscreenMap': 'false' } %}
 
     {% block breadcrumbContainer %}
         <div class="container mt-2 mb-2">
@@ -18,11 +18,11 @@
 
     {% block content %}{% endblock %}
 
-    {% include('CalderaCyclewaysBundle:Template:Includes/_adserver.html.twig') %}
+    {% include('AppBundle:Template:Includes/_adserver.html.twig') %}
 
-    {% include('CalderaCyclewaysBundle:Template:Includes/_footer.html.twig') %}
+    {% include('AppBundle:Template:Includes/_footer.html.twig') %}
 
-    {% include('CalderaCyclewaysBundle:Template:Includes/_piwik.html.twig') %}
+    {% include('AppBundle:Template:Includes/_piwik.html.twig') %}
 
     <script>
         CriticalMass.loadModule('Notification');

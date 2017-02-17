@@ -43,17 +43,17 @@ abstract class AbstractController extends Controller
 
     protected function getCityRepository(): CityRepository
     {
-        return $this->getDoctrine()->getRepository('CalderaCyclewaysBundle:City');
+        return $this->getDoctrine()->getRepository('AppBundle:City');
     }
 
     protected function getIncidentRepository(): IncidentRepository
     {
-        return $this->getDoctrine()->getRepository('CalderaCyclewaysBundle:Incident');
+        return $this->getDoctrine()->getRepository('AppBundle:Incident');
     }
 
     protected function getPhotoRepository(): PhotoRepository
     {
-        return $this->getDoctrine()->getRepository('CalderaCyclewaysBundle:Photo');
+        return $this->getDoctrine()->getRepository('AppBundle:Photo');
     }
 
     protected function getPostRepository(): PostRepository

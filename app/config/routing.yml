@@ -33,5 +33,5 @@ fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
 caldera_cycleways:
-    resource: "@CalderaCyclewaysBundle/Resources/config/routing.yml"
+    resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /

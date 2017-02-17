@@ -20,7 +20,7 @@ class IncidentController extends AbstractController
         $city = $this->getCityBySlug($citySlug);
 
         return $this->render(
-            'CalderaCyclewaysBundle:Incident:map.html.twig',
+            'AppBundle:Incident:map.html.twig',
             [
                 'city' => $city
             ]
@@ -87,7 +87,7 @@ class IncidentController extends AbstractController
     public function addGetAction(Request $request, Incident $incident, Form $form): Response
     {
         return $this->render(
-            'CalderaCyclewaysBundle:Incident:edit.html.twig',
+            'AppBundle:Incident:edit.html.twig',
             [
                 'incident' => null,
                 'form' => $form->createView()
@@ -133,7 +133,7 @@ class IncidentController extends AbstractController
         }
 
         return $this->render(
-            'CalderaCyclewaysBundle:Incident:edit.html.twig',
+            'AppBundle:Incident:edit.html.twig',
             array(
                 'incident' => $incident,
                 'form' => $form->createView()
@@ -160,7 +160,7 @@ class IncidentController extends AbstractController
             ->setDescription($incident->getDescription());
 */
         return $this->render(
-            'CalderaCyclewaysBundle:Incident:show.html.twig',
+            'AppBundle:Incident:show.html.twig',
             [
                 'incident' => $incident,
                 'posts' => $posts,
@@ -177,7 +177,7 @@ class IncidentController extends AbstractController
         $incidents = $this->getIncidentManager()->getIncidentsForCity($city);
 
         return $this->render(
-            'CalderaCyclewaysBundle:Incident:list.html.twig',
+            'AppBundle:Incident:list.html.twig',
             [
                 'incidents' => $incidents,
                 'city' => $city

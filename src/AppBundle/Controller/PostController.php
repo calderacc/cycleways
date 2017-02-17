@@ -57,7 +57,7 @@ class PostController extends AbstractController
         }
 
         return $this->render(
-            'CalderaCyclewaysBundle:Post:write.html.twig',
+            'AppBundle:Post:write.html.twig',
             [
                 'form' => $form->createView()
             ]

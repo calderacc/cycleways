@@ -15,7 +15,7 @@ class PostManager extends AbstractManager
     {
         parent::__construct($doctrine);
 
-        $this->postRepository = $this->doctrine->getRepository('CalderaCyclewaysBundle:Post');
+        $this->postRepository = $this->doctrine->getRepository('AppBundle:Post');
     }
 
     public function getPostsForIncident(Incident $incident): array

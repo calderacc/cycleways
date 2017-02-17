@@ -11,7 +11,7 @@
             <argument>AppBundle\Entity\Incident</argument>
             <argument />
             <call method="setTranslationDomain">
-                <argument>CalderaCyclewaysBundle</argument>
+                <argument>AppBundle</argument>
             </call>
         </service>
 
@@ -21,7 +21,7 @@
             <argument>AppBundle\Entity\User</argument>
             <argument />
             <call method="setTranslationDomain">
-                <argument>CalderaCyclewaysBundle</argument>
+                <argument>AppBundle</argument>
             </call>
         </service>
     </services>

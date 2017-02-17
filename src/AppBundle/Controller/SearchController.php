@@ -45,7 +45,7 @@ class SearchController extends AbstractController
 
         $results = $transformer->transform($resultSet->getResults());
 
-        return $this->render('CalderaCyclewaysBundle:Search:search.html.twig',
+        return $this->render('AppBundle:Search:search.html.twig',
             [
                 'incidents' => $results,
                 'resultSet' => $resultSet,

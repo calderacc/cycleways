@@ -9,7 +9,7 @@ class IncidentPostCollector extends AbstractTimelineCollector
 {
     protected function fetchEntities(): array
     {
-        return $this->doctrine->getRepository('CalderaCyclewaysBundle:Post')->findForTimelineIncidentPostCollector($this->startDateTime, $this->endDateTime);
+        return $this->doctrine->getRepository('AppBundle:Post')->findForTimelineIncidentPostCollector($this->startDateTime, $this->endDateTime);
     }
 
     protected function groupEntities(array $entities): array
