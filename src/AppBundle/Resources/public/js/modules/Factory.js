@@ -3,82 +3,12 @@ define([], function () {
     Factory = function () {
     };
 
-    Factory.prototype.createRide = function (rideJson) {
-        var rideEntity = new RideEntity();
-
-        rideEntity = this._transferProperties(rideEntity, rideJson);
-
-        return rideEntity;
-    };
-
-    Factory.prototype.createLiveRide = function (liveRideJson) {
-        var liveRideEntity = new LiveRideEntity();
-
-        liveRideEntity = this._transferProperties(liveRideEntity, liveRideJson);
-
-        return liveRideEntity;
-    };
-
-    Factory.prototype.createEvent = function (eventJson) {
-        var eventEntity = new EventEntity();
-
-        eventEntity = this._transferProperties(eventEntity, eventJson);
-
-        return eventEntity;
-    };
-
-    Factory.prototype.createSubride = function (subrideJson) {
-        var subrideEntity = new SubrideEntity();
-
-        subrideEntity = this._transferProperties(subrideEntity, subrideJson);
-
-        return subrideEntity;
-    };
-
-    Factory.prototype.createCity = function (cityJson) {
-        try {
-            var cityEntity = new CityEntity();
-
-            cityEntity = this._transferProperties(cityEntity, cityJson);
-
-            return cityEntity;
-        } catch (e) {
-            // if JSON could not be parsed it is maybe a string, so just return it
-            return cityJson;
-        }
-    };
-
-    Factory.prototype.createPhoto = function (photoJson) {
-        var photoEntity = new PhotoEntity();
-
-        photoEntity = this._transferProperties(photoEntity, photoJson);
-
-        return photoEntity;
-    };
-
     Factory.prototype.createIncident = function (incidentJson) {
         var incidentEntity = new IncidentEntity();
 
         incidentEntity = this._transferProperties(incidentEntity, incidentJson);
 
         return incidentEntity;
-    };
-
-    Factory.prototype.createTrack = function (trackJson) {
-        var trackEntity = new TrackEntity();
-
-        trackEntity = this._transferProperties(trackEntity, trackJson);
-
-        return trackEntity;
-    };
-
-    Factory.prototype.createUser = function (userJson) {
-        //alert(JSON.stringify(userJson));
-        var userEntity = new UserEntity();
-
-        userEntity = this._transferProperties(userEntity, userJson);
-
-        return userEntity;
     };
 
     Factory.prototype._transferProperties = function (entity, data) {
