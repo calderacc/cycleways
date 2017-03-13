@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Photo;
 
+use AppBundle\Controller\AbstractController;
 use AppBundle\Entity\Incident;
 use AppBundle\Entity\Photo;
 use AppBundle\Traits\ViewStorageTrait;
