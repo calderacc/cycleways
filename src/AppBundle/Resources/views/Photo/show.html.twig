@@ -60,7 +60,7 @@
                                 <i class="fa fa-file-image-o" aria-hidden="true"></i>
                             </a>
 
-                            <a href="#" class="btn btn-secondary" title="Foto deaktiveren">
+                            <a href="{{ path('caldera_cycleways_incident_photo_delete', { slug: incident.slug, photoId: photo.id }) }}" class="btn btn-secondary" title="Foto deaktiveren">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
 

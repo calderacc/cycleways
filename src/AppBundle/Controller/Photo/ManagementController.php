@@ -16,6 +16,7 @@ class ManagementController extends AbstractController
 {
     public function featuredPhotoAction(Request $request, UserInterface $user, int $photoId): RedirectResponse
     {
+        /** @var Photo $photo */
         $photo = $this->getPhotoRepository()->find($photoId);
 
         if (!$photo) {
@@ -30,7 +31,28 @@ class ManagementController extends AbstractController
         return $this->redirectToRoute(
             'caldera_cycleways_incident_show',
             [
-              'slug' => $incident->getSlug()
+                'slug' => $incident->getSlug()
+            ]
+        );
+    }
+
+    public function deleteAction(Request $request, UserInterface $user, int $photoId): RedirectResponse
+    {
+        /** @var Photo $photo */
+        $photo = $this->getPhotoRepository()->find($photoId);
+
+        if (!$photo) {
+            throw $this->createNotFoundException();
+        }
+
+        $photo->setDeleted(true);
+
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute(
+            'caldera_cycleways_incident_show',
+            [
+                'slug' => $photo->getIncident()->getSlug()
             ]
         );
     }
