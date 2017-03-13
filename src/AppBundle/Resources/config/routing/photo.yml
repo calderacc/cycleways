@@ -9,3 +9,9 @@ caldera_cycleways_incident_photo_show:
     requirements:
         slug: '(.*)\-([0-9]{1,6})'
     defaults: { _controller: AppBundle:Photo/Photo:show }
+
+caldera_cycleways_incident_photo_feature:
+    path:     /{slug}/photo/{photoId}/feature
+    requirements:
+        slug: '(.*)\-([0-9]{1,6})'
+    defaults: { _controller: AppBundle:Photo/Management:featuredPhoto }
