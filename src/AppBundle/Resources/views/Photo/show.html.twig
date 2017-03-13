@@ -41,17 +41,38 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    {{ block('navigation') }}
+    <div class="container">
+        {{ block('navigation') }}
 
-    <div class="row">
-        <div class="col-md-12">
-            <img id="photo" class="img-fluid" src="{{ vich_uploader_asset(photo, 'imageFile')|imagine_filter('gallery_photo_standard') }}"/>
+        <div class="row">
+            <div class="col-md-9">
+                <img id="photo" class="img-fluid" src="{{ vich_uploader_asset(photo, 'imageFile')|imagine_filter('gallery_photo_standard') }}"/>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Foto {{ photo.id }}
+                    </div>
+                    <div class="card-block">
+                        <div class="btn-group">
+                            <a href="#" class="btn btn-secondary" title="Als Hauptfoto festlegen">
+                                <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                            </a>
+
+                            <a href="#" class="btn btn-secondary" title="Foto deaktiveren">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </a>
+
+                            <a href="#" class="btn btn-secondary" title="Eigenschaften bearbeiten">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
         {{ block('navigation') }}
     </div>
-
-
-    {% endblock %}
+{% endblock %}
