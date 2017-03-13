@@ -18,3 +18,7 @@ fos_user:
             from_email:
                 address:        malte@criticalmass.in
                 sender_name:    Malte Hübner, criticalmass.in
+
+    from_email:
+        address: malte@cycleways.cw
+        sender_name: Malte Hübner
