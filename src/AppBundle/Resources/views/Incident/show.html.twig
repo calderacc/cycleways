@@ -25,7 +25,9 @@
             </div>
 
             <div class="col-md-6">
+                <a href="{{ path('caldera_cycleways_incident_photo_show', { slug: incident.slug, photoId: incident.featuredPhoto.id }) }}">
                     <img class="img-fluid" src="{{ vich_uploader_asset(incident.featuredPhoto, 'imageFile')|imagine_filter('gallery_photo_medium') }}" />
+                </a>
             </div>
             {% else %}
             <div class="col-md-12">
