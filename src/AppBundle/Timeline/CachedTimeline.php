@@ -5,6 +5,7 @@ namespace AppBundle\Timeline;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\Cache\Adapter\ApcuAdapter;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Symfony\Component\Cache\Adapter\RedisAdapter;
 use Symfony\Component\Templating\EngineInterface;
 
 class CachedTimeline extends Timeline
@@ -22,7 +23,7 @@ class CachedTimeline extends Timeline
 
     public function execute(): Timeline
     {
-        $cacheKey = 'timeline-content';
+        $cacheKey = 'cycleways-timeline-content';
 
         if ($this->startDateTime) {
             $cacheKey .= '-start-' . $this->startDateTime->format('Y-m-d');
@@ -32,7 +33,13 @@ class CachedTimeline extends Timeline
             $cacheKey .= '-end-' . $this->endDateTime->format('Y-m-d');
         }
 
-        $cache = new FilesystemAdapter();
+        $redisConnection = RedisAdapter::createConnection('redis://localhost');
+
+        $this->cache = new RedisAdapter(
+            $redisConnection,
+            $namespace = '',
+            $defaultLifetime = 0
+        );
 
         $timeline = $cache->getItem($cacheKey);
 
