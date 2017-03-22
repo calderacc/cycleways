@@ -35,7 +35,7 @@ class CachedTimeline extends Timeline
 
         $redisConnection = RedisAdapter::createConnection('redis://localhost');
 
-        $this->cache = new RedisAdapter(
+        $cache = new RedisAdapter(
             $redisConnection,
             $namespace = '',
             $defaultLifetime = 0
