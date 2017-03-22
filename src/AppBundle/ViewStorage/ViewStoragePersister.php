@@ -7,7 +7,8 @@ use AppBundle\EntityInterface\ViewableInterface;
 use AppBundle\EntityInterface\ViewInterface;
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Symfony\Component\Cache\Adapter\AbstractAdapter;
+use Symfony\Component\Cache\Adapter\RedisAdapter;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
@@ -25,12 +26,19 @@ class ViewStoragePersister implements ViewStoragePersisterInterface
     /** @var OutputInterface $output */
     protected $output = null;
 
-    /** @var FilesystemAdapter $cache */
+    /** @var AbstractAdapter $cache */
     protected $cache = null;
 
     public function __construct(Registry $doctrine)
     {
-        $this->cache = new FilesystemAdapter();
+        $redisConnection = RedisAdapter::createConnection('redis://localhost');
+
+        $this->cache = new RedisAdapter(
+            $redisConnection,
+            $namespace = '',
+            $defaultLifetime = 0
+        );
+
         $this->doctrine = $doctrine;
         $this->manager = $doctrine->getManager();
     }
@@ -44,7 +52,7 @@ class ViewStoragePersister implements ViewStoragePersisterInterface
 
     public function persistViews(): ViewStoragePersisterInterface
     {
-        $viewStorageItem = $this->cache->getItem('view_storage');
+        $viewStorageItem = $this->cache->getItem('cycleways_view_storage');
 
         if (!$viewStorageItem->isHit()) {
             return $this;
