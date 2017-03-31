@@ -29,6 +29,31 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     const DANGER_LEVEL_NORMAL = 'normal';
     const DANGER_LEVEL_HIGH = 'high';
 
+    const ACCIDENT_SEX_MALE = 'm';
+    const ACCIDENT_SEX_FEMALE = 'f';
+
+    const ACCIDENT_LOCATION_CITY = 'city';
+    const ACCIDENT_LOCATION_LAND = 'land';
+
+    const ACCIDENT_INFRASTRUCTURE_ROAD = 'road';
+    const ACCIDENT_INFRASTRUCTURE_CYCLEPATH = 'cyclepath';
+    const ACCIDENT_INFRASTRUCTURE_RADFAHRSTREIFEN = 'radfahrstreifen';
+    const ACCIDENT_INFRASTRUCTURE_SCHUTZSTREIFEN = 'schutzstreifen';
+    const ACCIDENT_INFRASTRUCTURE_FAHRRADSTRASSE = 'fahrradstrasse';
+    const ACCIDENT_INFRASTRUCTURE_OTHER = 'other';
+
+    const ACCIDENT_OPPONENT_PEDESTRIAN = 'pedestrian';
+    const ACCIDENT_OPPONENT_CYCLIST = 'cyclist';
+    const ACCIDENT_OPPONENT_MOTORCYCLE = 'motorcycle';
+    const ACCIDENT_OPPONENT_CAR = 'car';
+    const ACCIDENT_OPPONENT_TRUCK = 'truck';
+    const ACCIDENT_OPPONENT_TRACTOR = 'tractor';
+    const ACCIDENT_OPPONENT_TRAIN = 'train';
+    const ACCIDENT_OPPONENT_TRAM = 'tram';
+    const ACCIDENT_OPPONENT_ANIMAL = 'animal';
+    const ACCIDENT_OPPONENT_NONE = 'none';
+    const ACCIDENT_OPPONENT_UNKNOWN = 'unknown';
+
     const GEOMETRY_POLYLINE = 'polyline';
     const GEOMETRY_MARKER = 'marker';
 
@@ -208,6 +233,60 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
      * @JMS\Expose
      */
     protected $streetviewLink;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @JMS\Expose
+     */
+    protected $accidentLocation = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @JMS\Expose
+     */
+    protected $accidentInfrastructure = null;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @JMS\Expose
+     */
+    protected $accidentOpponent = null;
+
+    /**
+     * @ORM\Column(type="string", length=1, nullable=true)
+     * @JMS\Expose
+     */
+    protected $accidentSex = null;
+
+    /**
+     * @ORM\Column(type="integer", length=255, nullable=true)
+     * @JMS\Expose
+     */
+    protected $accidentAge = null;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     * @JMS\Expose
+     */
+    protected $accidentPedelec = null;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     * @JMS\Expose
+     */
+    protected $accidentHelmet = null;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     * @JMS\Expose
+     */
+    protected $accidentAlcohol = null;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     * @JMS\Expose
+     */
+    protected $accidentCyclistCaused = null;
 
     public function __construct()
     {
@@ -613,5 +692,108 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         $cyclewaysId = strtoupper($code);
 
         return $cyclewaysId;
+    }
+
+    public function setAccidentLocation(string $accidentLocation): Incident
+    {
+        $this->accidentLocation = $accidentLocation;
+
+        return $this;
+    }
+
+    public function getAccidentInfrastructure(): ?string
+    {
+        return $this->accidentInfrastructure;
+    }
+
+    public function setAccidentInfrastructure(string $accidentInfrastructure): Incident
+    {
+        $this->accidentInfrastructure = $accidentInfrastructure;
+
+        return $this;
+    }
+
+    public function getAccidentOpponent(): ?string
+    {
+        return $this->accidentOpponent;
+    }
+
+    public function setAccidentOpponent(string $accidentOpponent): Incident
+    {
+        $this->accidentOpponent = $accidentOpponent;
+
+        return $this;
+    }
+
+    public function getAccidentSex(): ?string
+    {
+        return $this->accidentSex;
+    }
+
+    public function setAccidentSex(string $accidentSex): Incident
+    {
+        $this->accidentSex = $accidentSex;
+
+        return $this;
+    }
+
+    public function getAccidentAge(): ?int
+    {
+        return $this->accidentAge;
+    }
+
+    public function setAccidentAge(int $accidentAge): Incident
+    {
+        $this->accidentAge = $accidentAge;
+
+        return $this;
+    }
+
+    public function getAccidentPedelec(): ?bool
+    {
+        return $this->accidentPedelec;
+    }
+
+    public function setAccidentPedelec(bool $accidentPedelec): Incident
+    {
+        $this->accidentPedelec = $accidentPedelec;
+
+        return $this;
+    }
+
+    public function getAccidentHelmet(): ?bool
+    {
+        return $this->accidentHelmet;
+    }
+
+    public function setAccidentHelmet(bool $accidentHelmet): Incident
+    {
+        $this->accidentHelmet = $accidentHelmet;
+
+        return $this;
+    }
+
+    public function getAccidentAlcohol(): ?float
+    {
+        return $this->accidentAlcohol;
+    }
+
+    public function setAccidentAlcohol(float $accidentAlcohol): Incident
+    {
+        $this->accidentAlcohol = $accidentAlcohol;
+
+        return $this;
+    }
+
+    public function getAccidentCyclistCaused(): ?string
+    {
+        return $this->accidentCyclistCaused;
+    }
+
+    public function setAccidentCyclistCaused(string $accidentCyclistCaused): Incident
+    {
+        $this->accidentCyclistCaused = $accidentCyclistCaused;
+
+        return $this;
     }
 }
