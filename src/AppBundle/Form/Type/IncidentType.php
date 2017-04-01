@@ -73,39 +73,44 @@ class IncidentType extends AbstractType
             ->add('accidentLocation', ChoiceType::class,
                 [
                     'choices' => [
-                        'ungefährlich' => Incident::DANGER_LEVEL_NONE,
-                        'niedrig' => Incident::DANGER_LEVEL_LOW,
-                        'normal' => Incident::DANGER_LEVEL_NORMAL,
-                        'hoch' => Incident::DANGER_LEVEL_HIGH
+                        'innerorts' => Incident::ACCIDENT_LOCATION_CITY,
+                        'außerorts' => Incident::ACCIDENT_LOCATION_LAND,
                     ]
                 ]
             )
             ->add('accidentInfrastructure', ChoiceType::class,
                 [
                     'choices' => [
-                        'ungefährlich' => Incident::DANGER_LEVEL_NONE,
-                        'niedrig' => Incident::DANGER_LEVEL_LOW,
-                        'normal' => Incident::DANGER_LEVEL_NORMAL,
-                        'hoch' => Incident::DANGER_LEVEL_HIGH
+                        'Fahrbahn' => Incident::ACCIDENT_INFRASTRUCTURE_ROAD,
+                        'Radweg' => Incident::ACCIDENT_INFRASTRUCTURE_CYCLEPATH,
+                        'Radfahrstreifen' => Incident::ACCIDENT_INFRASTRUCTURE_RADFAHRSTREIFEN,
+                        'Schutzstreifen' => Incident::ACCIDENT_INFRASTRUCTURE_SCHUTZSTREIFEN,
+                        'Fahrradstraße' => Incident::ACCIDENT_INFRASTRUCTURE_FAHRRADSTRASSE,
+                        'abseits der Straße' => Incident::ACCIDENT_INFRASTRUCTURE_OTHER,
                     ]
                 ]
             )
             ->add('accidentOpponent', ChoiceType::class,
                 [
                 'choices' => [
-                    'ungefährlich' => Incident::DANGER_LEVEL_NONE,
-                    'niedrig' => Incident::DANGER_LEVEL_LOW,
-                    'normal' => Incident::DANGER_LEVEL_NORMAL,
-                    'hoch' => Incident::DANGER_LEVEL_HIGH
+                    'Fußgänger' => Incident::ACCIDENT_OPPONENT_PEDESTRIAN,
+                    'Fahrradfahrer' => Incident::ACCIDENT_OPPONENT_CYCLIST,
+                    'Motorradfahrer' => Incident::ACCIDENT_OPPONENT_MOTORCYCLE,
+                    'Personenkraftwagen' => Incident::ACCIDENT_OPPONENT_CAR,
+                    'Lastkraftwagen' => Incident::ACCIDENT_OPPONENT_TRUCK,
+                    'Traktor oder landwirtschaftliches Fahrzeug' => Incident::ACCIDENT_OPPONENT_TRACTOR,
+                    'Eisenbahn' => Incident::ACCIDENT_OPPONENT_TRAIN,
+                    'Straßenbahn' => Incident::ACCIDENT_OPPONENT_TRAM,
+                    'Tier, Haustier' => Incident::ACCIDENT_OPPONENT_ANIMAL,
+                    'keiner / Alleinunfall' => Incident::ACCIDENT_OPPONENT_NONE,
+                    'unbekannt' => Incident::ACCIDENT_OPPONENT_UNKNOWN,
                 ]
             ])
             ->add('accidentSex', ChoiceType::class,
                 [
                     'choices' => [
-                        'ungefährlich' => Incident::DANGER_LEVEL_NONE,
-                        'niedrig' => Incident::DANGER_LEVEL_LOW,
-                        'normal' => Incident::DANGER_LEVEL_NORMAL,
-                        'hoch' => Incident::DANGER_LEVEL_HIGH
+                        'männlich' => Incident::ACCIDENT_SEX_MALE,
+                        'weiblich' => Incident::ACCIDENT_SEX_FEMALE,
                     ]
                 ]
             )
