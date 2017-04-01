@@ -77,6 +77,7 @@ class IncidentType extends AbstractType
                         'unbekannt' => Incident::ACCIDENT_TYPE_UNKNOWN,
                         'Alleinunfall' => Incident::ACCIDENT_TYPE_SOLO,
                         'Querung der Straße' => Incident::ACCIDENT_TYPE_CROSSING,
+                        'Vorfahrtsverstoß' => Incident::ACCIDENT_TYPE_RIGHTOFWAY,
                         'Rotlichtverstoß' => Incident::ACCIDENT_TYPE_REDLIGHT,
                         'Abbiegeunfall' => Incident::ACCIDENT_TYPE_RIGHTTURN,
                         'Frontalzusammenstoß' => Incident::ACCIDENT_TYPE_FRONTAL,
