@@ -50,6 +50,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
 
     const ACCIDENT_INFRASTRUCTURE_ROAD = 'road';
     const ACCIDENT_INFRASTRUCTURE_CYCLEPATH = 'cyclepath';
+    const ACCIDENT_INFRASTRUCTURE_SIDEWALK = 'sidewalk';
     const ACCIDENT_INFRASTRUCTURE_RADFAHRSTREIFEN = 'radfahrstreifen';
     const ACCIDENT_INFRASTRUCTURE_SCHUTZSTREIFEN = 'schutzstreifen';
     const ACCIDENT_INFRASTRUCTURE_FAHRRADSTRASSE = 'fahrradstrasse';
@@ -544,7 +545,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->city;
     }
 
-    public function setPolyline($polyline): Incident
+    public function setPolyline(string $polyline): Incident
     {
         $this->polyline = $polyline;
 
