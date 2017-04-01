@@ -104,6 +104,8 @@ class IncidentType extends AbstractType
                         'Fahrbahn' => Incident::ACCIDENT_INFRASTRUCTURE_ROAD,
                         'Radweg' => Incident::ACCIDENT_INFRASTRUCTURE_CYCLEPATH,
                         'Gehweg' => Incident::ACCIDENT_INFRASTRUCTURE_SIDEWALK,
+                        'freigegebener Gehweg' => Incident::ACCIDENT_INFRASTRUCTURE_FREEDSIDEWALK,
+                        'gemeinsamer Fuß- und Radweg' => Incident::ACCIDENT_INFRASTRUCTURE_COMBINED,
                         'Radfahrstreifen' => Incident::ACCIDENT_INFRASTRUCTURE_RADFAHRSTREIFEN,
                         'Schutzstreifen' => Incident::ACCIDENT_INFRASTRUCTURE_SCHUTZSTREIFEN,
                         'Fahrradstraße' => Incident::ACCIDENT_INFRASTRUCTURE_FAHRRADSTRASSE,
