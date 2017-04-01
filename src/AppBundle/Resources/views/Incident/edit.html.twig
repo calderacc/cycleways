@@ -165,6 +165,72 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group{% if form_errors(form.accidentLocation) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Link zu Google Streetview:</label>
+                            {{ form_widget(form.accidentLocation, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group{% if form_errors(form.accidentInfrastructure) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Link zu Google Streetview:</label>
+                            {{ form_widget(form.accidentInfrastructure, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group{% if form_errors(form.accidentOpponent) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Link zu Google Streetview:</label>
+                            {{ form_widget(form.accidentOpponent, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group{% if form_errors(form.accidentSex) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Link zu Google Streetview:</label>
+                            {{ form_widget(form.accidentSex, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group{% if form_errors(form.accidentAge) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Link zu Google Streetview:</label>
+                            {{ form_widget(form.accidentAge, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group{% if form_errors(form.accidentPedelec) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Link zu Google Streetview:</label>
+                            {{ form_widget(form.accidentPedelec, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group{% if form_errors(form.accidentHelmet) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Link zu Google Streetview:</label>
+                            {{ form_widget(form.accidentHelmet, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group{% if form_errors(form.accidentCyclistCaused) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Link zu Google Streetview:</label>
+                            {{ form_widget(form.accidentCyclistCaused, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
