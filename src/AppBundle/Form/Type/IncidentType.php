@@ -70,6 +70,22 @@ class IncidentType extends AbstractType
             ->add('streetviewLink', TextType::class)
             ->add('latitude', HiddenType::class)
             ->add('longitude', HiddenType::class)
+            ->add('accidentType', ChoiceType::class,
+                [
+                    'choices' => [
+                        'unbekannt' => Incident::ACCIDENT_TYPE_UNKNOWN,
+                        'Alleinunfall' => Incident::ACCIDENT_TYPE_SOLO,
+                        'Querung der Straße' => Incident::ACCIDENT_TYPE_CROSSING,
+                        'Rotlichtverstoß' => Incident::ACCIDENT_TYPE_REDLIGHT,
+                        'Abbiegeunfall' => Incident::ACCIDENT_TYPE_RIGHTTURN,
+                        'Frontalzusammenstoß' => Incident::ACCIDENT_TYPE_FRONTAL,
+                        'Überholmanöver' => Incident::ACCIDENT_TYPE_OVERTAKE,
+                        'Rammen' => Incident::ACCIDENT_TYPE_RAM,
+                        'Einfahren' => Incident::ACCIDENT_TYPE_PULLIN,
+                        'Dooring' => Incident::ACCIDENT_TYPE_DOORING,
+                    ]
+                ]
+            )
             ->add('accidentLocation', ChoiceType::class,
                 [
                     'choices' => [

@@ -168,6 +168,15 @@
 
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="form-group{% if form_errors(form.accidentType) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Unfallart:</label>
+                            {{ form_widget(form.accidentType, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.accidentLocation) %} has-danger{% endif %}">
                             <label class="control-label" for="">Unfallort:</label>
                             {{ form_widget(form.accidentLocation, { 'attr' : { 'class': 'form-control'} }) }}

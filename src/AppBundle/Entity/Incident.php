@@ -29,6 +29,18 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     const DANGER_LEVEL_NORMAL = 'normal';
     const DANGER_LEVEL_HIGH = 'high';
 
+    const ACCIDENT_TYPE_SOLO = 'solo';
+    const ACCIDENT_TYPE_UNKNOWN = 'unknown';
+    const ACCIDENT_TYPE_OTHER = 'other';
+    const ACCIDENT_TYPE_CROSSING = 'crossing';
+    const ACCIDENT_TYPE_REDLIGHT= 'redlight';
+    const ACCIDENT_TYPE_RIGHTTURN = 'rightturm';
+    const ACCIDENT_TYPE_FRONTAL = 'frontal';
+    const ACCIDENT_TYPE_OVERTAKE = 'overtake';
+    const ACCIDENT_TYPE_RAM = 'ram';
+    const ACCIDENT_TYPE_PULLIN = 'pullin';
+    const ACCIDENT_TYPE_DOORING = 'dooring';
+
     const ACCIDENT_SEX_MALE = 'm';
     const ACCIDENT_SEX_FEMALE = 'f';
 
@@ -233,6 +245,12 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
      * @JMS\Expose
      */
     protected $streetviewLink;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @JMS\Expose
+     */
+    protected $accidentType = null;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -692,6 +710,18 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         $cyclewaysId = strtoupper($code);
 
         return $cyclewaysId;
+    }
+
+    public function getAccidentType(): ?string
+    {
+        return $this->accidentType;
+    }
+
+    public function setAccidentType(string $accidentType): Incident
+    {
+        $this->accidentType = $accidentType;
+
+        return $this;
     }
 
     public function getAccidentLocation(): ?string
