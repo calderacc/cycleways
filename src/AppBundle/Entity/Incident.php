@@ -514,6 +514,8 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     public function setTown(string $town): Incident
     {
         $this->town = $town;
+
+        return $this;
     }
 
     public function getTown(): ?string
