@@ -721,7 +721,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->accidentType;
     }
 
-    public function setAccidentType(string $accidentType): Incident
+    public function setAccidentType(string $accidentType = null): Incident
     {
         $this->accidentType = $accidentType;
 
@@ -733,7 +733,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->accidentLocation;
     }
 
-    public function setAccidentLocation(string $accidentLocation): Incident
+    public function setAccidentLocation(string $accidentLocation = null): Incident
     {
         $this->accidentLocation = $accidentLocation;
 
@@ -745,7 +745,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->accidentInfrastructure;
     }
 
-    public function setAccidentInfrastructure(string $accidentInfrastructure): Incident
+    public function setAccidentInfrastructure(string $accidentInfrastructure = null): Incident
     {
         $this->accidentInfrastructure = $accidentInfrastructure;
 
@@ -757,7 +757,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->accidentOpponent;
     }
 
-    public function setAccidentOpponent(string $accidentOpponent): Incident
+    public function setAccidentOpponent(string $accidentOpponent = null): Incident
     {
         $this->accidentOpponent = $accidentOpponent;
 
@@ -769,7 +769,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->accidentSex;
     }
 
-    public function setAccidentSex(string $accidentSex): Incident
+    public function setAccidentSex(string $accidentSex = null): Incident
     {
         $this->accidentSex = $accidentSex;
 
@@ -781,7 +781,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->accidentAge;
     }
 
-    public function setAccidentAge(int $accidentAge): Incident
+    public function setAccidentAge(int $accidentAge = null): Incident
     {
         $this->accidentAge = $accidentAge;
 
@@ -793,7 +793,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->accidentPedelec;
     }
 
-    public function setAccidentPedelec(bool $accidentPedelec): Incident
+    public function setAccidentPedelec(bool $accidentPedelec = null): Incident
     {
         $this->accidentPedelec = $accidentPedelec;
 
@@ -805,7 +805,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->accidentHelmet;
     }
 
-    public function setAccidentHelmet(bool $accidentHelmet): Incident
+    public function setAccidentHelmet(bool $accidentHelmet = null): Incident
     {
         $this->accidentHelmet = $accidentHelmet;
 
@@ -817,7 +817,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->accidentAlcohol;
     }
 
-    public function setAccidentAlcohol(float $accidentAlcohol): Incident
+    public function setAccidentAlcohol(float $accidentAlcohol = null): Incident
     {
         $this->accidentAlcohol = $accidentAlcohol;
 
@@ -829,7 +829,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $this->accidentCyclistCaused;
     }
 
-    public function setAccidentCyclistCaused(string $accidentCyclistCaused): Incident
+    public function setAccidentCyclistCaused(string $accidentCyclistCaused = null): Incident
     {
         $this->accidentCyclistCaused = $accidentCyclistCaused;
 
