@@ -694,6 +694,11 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return $cyclewaysId;
     }
 
+    public function getAccidentLocation(): ?string
+    {
+        return $this->accidentLocation;
+    }
+
     public function setAccidentLocation(string $accidentLocation): Incident
     {
         $this->accidentLocation = $accidentLocation;

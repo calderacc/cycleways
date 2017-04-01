@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -68,7 +69,51 @@ class IncidentType extends AbstractType
             ->add('zipCode', HiddenType::class)
             ->add('streetviewLink', TextType::class)
             ->add('latitude', HiddenType::class)
-            ->add('longitude', HiddenType::class);
+            ->add('longitude', HiddenType::class)
+            ->add('accidentLocation', ChoiceType::class,
+                [
+                    'choices' => [
+                        'ungefährlich' => Incident::DANGER_LEVEL_NONE,
+                        'niedrig' => Incident::DANGER_LEVEL_LOW,
+                        'normal' => Incident::DANGER_LEVEL_NORMAL,
+                        'hoch' => Incident::DANGER_LEVEL_HIGH
+                    ]
+                ]
+            )
+            ->add('accidentInfrastructure', ChoiceType::class,
+                [
+                    'choices' => [
+                        'ungefährlich' => Incident::DANGER_LEVEL_NONE,
+                        'niedrig' => Incident::DANGER_LEVEL_LOW,
+                        'normal' => Incident::DANGER_LEVEL_NORMAL,
+                        'hoch' => Incident::DANGER_LEVEL_HIGH
+                    ]
+                ]
+            )
+            ->add('accidentOpponent', ChoiceType::class,
+                [
+                'choices' => [
+                    'ungefährlich' => Incident::DANGER_LEVEL_NONE,
+                    'niedrig' => Incident::DANGER_LEVEL_LOW,
+                    'normal' => Incident::DANGER_LEVEL_NORMAL,
+                    'hoch' => Incident::DANGER_LEVEL_HIGH
+                ]
+            ])
+            ->add('accidentSex', ChoiceType::class,
+                [
+                    'choices' => [
+                        'ungefährlich' => Incident::DANGER_LEVEL_NONE,
+                        'niedrig' => Incident::DANGER_LEVEL_LOW,
+                        'normal' => Incident::DANGER_LEVEL_NORMAL,
+                        'hoch' => Incident::DANGER_LEVEL_HIGH
+                    ]
+                ]
+            )
+            ->add('accidentAge', NumberType::class)
+            ->add('accidentPedelec', CheckboxType::class)
+            ->add('accidentHelmet', CheckboxType::class)
+            ->add('accidentCyclistCaused', CheckboxType::class)
+        ;
     }
 
     public function getName()
