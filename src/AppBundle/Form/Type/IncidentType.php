@@ -136,9 +136,33 @@ class IncidentType extends AbstractType
                 ]
             )
             ->add('accidentAge', NumberType::class)
-            ->add('accidentPedelec', CheckboxType::class)
-            ->add('accidentHelmet', CheckboxType::class)
-            ->add('accidentCyclistCaused', CheckboxType::class)
+            ->add('accidentPedelec', ChoiceType::class,
+                [
+                    'choices' => [
+                        'unbekannt' => null,
+                        'ja' => true,
+                        'nein' => false,
+                    ]
+                ]
+            )
+            ->add('accidentHelmet', ChoiceType::class,
+                [
+                    'choices' => [
+                        'unbekannt' => null,
+                        'ja' => true,
+                        'nein' => false,
+                    ]
+                ]
+            )
+            ->add('accidentCyclistCaused', ChoiceType::class,
+                [
+                    'choices' => [
+                        'unbekannt' => null,
+                        'ja' => true,
+                        'nein' => false,
+                    ]
+                ]
+            )
         ;
     }
 
