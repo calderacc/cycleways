@@ -365,300 +365,300 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         return ++$this->views;
     }
 
-    public function setSlug($slug)
+    public function setSlug(string $slug): Incident
     {
         $this->slug = $slug;
 
         return $this;
     }
 
-    public function getSlug()
+    public function getSlug(): ?string
     {
         return $this->slug;
     }
 
-    public function setTitle($title)
+    public function setTitle(string $title): Incident
     {
         $this->title = $title;
 
         return $this;
     }
 
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function setDescription($description)
+    public function setDescription(string $description): Incident
     {
         $this->description = $description;
 
         return $this;
     }
 
-    public function getDescription()
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function setGeometryType($geometryType)
+    public function setGeometryType(string $geometryType): Incident
     {
         $this->geometryType = $geometryType;
 
         return $this;
     }
 
-    public function getGeometryType()
+    public function getGeometryType(): ?string
     {
         return $this->geometryType;
     }
 
-    public function setIncidentType($incidentType)
+    public function setIncidentType(string $incidentType): Incident
     {
         $this->incidentType = $incidentType;
 
         return $this;
     }
 
-    public function getIncidentType()
+    public function getIncidentType(): ?string
     {
         return $this->incidentType;
     }
 
-    public function setDangerLevel($dangerLevel)
+    public function setDangerLevel(string $dangerLevel): Incident
     {
         $this->dangerLevel = $dangerLevel;
 
         return $this;
     }
 
-    public function getDangerLevel()
+    public function getDangerLevel(): ?string
     {
         return $this->dangerLevel;
     }
 
-    public function setAddress($address)
+    public function setAddress(string $address): Incident
     {
         $this->address = $address;
 
         return $this;
     }
 
-    public function getAddress()
+    public function getAddress(): ?string
     {
         return $this->address;
     }
 
-    public function setStreet($street)
+    public function setStreet(string $street): Incident
     {
         $this->street = $street;
 
         return $this;
     }
 
-    public function getStreet()
+    public function getStreet(): ?string
     {
         return $this->street;
     }
 
-    public function setHouseNumber($houseNumber)
+    public function setHouseNumber(string $houseNumber): Incident
     {
         $this->houseNumber = $houseNumber;
 
         return $this;
     }
 
-    public function getHouseNumber()
+    public function getHouseNumber(): ?string
     {
         return $this->houseNumber;
     }
 
-    public function setZipCode($zipCode)
+    public function setZipCode(string $zipCode): Incident
     {
         $this->zipCode = $zipCode;
 
         return $this;
     }
 
-    public function getZipCode()
+    public function getZipCode(): ?string
     {
         return $this->zipCode;
     }
 
-    public function setSuburb($suburb)
+    public function setSuburb(string $suburb): Incident
     {
         $this->suburb = $suburb;
 
         return $this;
     }
 
-    public function getSuburb()
+    public function getSuburb(): ?string
     {
         return $this->suburb;
     }
 
-    public function setDistrict($district)
+    public function setDistrict(string $district): Incident
     {
         $this->district = $district;
 
         return $this;
     }
 
-    public function getDistrict()
+    public function getDistrict(): ?string
     {
         return $this->district;
     }
 
-    public function setTown($town)
+    public function setTown(string $town): Incident
     {
         $this->town = $town;
     }
 
-    public function getTown()
+    public function getTown(): ?string
     {
         return $this->town;
     }
 
-    public function setVillage($village)
+    public function setVillage(string $village): Incident
     {
         $this->village = $village;
 
         return $this;
     }
 
-    public function getVillage()
+    public function getVillage(): ?string
     {
         return $this->village;
     }
 
-    public function setCity($city)
+    public function setCity(string $city): Incident
     {
         $this->city = $city;
 
         return $this;
     }
 
-    public function getCity()
+    public function getCity(): ?string
     {
         return $this->city;
     }
 
-    public function setPolyline($polyline)
+    public function setPolyline($polyline): Incident
     {
         $this->polyline = $polyline;
 
         return $this;
     }
 
-    public function getPolyline()
+    public function getPolyline(): ?string
     {
         return $this->polyline;
     }
 
-    public function setDateTime($dateTime)
+    public function setDateTime(\DateTime $dateTime): Incident
     {
         $this->dateTime = $dateTime;
 
         return $this;
     }
 
-    public function getDateTime()
+    public function getDateTime(): ?\DateTime
     {
         return $this->dateTime;
     }
 
-    public function setExpires($expires)
+    public function setExpires(bool $expires): Incident
     {
         $this->expires = $expires;
 
         return $this;
     }
 
-    public function getExpires()
+    public function getExpires(): ?bool
     {
         return $this->expires;
     }
 
-    public function setVisibleFrom($visibleFrom)
+    public function setVisibleFrom(\DateTime $visibleFrom): Incident
     {
         $this->visibleFrom = $visibleFrom;
 
         return $this;
     }
 
-    public function getVisibleFrom()
+    public function getVisibleFrom(): ?\DateTime
     {
         return $this->visibleFrom;
     }
 
-    public function setVisibleTo($visibleTo)
+    public function setVisibleTo(\DateTime $visibleTo): Incident
     {
         $this->visibleTo = $visibleTo;
 
         return $this;
     }
 
-    public function getVisibleTo()
+    public function getVisibleTo(): ?\DateTime
     {
         return $this->visibleTo;
     }
 
-    public function setEnabled($enabled)
+    public function setEnabled(bool $enabled): Incident
     {
         $this->enabled = $enabled;
 
         return $this;
     }
 
-    public function getEnabled()
+    public function getEnabled(): ?bool
     {
         return $this->enabled;
     }
 
-    public function setCreationDateTime($creationDateTime)
+    public function setCreationDateTime(\DateTime $creationDateTime): Incident
     {
         $this->creationDateTime = $creationDateTime;
 
         return $this;
     }
 
-    public function getCreationDateTime()
+    public function getCreationDateTime(): ?\DateTime
     {
         return $this->creationDateTime;
     }
 
-    public function setPermalink($permalink)
+    public function setPermalink(string $permalink): Incident
     {
         $this->permalink = $permalink;
 
         return $this;
     }
 
-    public function getPermalink()
+    public function getPermalink(): ?string
     {
         return $this->permalink;
     }
 
-    public function setStreetviewLink($streetviewLink)
+    public function setStreetviewLink(string $streetviewLink): Incident
     {
         $this->streetviewLink = $streetviewLink;
 
         return $this;
     }
 
-    public function getStreetviewLink()
+    public function getStreetviewLink(): ?string
     {
         return $this->streetviewLink;
     }
 
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser(User $user = null): Incident
     {
         $this->user = $user;
 
         return $this;
     }
 
-    public function getUser()
+    public function getUser(): ?User
     {
         return $this->user;
     }
@@ -667,7 +667,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
      * @JMS\VirtualProperty
      * @JMS\SerializedName("Timestamp")
      */
-    public function getTimestamp()
+    public function getTimestamp(): int
     {
         return $this->dateTime->format('U');
     }
@@ -676,7 +676,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
      * @JMS\VirtualProperty
      * @JMS\SerializedName("CreationTimestamp")
      */
-    public function getCreationTimestamp()
+    public function getCreationTimestamp(): int
     {
         return $this->creationDateTime->format('U');
     }
@@ -685,7 +685,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
      * @JMS\VirtualProperty
      * @JMS\SerializedName("VisibleFromTimestamp")
      */
-    public function getVisibleFromTimestamp()
+    public function getVisibleFromTimestamp(): int
     {
         return $this->creationDateTime->format('U');
     }
@@ -694,7 +694,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
      * @JMS\VirtualProperty
      * @JMS\SerializedName("VisibleToTimestamp")
      */
-    public function getVisibleToTimestamp()
+    public function getVisibleToTimestamp(): int
     {
         return $this->creationDateTime->format('U');
     }
