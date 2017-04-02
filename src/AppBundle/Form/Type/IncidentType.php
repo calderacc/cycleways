@@ -73,6 +73,7 @@ class IncidentType extends AbstractType
             ->add('accidentType', ChoiceType::class,
                 [
                     'choices' => [
+                        '' => null,
                         'unbekannt' => Incident::ACCIDENT_TYPE_UNKNOWN,
                         'Alleinunfall' => Incident::ACCIDENT_TYPE_SOLO,
                         'Querung der Straße' => Incident::ACCIDENT_TYPE_CROSSING,
@@ -89,6 +90,7 @@ class IncidentType extends AbstractType
             ->add('accidentLocation', ChoiceType::class,
                 [
                     'choices' => [
+                        '' => null,
                         'innerorts' => Incident::ACCIDENT_LOCATION_CITY,
                         'außerorts' => Incident::ACCIDENT_LOCATION_LAND,
                     ]
@@ -97,6 +99,7 @@ class IncidentType extends AbstractType
             ->add('accidentInfrastructure', ChoiceType::class,
                 [
                     'choices' => [
+                        '' => null,
                         'Fahrbahn' => Incident::ACCIDENT_INFRASTRUCTURE_ROAD,
                         'Radweg' => Incident::ACCIDENT_INFRASTRUCTURE_CYCLEPATH,
                         'Radfahrstreifen' => Incident::ACCIDENT_INFRASTRUCTURE_RADFAHRSTREIFEN,
@@ -109,6 +112,7 @@ class IncidentType extends AbstractType
             ->add('accidentOpponent', ChoiceType::class,
                 [
                 'choices' => [
+                    '' => null,
                     'Fußgänger' => Incident::ACCIDENT_OPPONENT_PEDESTRIAN,
                     'Fahrradfahrer' => Incident::ACCIDENT_OPPONENT_CYCLIST,
                     'Motorradfahrer' => Incident::ACCIDENT_OPPONENT_MOTORCYCLE,
@@ -125,6 +129,7 @@ class IncidentType extends AbstractType
             ->add('accidentSex', ChoiceType::class,
                 [
                     'choices' => [
+                        '' => null,
                         'männlich' => Incident::ACCIDENT_SEX_MALE,
                         'weiblich' => Incident::ACCIDENT_SEX_FEMALE,
                     ]
