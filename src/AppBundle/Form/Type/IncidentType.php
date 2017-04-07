@@ -85,6 +85,7 @@ class IncidentType extends AbstractType
                         'Rammen' => Incident::ACCIDENT_TYPE_RAM,
                         'Einfahren' => Incident::ACCIDENT_TYPE_PULLIN,
                         'Dooring' => Incident::ACCIDENT_TYPE_DOORING,
+                        'Bahnübergang' => Incident::ACCIDENT_TYPE_RAILROADCROSSING,
                     ]
                 ]
             )

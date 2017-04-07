@@ -109,6 +109,7 @@ class IncidentAdmin extends AbstractAdmin
                         'Rammen' => Incident::ACCIDENT_TYPE_RAM,
                         'Einfahren' => Incident::ACCIDENT_TYPE_PULLIN,
                         'Dooring' => Incident::ACCIDENT_TYPE_DOORING,
+                        'Bahnübergang' => Incident::ACCIDENT_TYPE_RAILROADCROSSING,
                     ]
                 ]
             )

@@ -33,6 +33,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     const ACCIDENT_TYPE_UNKNOWN = 'unknown';
     const ACCIDENT_TYPE_OTHER = 'other';
     const ACCIDENT_TYPE_CROSSING = 'crossing';
+    const ACCIDENT_TYPE_RAILROADCROSSING = 'railroadcrossing';
     const ACCIDENT_TYPE_RIGHTOFWAY = 'rightofway';
     const ACCIDENT_TYPE_REDLIGHT= 'redlight';
     const ACCIDENT_TYPE_RIGHTTURN = 'rightturm';
