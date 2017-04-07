@@ -86,11 +86,31 @@ class IncidentAdmin extends AbstractAdmin
             ->end()
 
             ->with('Datum', ['class' => 'col-md-6'])
-            ->add('dateTime', DateTimeType::class)
-            ->add('creationDateTime', DateTimeType::class)
+            ->add('dateTime', DateTimeType::class,
+                [
+                    'model_timezone' => 'UTC',
+                    'view_timezone' => 'Europe/Berlin',
+                ]
+            )
+            ->add('creationDateTime', DateTimeType::class,
+                [
+                    'model_timezone' => 'UTC',
+                    'view_timezone' => 'Europe/Berlin',
+                ]
+            )
             ->add('expires', CheckboxType::class)
-            ->add('visibleFrom', DateTimeType::class)
-            ->add('visibleTo', DateTimeType::class)
+            ->add('visibleFrom', DateTimeType::class,
+                [
+                    'model_timezone' => 'UTC',
+                    'view_timezone' => 'Europe/Berlin',
+                ]
+            )
+            ->add('visibleTo', DateTimeType::class,
+                [
+                    'model_timezone' => 'UTC',
+                    'view_timezone' => 'Europe/Berlin',
+                ]
+            )
             ->end()
 
             ->with('Unfalldaten', ['class' => 'col-md-6'])

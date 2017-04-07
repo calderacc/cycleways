@@ -49,14 +49,20 @@ class IncidentType extends AbstractType
             ->add('dateTime', DateTimeType::class,
                 [
                     'date_widget' => 'single_text',
+                    'model_timezone' => 'UTC',
+                    'view_timezone' => 'Europe/Berlin',
                 ])
             ->add('visibleFrom', DateType::class,
                 [
                     'widget' => 'single_text',
+                    'model_timezone' => 'UTC',
+                    'view_timezone' => 'Europe/Berlin',
                 ])
             ->add('visibleTo',  DateType::class,
                 [
                     'widget' => 'single_text',
+                    'model_timezone' => 'UTC',
+                    'view_timezone' => 'Europe/Berlin',
                 ])
             ->add('expires', CheckboxType::class)
             ->add('street', TextType::class)
