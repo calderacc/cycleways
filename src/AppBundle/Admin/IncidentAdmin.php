@@ -189,8 +189,8 @@ class IncidentAdmin extends AbstractAdmin
                 [
                     'choices' => [
                         'unbekannt' => null,
-                        'ja' => true,
-                        'nein' => false,
+                        'ja' => 1,
+                        'nein' => 0,
                     ]
                 ]
             )
@@ -198,8 +198,8 @@ class IncidentAdmin extends AbstractAdmin
                 [
                     'choices' => [
                         'unbekannt' => null,
-                        'ja' => true,
-                        'nein' => false,
+                        'ja' => 1,
+                        'nein' => 0,
                     ]
                 ]
             )
@@ -207,8 +207,8 @@ class IncidentAdmin extends AbstractAdmin
                 [
                     'choices' => [
                         'unbekannt' => null,
-                        'ja' => true,
-                        'nein' => false,
+                        'ja' => 1,
+                        'nein' => 0,
                     ]
                 ]
             )
@@ -222,6 +222,7 @@ class IncidentAdmin extends AbstractAdmin
         $datagridMapper
             ->add('title')
             ->add('user')
+            ->add('incidentType')
         ;
     }
 
