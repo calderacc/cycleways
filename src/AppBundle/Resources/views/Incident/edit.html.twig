@@ -112,7 +112,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row toggle-visibility" data-visible="rage,danger,roadworks,infrastructure">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.dangerLevel) %} has-danger{% endif %}">
                             <label class="control-label" for="">Höhe der Gefahr:</label>
@@ -123,8 +123,8 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="row">
+
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.dateTime) %} has-danger{% endif %}">
                             <label class="control-label" for="">Zeitpunkt des Vorfalls:</label>
@@ -141,7 +141,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row toggle-visibility" data-visible="rage,danger,roadworks,infrastructure">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.expires) %} has-danger{% endif %}">
                             <label class="control-label" for="">Gefahrenstelle ist zeitlich begrenzt:</label>
@@ -150,7 +150,7 @@
                     </div>
                 </div>
 
-                <div id="daterange" class="input-daterange">
+                <div id="daterange" class="input-daterange toggle-visibility" data-visible="rage,danger,roadworks,infrastructure">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group{% if form_errors(form.visibleFrom) %} has-danger{% endif %}">
@@ -174,7 +174,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.accidentType) %} has-danger{% endif %}">
                             <label class="control-label" for="">Unfallart:</label>
@@ -183,7 +183,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.accidentLocation) %} has-danger{% endif %}">
                             <label class="control-label" for="">Unfallort:</label>
@@ -192,7 +192,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.accidentInfrastructure) %} has-danger{% endif %}">
                             <label class="control-label" for="">Befahrener Straßenteil:</label>
@@ -201,7 +201,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.accidentOpponent) %} has-danger{% endif %}">
                             <label class="control-label" for="">Unfallgegner:</label>
@@ -210,7 +210,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
                     <div class="col-md-6">
                         <div class="form-group{% if form_errors(form.accidentSex) %} has-danger{% endif %}">
                             <label class="control-label" for="">Geschlecht:</label>
@@ -226,7 +226,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
                     <div class="col-md-4">
                         <div class="form-group{% if form_errors(form.accidentPedelec) %} has-danger{% endif %}">
                             <label class="control-label" for="">Pedelec:</label>

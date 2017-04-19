@@ -38,9 +38,14 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
         this._map.map.on('draw:created', this._onMapDrawCallback.bind(this));
         this._map.map.on('draw:editstop', this._onMapEditCallback.bind(this));
         this._map.map.on('draw:deletestop', this._onMapDeleteCallback.bind(this));
-        $('#incident_dangerLevel').on('change', this._updateMarkerIcon.bind(this));
-        $('#incident_incidentType').on('change', this._updateMarkerIcon.bind(this));
+        $('#incident_dangerLevel').on('change', this._updateIncidentType.bind(this));
+        $('#incident_incidentType').on('change', this._updateIncidentType.bind(this));
         $('#incident_streetviewLink').on('change', this._resolveGoogleMapsLink.bind(this));
+    };
+
+    CyclewaysIncidentEditPage.prototype._updateIncidentType = function() {
+        this._updateMarkerIcon();
+        this._updateFieldVisibility();
     };
 
     CyclewaysIncidentEditPage.prototype._initDrawControl = function () {
@@ -167,6 +172,23 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
 
     CyclewaysIncidentEditPage.prototype._getCurrentIncidentType = function () {
         return $('#incident_incidentType').val();
+    };
+
+    CyclewaysIncidentEditPage.prototype._updateFieldVisibility = function () {
+        var incidentType = this._getCurrentIncidentType();
+
+        $('.toggle-visibility').each(function() {
+            var visible = $(this).data('visible');
+            var visibleList = visible.split(',');
+
+            if (visibleList.indexOf(incidentType) < 0) {
+                $(this).hide();
+            } else {
+                $(this).show();
+            }
+
+
+        });
     };
 
     CyclewaysIncidentEditPage.prototype.setView = function (centerLatLng, zoom) {
