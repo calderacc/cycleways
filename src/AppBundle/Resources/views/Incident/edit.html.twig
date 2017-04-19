@@ -45,18 +45,6 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.dangerLevel) %} has-danger{% endif %}">
-                            <label class="control-label" for="">Höhe der Gefahr:</label>
-                            {{ form_widget(form.dangerLevel, { 'attr' : { 'class': 'form-control'} }) }}
-                            <p class="help-block">
-                                Wie gefährlich ist es hier?
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.title) %} has-danger{% endif %}">
                             {% if form_errors(form.title) %}
                             <div class="alert alert-danger">{{ form_errors(form.title) }}</div>
@@ -124,6 +112,18 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group{% if form_errors(form.dangerLevel) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Höhe der Gefahr:</label>
+                            {{ form_widget(form.dangerLevel, { 'attr' : { 'class': 'form-control'} }) }}
+                            <p class="help-block">
+                                Wie gefährlich ist es hier?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.dateTime) %} has-danger{% endif %}">
