@@ -20,13 +20,13 @@
 
         <div class="row">
             {% if incident.featuredPhoto %}
-            <div class="col-md-6">
+            <div class="col-md-6 pr-0">
                 <div id="map" style="height: 350px;"></div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 pl-0">
                 <a href="{{ path('caldera_cycleways_incident_photo_show', { slug: incident.slug, photoId: incident.featuredPhoto.id }) }}">
-                    <img class="img-fluid" src="{{ vich_uploader_asset(incident.featuredPhoto, 'imageFile')|imagine_filter('gallery_photo_medium') }}" />
+                    <img id="featured-photo" class="img-fluid" src="{{ vich_uploader_asset(incident.featuredPhoto, 'imageFile')|imagine_filter('gallery_photo_medium') }}" />
                 </a>
             </div>
             {% else %}
