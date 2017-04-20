@@ -55,6 +55,15 @@
                         Foto {{ photo.id }}
                     </div>
                     <div class="card-block">
+                        <dl>
+                            <dt>
+                                Aufnahmezeitpunkt:
+                            </dt>
+                            <dd>
+                                {{ photo.dateTime|date('d.m.Y H:i') }} Uhr
+                            </dd>
+                        </dl>
+
                         <div class="btn-group">
                             <a href="{{ path('caldera_cycleways_incident_photo_feature', { slug: incident.slug, photoId: photo.id }) }}" class="btn btn-secondary" title="Als Hauptfoto festlegen">
                                 <i class="fa fa-file-image-o" aria-hidden="true"></i>
