@@ -1,4 +1,4 @@
-define(['CriticalService'], function (CriticalService) {
+define(['CriticalService', 'js-cookie'], function (CriticalService, Cookie) {
     PhotoShowPage = function (context, options) {
         this._initEventListeners();
     };
@@ -17,12 +17,15 @@ define(['CriticalService'], function (CriticalService) {
             $photoCol.removeClass('col-md-9').addClass('col-md-12');
 
             $detailCol.hide();
+
+            Cookie.set('cycleways-photo-full', true, { expires: 7 });
         } else {
             $photoCol.removeClass('col-md-12').addClass('col-md-9');
 
             $detailCol.show();
-        }
 
+            Cookie.set('cycleways-photo-full', false, { expires: 7 });
+        }
     };
 
     return PhotoShowPage;
