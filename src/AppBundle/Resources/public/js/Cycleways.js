@@ -39,6 +39,7 @@ require.config({
         "typeahead": bundleBaseDirectory + "js/external/typeahead/typeahead",
         "bloodhound": bundleBaseDirectory + "js/external/typeahead/bloodhound",
         "jquery": bundleBaseDirectory + "js/external/jquery/jquery-2.1.4.min",
+        "js-cookie": bundleBaseDirectory + "js/external/js-cookie/js-cookie",
         "dateformat": bundleBaseDirectory + "js/external/dateformat/dateformat",
         "bootstrap-datepicker": bundleBaseDirectory + "js/external/bootstrap-datepicker/bootstrap-datepicker.min"
     },
