@@ -40,16 +40,22 @@
     </div>
 {% endblock %}
 
+{% if app.request.cookies.get('cycleways-photo-full') == 'true' %}
+    {% set fullwidth = true %}
+{% else %}
+    {% set fullwidth = false %}
+{% endif %}
+
 {% block content %}
     <div class="container">
         {{ block('navigation') }}
 
         <div class="row">
-            <div id="photo-col" class="col-md-9">
+            <div id="photo-col" class="{% if fullwidth %}col-md-12{% else %}col-md-9{% endif %}">
                 <img id="photo" class="img-fluid" src="{{ vich_uploader_asset(photo, 'imageFile')|imagine_filter('gallery_photo_standard') }}"/>
             </div>
 
-            <div id="detail-col" class="col-md-3">
+            <div id="detail-col" class="col-md-3{% if fullwidth %} hidden{% endif %}">
                 <div class="card">
                     <div class="card-header">
                         Foto {{ photo.id }}
