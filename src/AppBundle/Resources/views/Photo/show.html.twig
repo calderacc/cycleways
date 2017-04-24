@@ -52,7 +52,23 @@
 
         <div class="row">
             <div id="photo-col" class="{% if fullwidth %}col-md-12{% else %}col-md-9{% endif %}">
-                <img id="photo" class="img-fluid" src="{{ vich_uploader_asset(photo, 'imageFile')|imagine_filter('gallery_photo_standard') }}"/>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img id="photo" class="img-fluid" src="{{ vich_uploader_asset(photo, 'imageFile')|imagine_filter('gallery_photo_standard') }}"/>
+                    </div>
+                </div>
+
+                <div class="row mt-1">
+                    <div class="col-md-12">
+                        <h2 class="h3">
+                            {{ photo.incident.title }}
+                        </h2>
+
+                        <p>
+                            {{ photo.description|parse }}
+                        </p>
+                    </div>
+                </div>
             </div>
 
             <div id="detail-col" class="col-md-3{% if fullwidth %} hide{% endif %}">
