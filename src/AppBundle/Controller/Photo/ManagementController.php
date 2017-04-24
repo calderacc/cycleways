@@ -3,10 +3,13 @@
 namespace AppBundle\Controller\Photo;
 
 use AppBundle\Controller\AbstractController;
+use AppBundle\Entity\City;
 use AppBundle\Entity\Incident;
 use AppBundle\Entity\Photo;
+use AppBundle\Form\Type\PhotoDescriptionType;
 use AppBundle\Traits\ViewStorageTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -55,5 +58,42 @@ class ManagementController extends AbstractController
                 'slug' => $photo->getIncident()->getSlug()
             ]
         );
+    }
+
+    public function editDescriptionAction(Request $request, UserInterface $user, string $slug, int $photoId): Response
+    {
+        $photo = $this->getPhotoRepository()->find($photoId);
+
+        if (!$photo) {
+            throw $this->createNotFoundException();
+        }
+
+        $form = $this->createPhotoDescriptionForm($photo);
+
+        return $this->render(
+            'AppBundle:Photo:editDescription.html.twig',
+            [
+                'photoDescriptionForm' => $form->createView()
+            ]
+        );
+    }
+
+    protected function createPhotoDescriptionForm(Photo $photo): Form
+    {
+        $form = $this->createForm(
+            PhotoDescriptionType::class,
+            $photo,
+            [
+                'action' => $this->generateUrl(
+                    'caldera_cycleways_photo_edit_description',
+                    [
+                        'slug' => $photo->getIncident()->getSlug(),
+                        'photoId' => $photo->getId(),
+                    ]
+                )
+            ]
+        );
+
+        return $form;
     }
 }

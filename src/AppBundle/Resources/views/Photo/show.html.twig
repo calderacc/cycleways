@@ -101,7 +101,13 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    {{ render(controller(
+                    'AppBundle:Photo/Management:editDescription',
+                    {
+                        'slug': incident.slug,
+                        'photoId': photo.id
+                    }
+                    )) }}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

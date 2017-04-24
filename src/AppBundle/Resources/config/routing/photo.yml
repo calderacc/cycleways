@@ -21,3 +21,11 @@ caldera_cycleways_incident_photo_delete:
     requirements:
         slug: '(.*)\-([0-9]{1,6})'
     defaults: { _controller: AppBundle:Photo/Management:delete }
+
+caldera_cycleways_photo_edit_description:
+    path:     /{slug}/photo/{photoId}/editDescription
+    requirements:
+        slug: '(.*)\-([0-9]{1,6})'
+    defaults: { _controller: AppBundle:Photo/Management:editDescription }
+
+
