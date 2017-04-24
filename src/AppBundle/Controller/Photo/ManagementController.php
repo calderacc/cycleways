@@ -70,6 +70,24 @@ class ManagementController extends AbstractController
 
         $form = $this->createPhotoDescriptionForm($photo);
 
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $photo = $form->getData();
+
+                $this->getDoctrine()->getManager()->flush();
+            }
+
+            $this->redirectToRoute(
+                'caldera_cycleways_incident_photo_show',
+                [
+                    'slug' => $photo->getIncident()->getSlug(),
+                    'photoId' => $photo->getId(),
+                ]
+            );
+        }
+
         return $this->render(
             'AppBundle:Photo:editDescription.html.twig',
             [
