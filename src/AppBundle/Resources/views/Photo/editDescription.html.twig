@@ -1,19 +1,28 @@
 <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="edit-modal-label" aria-hidden="true">
     <div class="modal-dialog" role="document">
+        {{ form_start(photoDescriptionForm) }}
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="edit-modal-label">Beschreibung editieren</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                <h5 class="modal-title" id="edit-modal-label">
+                    Beschreibung editieren
+                </h5>
             </div>
             <div class="modal-body">
-                {{ form(photoDescriptionForm) }}
+                <div class="form-group">
+                    <label>
+                        Beschreibung:
+                    </label>
+                    {{ form_widget(photoDescriptionForm.description, { attr: { class: 'form-control' }}) }}
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
+        {{ form_end(photoDescriptionForm) }}
     </div>
 </div>
