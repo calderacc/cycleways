@@ -7,10 +7,6 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class AuthorityAdmin extends AbstractAdmin
 {
@@ -19,6 +15,13 @@ class AuthorityAdmin extends AbstractAdmin
         $formMapper
             ->add('title')
             ->add('description')
+            ->add('street')
+            ->add('houseNumber')
+            ->add('zipCode')
+            ->add('city')
+            ->add('latitude')
+            ->add('longitude')
+            ->add('polygon')
         ;
     }
 
