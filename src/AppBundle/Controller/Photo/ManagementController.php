@@ -79,7 +79,7 @@ class ManagementController extends AbstractController
                 $this->getDoctrine()->getManager()->flush();
             }
 
-            $this->redirectToRoute(
+            return $this->redirectToRoute(
                 'caldera_cycleways_incident_photo_show',
                 [
                     'slug' => $photo->getIncident()->getSlug(),
