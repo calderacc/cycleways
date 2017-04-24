@@ -55,7 +55,7 @@
                 <img id="photo" class="img-fluid" src="{{ vich_uploader_asset(photo, 'imageFile')|imagine_filter('gallery_photo_standard') }}"/>
             </div>
 
-            <div id="detail-col" class="col-md-3{% if fullwidth %} hidden{% endif %}">
+            <div id="detail-col" class="col-md-3{% if fullwidth %} hide{% endif %}">
                 <div class="card">
                     <div class="card-header">
                         Foto {{ photo.id }}
@@ -79,7 +79,7 @@
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                             </a>
 
-                            <a href="#" class="btn btn-secondary" title="Eigenschaften bearbeiten">
+                            <a href="#" class="btn btn-secondary" title="Beschreibung bearbeiten" data-toggle="modal" data-target="#edit-modal">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -89,6 +89,26 @@
         </div>
 
         {{ block('navigation') }}
+    </div>
+
+    <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="edit-modal-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="edit-modal-label">Beschreibung editieren</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
