@@ -19,6 +19,8 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
             autoclose: true,
             todayHighlight: true
         });
+
+        this._updateFieldVisibility();
     };
 
     CyclewaysIncidentEditPage.prototype._CriticalService = null;
