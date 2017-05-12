@@ -82,7 +82,33 @@
                     Neuste Fotos
                 </h4>
 
-                {{ dump(photoList) }}
+                <ul class="list-group">
+                    {% for photo in photoList %}
+                        <li class="list-group-item list-group-item-action flex-column align-items-start">
+                            <a href="{{ path('caldera_cycleways_incident_photo_show', { slug: photo.incident.slug, photoId: photo.id }) }}">
+                               <img class="img-thumbnail" src="{{ vich_uploader_asset(photo, 'imageFile')|imagine_filter('gallery_photo_thumb') }}" />
+                            </a>
+
+                            <div class="mt-1 d-flex w-100 justify-content-between">
+                                <a href="{{ path('caldera_cycleways_incident_show', { slug: photo.incident.slug }) }}">
+                                    <h5 class="mb-1">
+                                        {{ photo.incident.title }}
+                                    </h5>
+                                </a>
+
+                                <small>{{ photo.dateTime|date('d.m.Y H:i') }} Uhr</small>
+                            </div>
+
+                            <p class="mb-1">
+                                {{ photo.description[:250] }}
+                            </p>
+
+                            <small class="text-muted">
+                                hochgeladen von {{ photo.user.username }}
+                            </small>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
