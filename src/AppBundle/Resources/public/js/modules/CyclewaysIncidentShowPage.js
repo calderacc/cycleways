@@ -5,6 +5,7 @@ define(['CriticalService', 'Map', 'IncidentEntity'], function (CriticalService) 
         this._options = options;
 
         this._initMap();
+        this._setHeaderRow();
     };
 
     CyclewaysIncidentShowPage.prototype._CriticalService = null;
@@ -30,6 +31,17 @@ define(['CriticalService', 'Map', 'IncidentEntity'], function (CriticalService) 
             this._incident.addPolylineToMap(this._map);
         }
     };
+
+    CyclewaysIncidentShowPage.prototype._setHeaderRow = function () {
+        var $featuredPhoto = $('#featured-photo');
+
+        if ($featuredPhoto) {
+            var height = $featuredPhoto.height();
+
+            $('#map').height(height);
+        }
+    };
+
 
     return CyclewaysIncidentShowPage;
 });

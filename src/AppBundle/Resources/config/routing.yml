@@ -10,6 +10,10 @@ caldera_cycleways_search:
     resource: "@AppBundle/Resources/config/routing/search.yml"
     prefix: /
 
+caldera_cycleways_photo:
+    resource: "@AppBundle/Resources/config/routing/photo.yml"
+    prefix: /
+
 caldera_cycleways_incident:
     resource: "@AppBundle/Resources/config/routing/incident.yml"
     prefix: /

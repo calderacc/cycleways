@@ -19,9 +19,21 @@
         </div>
 
         <div class="row">
+            {% if incident.featuredPhoto %}
+            <div class="col-md-6 pr-0">
+                <div id="map" style="height: 350px;"></div>
+            </div>
+
+            <div class="col-md-6 pl-0">
+                <a href="{{ path('caldera_cycleways_incident_photo_show', { slug: incident.slug, photoId: incident.featuredPhoto.id }) }}">
+                    <img id="featured-photo" class="img-fluid" src="{{ vich_uploader_asset(incident.featuredPhoto, 'imageFile')|imagine_filter('gallery_photo_medium') }}" />
+                </a>
+            </div>
+            {% else %}
             <div class="col-md-12">
                 <div id="map" style="height: 350px;"></div>
             </div>
+            {% endif %}
         </div>
 
         <div class="row mt-2">
@@ -96,7 +108,7 @@
                                     {% for photo in photos %}
                                         <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                             <a href="{{ path('caldera_cycleways_incident_photo_show', { slug: incident.slug, photoId: photo.id }) }}">
-                                                <img class="img-thumbnail" src="{{ vich_uploader_asset(photo, 'imageFile')|imagine_filter('gallery_photo_thumb') }}"/>
+                                                <img class="img-thumbnail" src="{{ vich_uploader_asset(photo, 'imageFile')|imagine_filter('gallery_photo_thumb') }}" />
                                             </a>
                                         </div>
                                     {% endfor %}
