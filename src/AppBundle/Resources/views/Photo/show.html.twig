@@ -86,6 +86,7 @@
                             </dd>
                         </dl>
 
+                        {% if app.user and app.user == photo.user or is_granted('ROLE_ADMIN') %}
                         <div class="btn-group">
                             <a href="{{ path('caldera_cycleways_incident_photo_feature', { slug: incident.slug, photoId: photo.id }) }}" class="btn btn-secondary" title="Als Hauptfoto festlegen">
                                 <i class="fa fa-file-image-o" aria-hidden="true"></i>
@@ -99,6 +100,7 @@
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                             </a>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
