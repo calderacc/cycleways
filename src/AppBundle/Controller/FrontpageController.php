@@ -12,12 +12,14 @@ class FrontpageController extends AbstractController
     {
         $incidentList = $this->getIncidentRepository()->findLatest();
         $postList = $this->getPostRepository()->findLatest();
+        $photoList = $this->getPhotoRepository()->findLatestGroupedByIncident();
 
         return $this->render(
             'AppBundle:Frontpage:index.html.twig',
             [
                 'incidentList' => $incidentList,
                 'postList' => $postList,
+                'photoList' => $photoList,
             ]);
     }
 }
