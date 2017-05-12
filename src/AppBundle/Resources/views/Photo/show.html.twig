@@ -96,6 +96,12 @@
                                 nicht gespeichert
                                 {% endif %}
                             </dd>
+                            <dt>
+                                Ansichten
+                            </dt>
+                            <dd>
+                                {{ photo.views }}
+                            </dd>
                         </dl>
 
                         {% if app.user and app.user == photo.user or is_granted('ROLE_ADMIN') %}
