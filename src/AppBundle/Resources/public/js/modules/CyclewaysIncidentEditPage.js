@@ -19,6 +19,8 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
             autoclose: true,
             todayHighlight: true
         });
+
+        this._updateFieldVisibility();
     };
 
     CyclewaysIncidentEditPage.prototype._CriticalService = null;
@@ -27,6 +29,9 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
     CyclewaysIncidentEditPage.prototype._drawnItems = null;
     CyclewaysIncidentEditPage.prototype._geocoding = null;
     CyclewaysIncidentEditPage.prototype._incidentMarkerIcon = null;
+    CyclewaysIncidentEditPage.prototype._drawControl = null;
+    CyclewaysIncidentEditPage.prototype._standardDrawControlDrawOptions = {};
+
 
     CyclewaysIncidentEditPage.prototype._initMap = function () {
         this._map = new DrawMap('map');
@@ -53,26 +58,43 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
         this._drawnItems.addTo(this._map.map);
         this._createIcon();
 
-        var drawControl = new L.Control.Draw({
+        this._standardDrawControlDrawOptions = {
+            rectangle: false,
+            circle: false,
+            polyline: {
+            repeatMode: false
+        },
+        polygon: false,
+            marker: {
+                icon: this._markerIcon,
+                repeatMode: false
+            }
+        };
+
+        this._drawControl = new L.Control.Draw({
             edit: {
                 featureGroup: this._drawnItems,
                 remove: true
             },
-            draw: {
-                rectangle: false,
-                circle: false,
-                polyline: {
-                    repeatMode: false
-                },
-                polygon: false,
-                marker: {
-                    icon: this._markerIcon,
-                    repeatMode: false
-                }
-            }
+            draw: this._standardDrawControlDrawOptions
         });
 
-        this._map.map.addControl(drawControl);
+        this._map.map.addControl(this._drawControl);
+    };
+
+    CyclewaysIncidentEditPage.prototype._toggleDrawControl = function() {
+        if (this._drawnItems.getLayers().length > 0) {
+            alert('disable');
+            this._drawControl.setDrawingOptions({
+                polyline: false,
+                marker: false
+            });
+        } else {
+            this._drawControl.setDrawingOptions(this._standardDrawControlDrawOptions);
+        }
+
+        this._map.map.removeControl(this._drawControl);
+        this._map.map.addControl(this._drawControl);
     };
 
     CyclewaysIncidentEditPage.prototype._onMapDrawCallback = function(e) {
@@ -111,6 +133,8 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
         this._geocoding.searchAddressForLatLng(latLng.lat, latLng.lng, this._updateAddress);
 
         layer.addTo(this._drawnItems);
+
+        this._toggleDrawControl();
     };
 
     CyclewaysIncidentEditPage.prototype._onMapEditCallback = function(e) {
@@ -134,6 +158,8 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
         $('#incident_city').val('');
         $('#incident_latitude').val('');
         $('#incident_longitude').val('');
+
+        this._toggleDrawControl();
     };
 
     CyclewaysIncidentEditPage.prototype._updateAddress = function(address) {
@@ -186,8 +212,6 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
             } else {
                 $(this).show();
             }
-
-
         });
     };
 

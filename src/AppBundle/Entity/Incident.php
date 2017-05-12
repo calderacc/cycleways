@@ -252,6 +252,12 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     protected $streetviewLink;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Photo", inversedBy="incidents")
+     * @ORM\JoinColumn(referencedColumnName="id")
+     */
+    protected $featuredPhoto;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @JMS\Expose
      */
@@ -717,6 +723,16 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         $cyclewaysId = strtoupper($code);
 
         return $cyclewaysId;
+    }
+
+    public function getFeaturedPhoto(): ?Photo
+    {
+        return $this->featuredPhoto;
+    }
+
+    public function setFeaturedPhoto(Photo $featuredPhoto = null): Incident
+    {
+        $this->featuredPhoto = $featuredPhoto;
     }
 
     public function getAccidentType(): ?string
