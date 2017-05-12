@@ -2,6 +2,7 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Incident;
 use AppBundle\Entity\Photo;
 use Doctrine\ORM\EntityRepository;
 
@@ -56,6 +57,24 @@ class PhotoRepository extends EntityRepository
         return $result;
     }
 
+    public function findByIncident(Incident $incident): array
+    {
+        $builder = $this->createQueryBuilder('photo');
+
+        $builder
+            ->where($builder->expr()->eq('photo.incident', ':incident'))
+            ->andWhere($builder->expr()->eq('photo.enabled', 1))
+            ->andWhere($builder->expr()->eq('photo.deleted', 0))
+            ->addOrderBy('photo.dateTime', 'DESC')
+            ->setParameter('incident', $incident)
+        ;
+
+        $query = $builder->getQuery();
+
+        $result = $query->getResult();
+
+        return $result;
+    }
 
     public function findForTimelinePhotoCollector(\DateTime $startDateTime = null, \DateTime $endDateTime = null, int $limit = null): array
     {
