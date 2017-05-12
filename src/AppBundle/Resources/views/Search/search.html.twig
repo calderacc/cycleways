@@ -15,80 +15,8 @@
         <div class="row mt-1">
             {% for incident in incidents %}
             <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="card">
-                    {% if incident.featuredPhoto %}
-                    <a href="{{ path('caldera_cycleways_incident_show', { slug: incident.slug }) }}">
-                        <img class="card-img-top img-fluid" src="{{ vich_uploader_asset(incident.featuredPhoto, 'imageFile')|imagine_filter('gallery_photo_medium') }}" />
-                    </a>
-                    {% else %}
-                    {% set markerIconColor = 'white' %}
-
-                    {% if incident.dangerLevel == 'low' %}
-                        {% set markerColor = 'yellow' %}
-                    {% elseif incident.dangerLevel == 'normal' %}
-                        {% set markerColor = 'orange' %}
-                    {% elseif incident.dangerLevel == 'high' %}
-                        {% set markerColor = 'red' %}
-                    {% endif %}
-
-                    {% if incident.incidentType == 'infrastructure' %}
-                        {% set markerColor = 'red' %}
-                        {% set markerIcon = 'fa-exclamation' %}
-                    {% elseif incident.incidentType == 'danger' %}
-                        {% set markerIcon = 'fa-exclamation' %}
-                    {% elseif incident.incidentType == 'rage' %}
-                        {% set markerColor = 'red' %}
-                        {% set markerIcon = 'fa-bolt' %}
-                    {% elseif incident.incidentType == 'roadworks' %}
-                        {% set markerColor = 'green' %}
-                        {% set markerIcon = 'fa-wrench' %}
-                    {% elseif incident.incidentType == 'accident' %}
-                        {% set markerIconColor = 'black' %}
-                        {% set markerColor = 'white' %}
-                        {% set markerIcon = 'fa-ambulance' %}
-                    {% elseif incident.incidentType == 'deadly_accident' %}
-                        {% set markerColor = 'black' %}
-                        {% set markerIcon = 'fa-ambulance' %}
-                    {% elseif incident.incidentType == 'police' %}
-                        {% set markerColor = 'blue' %}
-                        {% set markerIcon = 'fa-cab' %}
-                    {% endif %}
-
-                    <div id="map-{{ incident.id }}"
-                         class="card-img-top"
-                         data-map-center-latitude="{{ incident.latitude }}"
-                         data-map-center-longitude="{{ incident.longitude }}"
-                         data-map-zoomlevel="13"
-                         data-lock-map="true"
-                         data-map-marker-latitude="{{ incident.latitude }}"
-                         data-map-marker-longitude="{{ incident.longitude }}"
-                         data-map-marker-color="{{ markerColor }}"
-                         data-map-marker-icon="{{ markerIcon }}"
-                         data-map-marker-shape="square"
-                         style="height: 200px;">
-                    </div>
-                    {% endif %}
-                    <div class="card-block">
-                        <a href="{{ path('caldera_cycleways_incident_show', { slug: incident.slug }) }}">
-                            <h4 class="card-title">
-                                {{ incident.title }}
-                            </h4>
-                        </a>
-
-                        <p class="card-text">
-                            {{ incident.description[:250] }}
-                        </p>
-
-                        <small>
-                            {{ incident.street }}, {{ incident.zipCode }} {{ incident.city }}
-                        </small>
-                    </div>
-                </div>
+                {{ include('AppBundle:Incident:_card.html.twig', { 'incident': incident }) }}
             </div>
-
-            <script type="text/javascript">
-                Cycleways.loadModule('AutoMap', 'map-{{ incident.id }}');
-            </script>
             {% endfor %}
 
             {% if incidents|length == 0 %}
