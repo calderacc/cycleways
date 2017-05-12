@@ -3,12 +3,8 @@
 namespace AppBundle\Controller\Photo;
 
 use AppBundle\Controller\AbstractController;
-use AppBundle\Entity\City;
-use AppBundle\Entity\Incident;
 use AppBundle\Entity\Photo;
 use AppBundle\Form\Type\PhotoDescriptionType;
-use AppBundle\Traits\ViewStorageTrait;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
