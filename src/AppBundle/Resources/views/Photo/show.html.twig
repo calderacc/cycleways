@@ -84,6 +84,18 @@
                             <dd>
                                 {{ photo.dateTime|date('d.m.Y H:i') }} Uhr
                             </dd>
+                            <dt>
+                                Koordinaten
+                            </dt>
+                            <dd>
+                                {% if photo.latitude and photo.longitude %}
+                                <a href="http://www.openstreetmap.org/#map=19/{{ photo.latitude }}/{{ photo.longitude }}">
+                                    {{ photo.latitude }}, {{ photo.longitude }}
+                                </a>
+                                {% else %}
+                                nicht gespeichert
+                                {% endif %}
+                            </dd>
                         </dl>
 
                         {% if app.user and app.user == photo.user or is_granted('ROLE_ADMIN') %}
