@@ -63,9 +63,11 @@
                          style="height: 200px;">
                     </div>
                     <div class="card-block">
-                        <h4 class="card-title">
-                            {{ incident.title }}
-                        </h4>
+                        <a href="{{ path('caldera_cycleways_incident_show', { slug: incident.slug }) }}">
+                            <h4 class="card-title">
+                                {{ incident.title }}
+                            </h4>
+                        </a>
 
                         <p class="card-text">
                             {{ incident.description[:250] }}
