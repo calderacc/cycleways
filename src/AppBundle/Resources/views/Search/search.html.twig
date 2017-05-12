@@ -90,6 +90,14 @@
                 Cycleways.loadModule('AutoMap', 'map-{{ incident.id }}');
             </script>
             {% endfor %}
+
+            {% if incidents|length == 0 %}
+                <div class="col-md-12">
+                    <div class="alert alert-info">
+                        <strong>Schade:</strong> Zu deinem Suchbegriff „{{ queryPhrase }}“ gibt es leider keine Suchergebnisse.
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
