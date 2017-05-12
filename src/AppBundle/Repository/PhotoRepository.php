@@ -100,6 +100,7 @@ class PhotoRepository extends EntityRepository
             ->where($builder->expr()->eq('p.enabled', 1))
             ->andWhere($builder->expr()->eq('p.deleted', 0))
             ->groupBy('p.incident')
+            ->orderBy('p.dateTime', 'DESC')
             ->setMaxResults($limit)
         ;
 
