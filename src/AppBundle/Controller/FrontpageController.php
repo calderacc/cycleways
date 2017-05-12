@@ -10,24 +10,12 @@ class FrontpageController extends AbstractController
 {
     public function indexAction(Request $request): Response
     {
-        $endDateTime = new \DateTime();
-        $startDateTime = new \DateTime();
-        $monthInterval = new \DateInterval('P3M');
-        $startDateTime->sub($monthInterval);
-
-        /**
-         * @var Timeline $timeline
-         */
-        $timelineContent = $this
-            ->get('cycleways.timeline.cached')
-            ->setDateRange($startDateTime, $endDateTime)
-            ->execute()
-            ->getTimelineContent();
+        $incidentList = $this->getIncidentRepository()->findLatest();
 
         return $this->render(
             'AppBundle:Frontpage:index.html.twig',
             [
-                'timelineContent' => $timelineContent
+                'incidentList' => $incidentList
             ]);
     }
 }

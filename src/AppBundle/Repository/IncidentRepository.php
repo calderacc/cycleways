@@ -26,6 +26,36 @@ class IncidentRepository extends EntityRepository
         return $query->getResult();
     }
 
+    public function findByIncidentType(string $incidentType, int $limit = 10): array
+    {
+        $qb = $this->createQueryBuilder('i');
+
+        $qb
+            ->where($qb->expr()->eq('i.incidentType', ':incidentType'))
+            ->setParameter('incidentType', $incidentType)
+            ->orderBy('i.creationDateTime', 'DESC')
+            ->setMaxResults($limit)
+        ;
+
+        $query = $qb->getQuery();
+
+        return $query->getResult();
+    }
+
+    public function findLatest(int $limit = 10): array
+    {
+        $qb = $this->createQueryBuilder('i');
+
+        $qb
+            ->orderBy('i.creationDateTime', 'DESC')
+            ->setMaxResults($limit)
+        ;
+
+        $query = $qb->getQuery();
+
+        return $query->getResult();
+    }
+
     public function findForTimelineIncidentCollector(\DateTime $startDateTime = null, \DateTime $endDateTime = null, int $limit = null): array
     {
         $builder = $this->createQueryBuilder('incident');

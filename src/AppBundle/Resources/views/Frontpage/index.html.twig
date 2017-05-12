@@ -17,8 +17,46 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12">
-                {{ timelineContent|raw }}
+            <div class="col-md-4">
+                <h4>
+                    Neuste Gefahrenstellen
+                </h4>
+
+                <ul class="list-group">
+                    {% for incident in incidentList %}
+                    <li class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <a href="{{ path('caldera_cycleways_incident_show', { slug: incident.slug }) }}">
+                                <h5 class="mb-1">
+                                    {{ incident.title }}
+                                </h5>
+                            </a>
+
+                            <small>{{ incident.creationDateTime|date('d.m.Y H:i') }} Uhr</small>
+                        </div>
+
+                        <p class="mb-1">
+                            {{ incident.description[:250] }}
+                        </p>
+
+                        <small class="text-muted">
+                            erstellt von {{ incident.user.username }}
+                        </small>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <h4>
+                    Neuste Kommentare
+                </h4>
+            </div>
+
+            <div class="col-md-4">
+                <h4>
+                    Neuste Fotos
+                </h4>
             </div>
         </div>
     </div>
