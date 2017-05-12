@@ -4,12 +4,13 @@ namespace AppBundle\ViewStorage;
 
 use AppBundle\Entity\User;
 use AppBundle\EntityInterface\ViewableInterface;
-use Symfony\Component\Cache\Adapter\FilesystemAdapter;
+use Symfony\Component\Cache\Adapter\AbstractAdapter;
+use Symfony\Component\Cache\Adapter\RedisAdapter;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class ViewStorageCache implements ViewStorageCacheInterface
 {
-    /** @var FilesystemAdapter $cache */
+    /** @var AbstractAdapter $cache */
     protected $cache;
 
     /** @var TokenStorageInterface $tokenStorage */
@@ -17,13 +18,20 @@ class ViewStorageCache implements ViewStorageCacheInterface
 
     public function __construct(TokenStorageInterface $tokenStorage)
     {
-        $this->cache = new FilesystemAdapter();
+        $redisConnection = RedisAdapter::createConnection('redis://localhost');
+
+        $this->cache = new RedisAdapter(
+            $redisConnection,
+            $namespace = '',
+            $defaultLifetime = 0
+        );
+
         $this->tokenStorage = $tokenStorage;
     }
 
     public function countView(ViewableInterface $viewable)
     {
-        $viewStorageItem = $this->cache->getItem('view_storage');
+        $viewStorageItem = $this->cache->getItem('cycleways_view_storage');
 
         if (!$viewStorageItem->isHit()) {
             $viewStorage = [];

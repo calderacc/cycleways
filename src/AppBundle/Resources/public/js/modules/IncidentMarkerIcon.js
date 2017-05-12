@@ -33,7 +33,6 @@ define(['leaflet', 'leaflet-extramarkers'], function () {
                 markerIcon = 'fa-bolt';
                 break;
             case 'roadworks':
-                markerColor = 'green';
                 markerIcon = 'fa-wrench';
                 break;
             case 'accident':

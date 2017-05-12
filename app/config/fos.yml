@@ -10,15 +10,6 @@ fos_user:
     registration:
         confirmation:
             enabled:    false
-#            from_email:
-#                address:        malte@criticalmass.in
-#                sender_name:    Malte Hübner, criticalmass.in
-    resetting:
-        email:
-            from_email:
-                address:        malte@criticalmass.in
-                sender_name:    Malte Hübner, criticalmass.in
-
     from_email:
-        address: malte@cycleways.cw
+        address: mail@cycleways.info
         sender_name: Malte Hübner

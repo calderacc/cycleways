@@ -11,6 +11,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -85,11 +86,132 @@ class IncidentAdmin extends AbstractAdmin
             ->end()
 
             ->with('Datum', ['class' => 'col-md-6'])
-            ->add('dateTime', DateTimeType::class)
-            ->add('creationDateTime', DateTimeType::class)
+            ->add('dateTime', DateTimeType::class,
+                [
+                    'model_timezone' => 'UTC',
+                    'view_timezone' => 'Europe/Berlin',
+                ]
+            )
+            ->add('creationDateTime', DateTimeType::class,
+                [
+                    'model_timezone' => 'UTC',
+                    'view_timezone' => 'Europe/Berlin',
+                ]
+            )
             ->add('expires', CheckboxType::class)
-            ->add('visibleFrom', DateTimeType::class)
-            ->add('visibleTo', DateTimeType::class)
+            ->add('visibleFrom', DateTimeType::class,
+                [
+                    'model_timezone' => 'UTC',
+                    'view_timezone' => 'Europe/Berlin',
+                ]
+            )
+            ->add('visibleTo', DateTimeType::class,
+                [
+                    'model_timezone' => 'UTC',
+                    'view_timezone' => 'Europe/Berlin',
+                ]
+            )
+            ->end()
+
+            ->with('Unfalldaten', ['class' => 'col-md-6'])
+            ->add('accidentType', ChoiceType::class,
+                [
+                    'choices' => [
+                        '' => null,
+                        'unbekannt' => Incident::ACCIDENT_TYPE_UNKNOWN,
+                        'Alleinunfall' => Incident::ACCIDENT_TYPE_SOLO,
+                        'Querung der Straße' => Incident::ACCIDENT_TYPE_CROSSING,
+                        'Vorfahrtsverstoß' => Incident::ACCIDENT_TYPE_RIGHTOFWAY,
+                        'Rotlichtverstoß' => Incident::ACCIDENT_TYPE_REDLIGHT,
+                        'Abbiegeunfall' => Incident::ACCIDENT_TYPE_RIGHTTURN,
+                        'Frontalzusammenstoß' => Incident::ACCIDENT_TYPE_FRONTAL,
+                        'Überholmanöver' => Incident::ACCIDENT_TYPE_OVERTAKE,
+                        'Rammen' => Incident::ACCIDENT_TYPE_RAM,
+                        'Einfahren' => Incident::ACCIDENT_TYPE_PULLIN,
+                        'Dooring' => Incident::ACCIDENT_TYPE_DOORING,
+                        'Bahnübergang' => Incident::ACCIDENT_TYPE_RAILROADCROSSING,
+                    ]
+                ]
+            )
+            ->add('accidentLocation', ChoiceType::class,
+                [
+                    'choices' => [
+                        '' => null,
+                        'innerorts' => Incident::ACCIDENT_LOCATION_CITY,
+                        'außerorts' => Incident::ACCIDENT_LOCATION_LAND,
+                    ]
+                ]
+            )
+            ->add('accidentInfrastructure', ChoiceType::class,
+                [
+                    'choices' => [
+                        '' => null,
+                        'Fahrbahn' => Incident::ACCIDENT_INFRASTRUCTURE_ROAD,
+                        'Radweg' => Incident::ACCIDENT_INFRASTRUCTURE_CYCLEPATH,
+                        'Gehweg' => Incident::ACCIDENT_INFRASTRUCTURE_SIDEWALK,
+                        'freigegebener Gehweg' => Incident::ACCIDENT_INFRASTRUCTURE_FREEDSIDEWALK,
+                        'gemeinsamer Fuß- und Radweg' => Incident::ACCIDENT_INFRASTRUCTURE_COMBINED,
+                        'Radfahrstreifen' => Incident::ACCIDENT_INFRASTRUCTURE_RADFAHRSTREIFEN,
+                        'Schutzstreifen' => Incident::ACCIDENT_INFRASTRUCTURE_SCHUTZSTREIFEN,
+                        'Fahrradstraße' => Incident::ACCIDENT_INFRASTRUCTURE_FAHRRADSTRASSE,
+                        'abseits der Straße' => Incident::ACCIDENT_INFRASTRUCTURE_OTHER,
+                    ]
+                ]
+            )
+            ->add('accidentOpponent', ChoiceType::class,
+                [
+                    'choices' => [
+                        '' => null,
+                        'Fußgänger' => Incident::ACCIDENT_OPPONENT_PEDESTRIAN,
+                        'Fahrradfahrer' => Incident::ACCIDENT_OPPONENT_CYCLIST,
+                        'Motorradfahrer' => Incident::ACCIDENT_OPPONENT_MOTORCYCLE,
+                        'Personenkraftwagen' => Incident::ACCIDENT_OPPONENT_CAR,
+                        'Lastkraftwagen' => Incident::ACCIDENT_OPPONENT_TRUCK,
+                        'Traktor oder landwirtschaftliches Fahrzeug' => Incident::ACCIDENT_OPPONENT_TRACTOR,
+                        'Eisenbahn' => Incident::ACCIDENT_OPPONENT_TRAIN,
+                        'Straßenbahn' => Incident::ACCIDENT_OPPONENT_TRAM,
+                        'Tier, Haustier' => Incident::ACCIDENT_OPPONENT_ANIMAL,
+                        'keiner / Alleinunfall' => Incident::ACCIDENT_OPPONENT_NONE,
+                        'unbekannt' => Incident::ACCIDENT_OPPONENT_UNKNOWN,
+                    ]
+                ])
+            ->add('accidentSex', ChoiceType::class,
+                [
+                    'choices' => [
+                        '' => null,
+                        'männlich' => Incident::ACCIDENT_SEX_MALE,
+                        'weiblich' => Incident::ACCIDENT_SEX_FEMALE,
+                    ]
+                ]
+            )
+            ->add('accidentAge', NumberType::class)
+            ->add('accidentPedelec', ChoiceType::class,
+                [
+                    'choices' => [
+                        'unbekannt' => null,
+                        'ja' => 1,
+                        'nein' => 0,
+                    ]
+                ]
+            )
+            ->add('accidentHelmet', ChoiceType::class,
+                [
+                    'choices' => [
+                        'unbekannt' => null,
+                        'ja' => 1,
+                        'nein' => 0,
+                    ]
+                ]
+            )
+            ->add('accidentCyclistCaused', ChoiceType::class,
+                [
+                    'choices' => [
+                        'unbekannt' => null,
+                        'ja' => 1,
+                        'nein' => 0,
+                    ]
+                ]
+            )
             ->end()
         ;
     }
@@ -100,6 +222,7 @@ class IncidentAdmin extends AbstractAdmin
         $datagridMapper
             ->add('title')
             ->add('user')
+            ->add('incidentType')
         ;
     }
 

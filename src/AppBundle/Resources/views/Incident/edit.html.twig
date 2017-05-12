@@ -25,6 +25,26 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
+                        <h3>
+                            Allgemeine Informationen
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group{% if form_errors(form.incidentType) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Art der Gefahrenstelle:</label>
+                            {{ form_widget(form.incidentType, { 'attr' : { 'class': 'form-control'} }) }}
+                            <p class="help-block">
+                                Um welche Art von Gehfahrenstelle handelt es sich?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.title) %} has-danger{% endif %}">
                             {% if form_errors(form.title) %}
                             <div class="alert alert-danger">{{ form_errors(form.title) }}</div>
@@ -68,6 +88,8 @@
 
                             <p class="help-block">
                                 Straße und Hausnummer der Gefahrenstelle.
+                                <br />
+                                Stadt und Postleitzahl werden automatisch gespeichert.
                             </p>
                         </div>
                     </div>
@@ -75,17 +97,24 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.incidentType) %} has-danger{% endif %}">
-                            <label class="control-label" for="">Art der Gefahrenstelle:</label>
-                            {{ form_widget(form.incidentType, { 'attr' : { 'class': 'form-control'} }) }}
-                            <p class="help-block">
-                                Um welche Art von Gehfahrenstelle handelt es sich?
-                            </p>
+                        <div class="form-group{% if form_errors(form.streetviewLink) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Link zu Google Streetview:</label>
+                            {{ form_widget(form.streetviewLink, { 'attr' : { 'class': 'form-control'} }) }}
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <div class="col-md-6">
                 <div class="row">
+                    <div class="col-md-12">
+                        <h3>
+                            Zusätzliche Details
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="row toggle-visibility" data-visible="rage,danger,roadworks,infrastructure">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.dangerLevel) %} has-danger{% endif %}">
                             <label class="control-label" for="">Höhe der Gefahr:</label>
@@ -96,19 +125,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group{% if form_errors(form.streetviewLink) %} has-danger{% endif %}">
-                            <label class="control-label" for="">Link zu Google Streetview:</label>
-                            {{ form_widget(form.streetviewLink, { 'attr' : { 'class': 'form-control'} }) }}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.dateTime) %} has-danger{% endif %}">
                             <label class="control-label" for="">Zeitpunkt des Vorfalls:</label>
@@ -125,7 +143,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row toggle-visibility" data-visible="rage,danger,roadworks,infrastructure">
                     <div class="col-md-12">
                         <div class="form-group{% if form_errors(form.expires) %} has-danger{% endif %}">
                             <label class="control-label" for="">Gefahrenstelle ist zeitlich begrenzt:</label>
@@ -134,7 +152,7 @@
                     </div>
                 </div>
 
-                <div id="daterange" class="input-daterange">
+                <div id="daterange" class="input-daterange toggle-visibility" data-visible="rage,danger,roadworks,infrastructure">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group{% if form_errors(form.visibleFrom) %} has-danger{% endif %}">
@@ -154,6 +172,89 @@
                                     Bis wann gilt diese Gefahrenstelle?
                                 </p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
+                    <div class="col-md-12">
+                        <div class="form-group{% if form_errors(form.accidentType) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Unfallart:</label>
+                            {{ form_widget(form.accidentType, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
+                    <div class="col-md-12">
+                        <div class="form-group{% if form_errors(form.accidentLocation) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Unfallort:</label>
+                            {{ form_widget(form.accidentLocation, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
+                    <div class="col-md-12">
+                        <div class="form-group{% if form_errors(form.accidentInfrastructure) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Befahrener Straßenteil:</label>
+                            {{ form_widget(form.accidentInfrastructure, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
+                    <div class="col-md-12">
+                        <div class="form-group{% if form_errors(form.accidentOpponent) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Unfallgegner:</label>
+                            {{ form_widget(form.accidentOpponent, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
+                    <div class="col-md-6">
+                        <div class="form-group{% if form_errors(form.accidentSex) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Geschlecht:</label>
+                            {{ form_widget(form.accidentSex, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group{% if form_errors(form.accidentAge) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Alter:</label>
+                            {{ form_widget(form.accidentAge, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row toggle-visibility" data-visible="accident,deadly_accident">
+                    <div class="col-md-4">
+                        <div class="form-group{% if form_errors(form.accidentPedelec) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Pedelec:</label>
+                            {{ form_widget(form.accidentPedelec, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group{% if form_errors(form.accidentHelmet) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Sturzhelm:</label>
+                            {{ form_widget(form.accidentHelmet, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group{% if form_errors(form.accidentCyclistCaused) %} has-danger{% endif %}">
+                            <label class="control-label" for="">Unfallverursacher:</label>
+                            {{ form_widget(form.accidentCyclistCaused, { 'attr' : { 'class': 'form-control'} }) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row toggle-visibility" data-visible="police">
+                    <div class="col-md-12">
+                        <div class="alert alert-info">
+                            Für den Typ <em>Polizeikontrolle</em> gibt es keine weiteren Optionen.
                         </div>
                     </div>
                 </div>
