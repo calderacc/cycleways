@@ -60,8 +60,12 @@ class ManagementController extends AbstractController
         );
     }
 
-    public function editDescriptionAction(Request $request, UserInterface $user, string $slug, int $photoId): Response
+    public function editDescriptionAction(Request $request, UserInterface $user = null, string $slug, int $photoId): Response
     {
+        if (!$user) {
+            return new Response();
+        }
+
         $photo = $this->getPhotoRepository()->find($photoId);
 
         if (!$photo) {
