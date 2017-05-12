@@ -27,8 +27,13 @@
             </li>
         </ul>
 
+        {% if queryPhrase is defined %}
+            {% set placeholder = queryPhrase %}
+        {% else %}
+            {% set placeholder = 'Suche' %}
+        {% endif %}
         <form class="form-inline float-xs-right" role="search" action="{{ path('caldera_cycleways_search') }}">
-            <input id="search-input" type="text" class="form-control" placeholder="Suche" name="query" />
+            <input id="search-input" type="text" class="form-control" placeholder="{{ placeholder }}" name="query" />
 
             <div class="btn-group">
                 <button type="button" id="search-location" class="btn btn-secondary">
