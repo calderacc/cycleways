@@ -1,7 +1,11 @@
 <select class="selectpicker">
+{% if app.user %}
     {% for status in statusList %}
     <option{% if status == incident.incidentStatus.status %} selected="selected"{% endif %} data-content="<div class='incident-status' style='{{ status.style }}'>{{ status.caption }}</div>">
         {{ status.caption }}
     </option>
     {% endfor %}
 </select>
+{% else %}
+    {{ render('AppBundle:IncidentStatus:_incidentStatus.html.twig', { incidentStatus: incident.incidentStatus }) }}
+{% endif %}
