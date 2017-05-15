@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Incident;
 use AppBundle\Entity\IncidentStatus;
+use AppBundle\Entity\IncidentUser;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -22,24 +23,23 @@ class IssuerController extends AbstractController
 
     public function updateAction(Request $request, string $slug, UserInterface $user): Response
     {
-        $incidentStatusId = $request->query->getInt('statusId');
+        $userId = $request->request->getInt('userId');
 
         /** @var Incident $incident */
         $incident = $this->getIncidentRepository()->findOneBySlug($slug);
 
-        $status = $this->getDoctrine()->getRepository('AppBundle:Status')->find($incidentStatusId);
+        $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
 
-        $incidentStatus = new IncidentStatus();
+        $issuer = new IncidentUser();
 
-        $incidentStatus
+        $issuer
             ->setIncident($incident)
-            ->setStatus($status)
             ->setUser($user)
         ;
 
-        $incident->setIncidentStatus($incidentStatus);
+        $incident->setIssuer($issuer);
 
-        $this->getDoctrine()->getManager()->persist($incidentStatus);
+        $this->getDoctrine()->getManager()->persist($issuer);
         $this->getDoctrine()->getManager()->flush();
 
         return new Response();

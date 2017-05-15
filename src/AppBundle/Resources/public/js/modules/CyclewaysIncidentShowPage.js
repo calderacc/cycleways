@@ -49,8 +49,18 @@ define(['CriticalService', 'Map', 'IncidentEntity', 'bootstrap-select'], functio
 
             $.ajax({
                 method: 'POST',
-                url: Routing.generate('caldera_cycleways_incident_status_update', { slug: 'ewf-1', statusId: statusId }),
+                url: Routing.generate('caldera_cycleways_incident_status_update', { slug: 'ewf-1' }),
                 data: { statusId: statusId }
+            });
+        });
+
+        $('#issuer-select').on('changed.bs.select', function (event, clickedIndex, newValue, oldValue) {
+            var userId = $(this).val();
+
+            $.ajax({
+                method: 'POST',
+                url: Routing.generate('caldera_cycleways_incident_issuer_update', { slug: 'ewf-1' }),
+                data: { userId: userId }
             });
         });
     };

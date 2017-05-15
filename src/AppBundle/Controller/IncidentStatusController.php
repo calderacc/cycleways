@@ -22,7 +22,7 @@ class IncidentStatusController extends AbstractController
 
     public function updateAction(Request $request, string $slug, UserInterface $user): Response
     {
-        $incidentStatusId = $request->query->getInt('statusId');
+        $incidentStatusId = $request->request->getInt('statusId');
 
         /** @var Incident $incident */
         $incident = $this->getIncidentRepository()->findOneBySlug($slug);
