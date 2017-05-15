@@ -1,5 +1,5 @@
-<select class="selectpicker">
 {% if app.user %}
+<select id="status-select" class="selectpicker" data-style="btn-secondary">
     {% for status in statusList %}
     <option{% if status == incident.incidentStatus.status %} selected="selected"{% endif %} data-content="<div class='incident-status' style='{{ status.style }}'>{{ status.caption }}</div>">
         {{ status.caption }}
