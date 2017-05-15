@@ -170,13 +170,28 @@
                         </dd>
 
                         {% if incident.dateTime and (incident.incidentType is constant('INCIDENT_ACCIDENT', incident) or incident.incidentType is constant('INCIDENT_DEADLY_ACCIDENT', incident)) %}
+                            <dt>
+                                Unfallzeitpunkt
+                            </dt>
+                            <dd>
+                                {{ incident.dateTime|date('d.m.Y H:i') }} Uhr
+                            </dd>
+                        {% endif %}
+                    </dl>
+                </div>
+
+                <div class="card card-block">
+                    <h4 class="card-title">
+                        Status
+                    </h4>
+
+                    <dl>
                         <dt>
-                            Unfallzeitpunkt
+                            aktueller Status
                         </dt>
                         <dd>
-                            {{ incident.dateTime|date('d.m.Y H:i') }} Uhr
+                            {{ include('AppBundle:IncidentStatus:_incidentStatus.html.twig', { 'incidentStatus': incident.incidentStatus }) }}
                         </dd>
-                        {% endif %}
                     </dl>
                 </div>
 
