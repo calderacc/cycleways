@@ -89,6 +89,12 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     protected $user;
 
     /**
+     * @ORM\ManyToOne(targetEntity="IncidentStatus", inversedBy="incident")
+     * @ORM\JoinColumn(name="incident_status_id", referencedColumnName="id")
+     */
+    protected $incidentStatus;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @JMS\Expose
      */
@@ -328,6 +334,18 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function setIncidentStatus(IncidentStatus $incidentStatus): Incident
+    {
+        $this->incidentStatus = $incidentStatus;
+
+        return $this;
+    }
+
+    public function getIncidentStatus(): ?IncidentStatus
+    {
+        return $this->incidentStatus;
     }
 
     public function setLatitude(float $latitude): CoordinateInterface
