@@ -5,8 +5,8 @@ define(['CriticalService', 'Map', 'IncidentEntity', 'bootstrap-select'], functio
         this._options = options;
 
         this._initMap();
-        this._initSelect();
         this._setHeaderRow();
+        this._initSelect();
     };
 
     CyclewaysIncidentShowPage.prototype._CriticalService = null;
@@ -44,7 +44,15 @@ define(['CriticalService', 'Map', 'IncidentEntity', 'bootstrap-select'], functio
     };
 
     CyclewaysIncidentShowPage.prototype._initSelect = function () {
+        $('#status-select').on('changed.bs.select', function (event, clickedIndex, newValue, oldValue) {
+            var statusId = $(this).val();
 
+            $.ajax({
+                method: 'POST',
+                url: Routing.generate('caldera_cycleways_incident_status_update', { slug: 'ewf-1', statusId: statusId }),
+                data: { statusId: statusId }
+            });
+        });
     };
 
     return CyclewaysIncidentShowPage;

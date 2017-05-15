@@ -1,0 +1,7 @@
+caldera_cycleways_incident_status_update:
+    path:     /{slug}/update-status
+    defaults: { _controller: AppBundle:IncidentStatus:update }
+    requirements:
+        slug: '(.*)\-([0-9]{1,6})'
+    options:
+        expose: true
