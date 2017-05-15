@@ -1,5 +1,7 @@
 <select class="selectpicker">
-    <option>Mustard</option>
-    <option>Ketchup</option>
-    <option>Relish</option>
+    {% for status in statusList %}
+    <option{% if status == incident.incidentStatus.status %} selected="selected"{% endif %}>
+        {{ status.caption }}
+    </option>
+    {% endfor %}
 </select>
