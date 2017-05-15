@@ -1,6 +1,6 @@
 <select class="selectpicker">
     {% for status in statusList %}
-    <option{% if status == incident.incidentStatus.status %} selected="selected"{% endif %}>
+    <option{% if status == incident.incidentStatus.status %} selected="selected"{% endif %} data-content="<div class='incident-status' style='{{ status.style }}'>{{ status.caption }}</div>">
         {{ status.caption }}
     </option>
     {% endfor %}
