@@ -1,10 +1,11 @@
-define(['CriticalService', 'Map', 'IncidentEntity'], function (CriticalService) {
+define(['CriticalService', 'Map', 'IncidentEntity', 'bootstrap-select'], function (CriticalService) {
     CyclewaysIncidentShowPage = function (context, options) {
         this._CriticalService = CriticalService;
 
         this._options = options;
 
         this._initMap();
+        this._initSelect();
         this._setHeaderRow();
     };
 
@@ -42,6 +43,9 @@ define(['CriticalService', 'Map', 'IncidentEntity'], function (CriticalService) 
         }
     };
 
+    CyclewaysIncidentShowPage.prototype._initSelect = function () {
+
+    };
 
     return CyclewaysIncidentShowPage;
 });

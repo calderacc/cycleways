@@ -190,7 +190,11 @@
                             aktueller Status
                         </dt>
                         <dd>
+
+
                             {{ include('AppBundle:IncidentStatus:_incidentStatus.html.twig', { 'incidentStatus': incident.incidentStatus }) }}
+                            {{ render(controller('AppBundle:IncidentStatus:render', { 'incident': incident } )) }}
+
                         </dd>
                         <dt>
                             gemeldet von
