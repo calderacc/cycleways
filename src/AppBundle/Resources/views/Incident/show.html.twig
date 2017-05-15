@@ -202,11 +202,7 @@
                             Bearbeiter
                         </dt>
                         <dd>
-                            {% if incident.issuer %}
-                            {{ incident.issuer.user.username }}
-                            {% else %}
-                            nicht zugewiesen
-                            {% endif %}
+                            {{ render(controller('AppBundle:Issuer:render', { 'incident': incident } )) }}
                         </dd>
                     </dl>
                 </div>
