@@ -8,7 +8,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity as UniqueEntity;
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Repository\StatusRepository")
+ * @ORM\Entity()
  * @ORM\Table(name="status")
  */
 class Status
