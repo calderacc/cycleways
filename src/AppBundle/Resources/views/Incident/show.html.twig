@@ -192,6 +192,22 @@
                         <dd>
                             {{ include('AppBundle:IncidentStatus:_incidentStatus.html.twig', { 'incidentStatus': incident.incidentStatus }) }}
                         </dd>
+                        <dt>
+                            gemeldet von
+                        </dt>
+                        <dd>
+                            {{ incident.user.username }}
+                        </dd>
+                        <dt>
+                            Bearbeiter
+                        </dt>
+                        <dd>
+                            {% if incident.issuer %}
+                            {{ incident.issuer.user.username }}
+                            {% else %}
+                            nicht zugewiesen
+                            {% endif %}
+                        </dd>
                     </dl>
                 </div>
 
