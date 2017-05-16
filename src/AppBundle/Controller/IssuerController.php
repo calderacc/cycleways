@@ -28,12 +28,13 @@ class IssuerController extends AbstractController
         /** @var Incident $incident */
         $incident = $this->getIncidentRepository()->findOneBySlug($slug);
 
-        $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
+        $issuerUser = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
 
         $issuer = new IncidentUser();
 
         $issuer
             ->setIncident($incident)
+            ->setIssuer($issuerUser)
             ->setUser($user)
         ;
 

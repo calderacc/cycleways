@@ -19,8 +19,14 @@ class IncidentUser
     protected $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="incident_issuer_user")
+     * @ORM\JoinColumn(name="issuer_user_id", referencedColumnName="id")
+     */
+    protected $issuer;
+
+    /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="incident_user")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="issuer_user_id", referencedColumnName="id")
      */
     protected $user;
 
@@ -67,6 +73,18 @@ class IncidentUser
     public function getUser(): ?User
     {
         return $this->user;
+    }
+
+    public function setIssuer(User $issuer): IncidentUser
+    {
+        $this->issuer = $issuer;
+
+        return $this;
+    }
+
+    public function getIssuer(): ?User
+    {
+        return $this->issuer;
     }
 
     public function setIncident(Incident $incident): IncidentUser
