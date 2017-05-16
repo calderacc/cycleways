@@ -55,7 +55,7 @@ class Status
         return $this;
     }
 
-    public function getCaption(): string
+    public function getCaption(): ?string
     {
         return $this->caption;
     }
@@ -67,7 +67,7 @@ class Status
         return $this;
     }
 
-    public function getStyle(): string
+    public function getStyle(): ?string
     {
         return $this->style;
     }
