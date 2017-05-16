@@ -80,6 +80,18 @@ class IncidentTag
         return $this->incident;
     }
 
+    public function setTag(Tag $tag): IncidentTag
+    {
+        $this->tag = $tag;
+
+        return $this;
+    }
+
+    public function getTag(): Tag
+    {
+        return $this->tag;
+    }
+
     public function setDateTimeAdded(\DateTime $dateTimeAdded): IncidentTag
     {
         $this->dateTimeAdded = $dateTimeAdded;

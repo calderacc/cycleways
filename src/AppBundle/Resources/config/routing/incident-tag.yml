@@ -1,0 +1,7 @@
+caldera_cycleways_incident_tag_update:
+    path:     /{slug}/update-tag
+    defaults: { _controller: AppBundle:Tag:update }
+    requirements:
+        slug: '(.*)\-([0-9]{1,6})'
+    options:
+        expose: true

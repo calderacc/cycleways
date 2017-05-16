@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Incident;
 use AppBundle\Entity\IncidentStatus;
+use AppBundle\Entity\IncidentTag;
 use AppBundle\Entity\IncidentUser;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,23 +26,24 @@ class TagController extends AbstractController
 
     public function updateAction(Request $request, string $slug, UserInterface $user): Response
     {
-        $userId = $request->request->getInt('userId');
+        $tagId = $request->request->getInt('tagId');
 
         /** @var Incident $incident */
         $incident = $this->getIncidentRepository()->findOneBySlug($slug);
 
-        $user = $this->getDoctrine()->getRepository('AppBundle:User')->find($userId);
+        $tag = $this->getDoctrine()->getRepository('AppBundle:Tag')->find($tagId);
 
-        $issuer = new IncidentUser();
+        $incidentTag = new IncidentTag();
 
-        $issuer
+        $incidentTag
             ->setIncident($incident)
             ->setUser($user)
+            ->setTag($tag)
         ;
 
-        $incident->setIssuer($issuer);
+        $incident->addIncidentTag($incidentTag);
 
-        $this->getDoctrine()->getManager()->persist($issuer);
+        $this->getDoctrine()->getManager()->persist($incidentTag);
         $this->getDoctrine()->getManager()->flush();
 
         return new Response();

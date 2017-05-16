@@ -6,6 +6,7 @@ use AppBundle\EntityInterface\CoordinateInterface;
 use AppBundle\EntityInterface\ElasticSearchPinInterface;
 use AppBundle\EntityInterface\ViewableInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -905,6 +906,25 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     public function setAccidentCyclistCaused(string $accidentCyclistCaused = null): Incident
     {
         $this->accidentCyclistCaused = $accidentCyclistCaused;
+
+        return $this;
+    }
+
+    public function addIncidentTag(IncidentTag $incidentTag): Incident
+    {
+        $this->tagList->add($incidentTag);
+
+        return $this;
+    }
+
+    public function getIncidentTagList(): Collection
+    {
+        return $this->tagList;
+    }
+
+    public function removeIncidentTag(IncidentTag $incidentTag): Incident
+    {
+        $this->tagList->removeElement($incidentTag);
 
         return $this;
     }
