@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="tag")
  * @ORM\Entity()
  */
-class IncidentTag
+class Tag
 {
     /**
      * @ORM\Id
@@ -37,87 +37,27 @@ class IncidentTag
         return $this->id;
     }
 
-    /**
-     * @param string $title
-     * @return IncidentTag
-     */
-    public function setTitle(string $title): IncidentTag
+    public function setCaption(string $caption): Tag
     {
-        $this->title = $title;
+        $this->caption = $caption;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle(): string
+    public function getCaption(): string
     {
-        return $this->title;
+        return $this->caption;
     }
 
-    /**
-     * @param string $fontColor
-     * @return IncidentTag
-     */
-    public function setFontColor(string $fontColor): IncidentTag
+    public function setStyle(string $style): Tag
     {
-        $this->fontColor = $fontColor;
+        $this->style = $style;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getFontColor(): string
+    public function getStyle(): string
     {
-        return $this->fontColor;
-    }
-
-    /**
-     * @param string $backgroundColor
-     * @return IncidentTag
-     */
-    public function setBackgroundColor($backgroundColor): IncidentTag
-    {
-        $this->backgroundColor = $backgroundColor;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBackgroundColor(): string
-    {
-        return $this->backgroundColor;
-    }
-
-    /**
-     * @param Incident $incident
-     * @return IncidentTag
-     */
-    public function addIncident(Incident $incident): IncidentTag
-    {
-        $this->incidents[] = $incident;
-
-        return $this;
-    }
-
-    /**
-     * @param Incident $incident
-     */
-    public function removeIncident(Incident $incident): void
-    {
-        $this->incidents->removeElement($incident);
-    }
-
-    /**
-     * @return Collection
-     */
-    public function getIncidents(): Collection
-    {
-        return $this->incidents;
+        return $this->style;
     }
 }
