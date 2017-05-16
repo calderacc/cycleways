@@ -2,12 +2,12 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="tag")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TagRepository")
  */
 class Tag
 {
@@ -28,8 +28,14 @@ class Tag
      */
     protected $style;
 
+    /**
+     * @ORM\OneToMany(targetEntity="IncidentTag", mappedBy="tag")
+     */
+    protected $incidentTagList;
+
     public function __construct()
     {
+        $this->incidentTagList = new ArrayCollection();
     }
 
     public function getId(): int

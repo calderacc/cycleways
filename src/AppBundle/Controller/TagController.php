@@ -14,10 +14,12 @@ class TagController extends AbstractController
     public function renderAction(Request $request, Incident $incident): Response
     {
         $tagList = $this->getDoctrine()->getRepository('AppBundle:Tag')->findAll();
+        $incidentTags = $this->getDoctrine()->getRepository('AppBundle:Tag')->findTagsForIncident($incident);
 
         return $this->render('AppBundle:Tag:list.html.twig', [
             'tagList' => $tagList,
-            'incident' => $incident
+            'incident' => $incident,
+            'incidentTagList' => $incidentTags,
         ]);
     }
 
