@@ -45,34 +45,34 @@ define(['CriticalService', 'Map', 'IncidentEntity', 'bootstrap-select'], functio
 
     CyclewaysIncidentShowPage.prototype._initSelect = function () {
         $('#status-select').on('changed.bs.select', function (event, clickedIndex, newValue, oldValue) {
-            var statusId = $(this).val();
+            var statusId = $(event.target).val();
 
             $.ajax({
                 method: 'POST',
-                url: Routing.generate('caldera_cycleways_incident_status_update', { slug: 'ewf-1' }),
+                url: Routing.generate('caldera_cycleways_incident_status_update', { slug: this._incident._slug }),
                 data: { statusId: statusId }
             });
-        });
+        }.bind(this));
 
         $('#issuer-select').on('changed.bs.select', function (event, clickedIndex, newValue, oldValue) {
-            var userId = $(this).val();
+            var userId = $(event.target).val();
 
             $.ajax({
                 method: 'POST',
-                url: Routing.generate('caldera_cycleways_incident_issuer_update', { slug: 'ewf-1' }),
+                url: Routing.generate('caldera_cycleways_incident_issuer_update', { slug: this._incident._slug }),
                 data: { userId: userId }
             });
-        });
+        }.bind(this));
 
         $('#tag-select').on('changed.bs.select', function (event, clickedIndex, newValue, oldValue) {
-            var tagList = $(this).val();
+            var tagList = $(event.target).val();
 
             $.ajax({
                 method: 'POST',
-                url: Routing.generate('caldera_cycleways_incident_tag_update', { slug: 'ewf-1' }),
+                url: Routing.generate('caldera_cycleways_incident_tag_update', { slug: this._incident._slug }),
                 data: { tagList: tagList }
             });
-        });
+        }.bind(this));
     };
 
     return CyclewaysIncidentShowPage;
