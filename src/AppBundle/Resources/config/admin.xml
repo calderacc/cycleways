@@ -34,5 +34,15 @@
                 <argument>AppBundle</argument>
             </call>
         </service>
+
+        <service id="caldera.cycleways.admin.status" class="AppBundle\Admin\StatusAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Inhalt" label="Status" />
+            <argument />
+            <argument>AppBundle\Entity\Status</argument>
+            <argument />
+            <call method="setTranslationDomain">
+                <argument>AppBundle</argument>
+            </call>
+        </service>
     </services>
 </container>
