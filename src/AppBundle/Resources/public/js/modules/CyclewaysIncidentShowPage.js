@@ -1,4 +1,4 @@
-define(['CriticalService', 'Map', 'IncidentEntity'], function (CriticalService) {
+define(['CriticalService', 'Map', 'IncidentEntity', 'bootstrap-select'], function (CriticalService) {
     CyclewaysIncidentShowPage = function (context, options) {
         this._CriticalService = CriticalService;
 
@@ -6,6 +6,7 @@ define(['CriticalService', 'Map', 'IncidentEntity'], function (CriticalService) 
 
         this._initMap();
         this._setHeaderRow();
+        this._initSelect();
     };
 
     CyclewaysIncidentShowPage.prototype._CriticalService = null;
@@ -42,6 +43,37 @@ define(['CriticalService', 'Map', 'IncidentEntity'], function (CriticalService) 
         }
     };
 
+    CyclewaysIncidentShowPage.prototype._initSelect = function () {
+        $('#status-select').on('changed.bs.select', function (event, clickedIndex, newValue, oldValue) {
+            var statusId = $(event.target).val();
+
+            $.ajax({
+                method: 'POST',
+                url: Routing.generate('caldera_cycleways_incident_status_update', { slug: this._incident._slug }),
+                data: { statusId: statusId }
+            });
+        }.bind(this));
+
+        $('#issuer-select').on('changed.bs.select', function (event, clickedIndex, newValue, oldValue) {
+            var userId = $(event.target).val();
+
+            $.ajax({
+                method: 'POST',
+                url: Routing.generate('caldera_cycleways_incident_issuer_update', { slug: this._incident._slug }),
+                data: { userId: userId }
+            });
+        }.bind(this));
+
+        $('#tag-select').on('changed.bs.select', function (event, clickedIndex, newValue, oldValue) {
+            var tagList = $(event.target).val();
+
+            $.ajax({
+                method: 'POST',
+                url: Routing.generate('caldera_cycleways_incident_tag_update', { slug: this._incident._slug }),
+                data: { tagList: tagList }
+            });
+        }.bind(this));
+    };
 
     return CyclewaysIncidentShowPage;
 });

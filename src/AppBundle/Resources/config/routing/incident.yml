@@ -11,3 +11,27 @@ caldera_cycleways_incident_comment_add:
     requirements:
         citySlug: '([a-zA-Z-]*)'
     defaults: { _controller: AppBundle:Post:write }
+
+caldera_cycleways_incident_status_update:
+    path:     /{slug}/update-status
+    defaults: { _controller: AppBundle:Incident/Status:update }
+    requirements:
+        slug: '(.*)\-([0-9]{1,6})'
+    options:
+        expose: true
+
+caldera_cycleways_incident_tag_update:
+    path:     /{slug}/update-tag
+    defaults: { _controller: AppBundle:Incident/Tag:update }
+    requirements:
+        slug: '(.*)\-([0-9]{1,6})'
+    options:
+        expose: true
+
+caldera_cycleways_incident_issuer_update:
+    path:     /{slug}/update-issuer
+    defaults: { _controller: AppBundle:Incident/Issuer:update }
+    requirements:
+        slug: '(.*)\-([0-9]{1,6})'
+    options:
+        expose: true

@@ -161,7 +161,12 @@
                         <dd>
                             {{ incident.street }}, {{ getCityName(incident) }}
                         </dd>
-
+                        <dt>
+                            gemeldet von
+                        </dt>
+                        <dd>
+                            {{ incident.user.username }}
+                        </dd>
                         <dt>
                             Zeitpunkt der Meldung
                         </dt>
@@ -170,16 +175,48 @@
                         </dd>
 
                         {% if incident.dateTime and (incident.incidentType is constant('INCIDENT_ACCIDENT', incident) or incident.incidentType is constant('INCIDENT_DEADLY_ACCIDENT', incident)) %}
+                            <dt>
+                                Unfallzeitpunkt
+                            </dt>
+                            <dd>
+                                {{ incident.dateTime|date('d.m.Y H:i') }} Uhr
+                            </dd>
+                        {% endif %}
+
+                        {% if not (incident.incidentType is constant('INCIDENT_ACCIDENT', incident) or incident.incidentType is constant('INCIDENT_DEADLY_ACCIDENT', incident)) %}
                         <dt>
-                            Unfallzeitpunkt
+                            Tags
                         </dt>
                         <dd>
-                            {{ incident.dateTime|date('d.m.Y H:i') }} Uhr
+                            {{ render(controller('AppBundle:Incident/Tag:render', { 'incident': incident } )) }}
                         </dd>
                         {% endif %}
                     </dl>
                 </div>
 
+                {% if not (incident.incidentType is constant('INCIDENT_ACCIDENT', incident) or incident.incidentType is constant('INCIDENT_DEADLY_ACCIDENT', incident)) %}
+                <div class="card card-block">
+                    <h4 class="card-title">
+                        Status
+                    </h4>
+
+                    <dl>
+                        <dt>
+                            aktueller Status
+                        </dt>
+                        <dd>
+                            {{ render(controller('AppBundle:Incident/Status:render', { 'incident': incident } )) }}
+                        </dd>
+                        <dt>
+                            Bearbeiter
+                        </dt>
+                        <dd>
+                            {{ render(controller('AppBundle:Incident/Issuer:render', { 'incident': incident } )) }}
+                        </dd>
+                    </dl>
+                </div>
+                {% endif %}
+                
                 <div class="card card-block">
                     <h4 class="card-title">
                         Google Maps
