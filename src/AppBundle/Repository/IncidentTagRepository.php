@@ -15,6 +15,7 @@ class IncidentTagRepository extends EntityRepository
             ->where($builder->expr()->eq('it.incident', ':incident'))
             ->setParameter('incident', $incident)
             ->andWhere($builder->expr()->isNull('it.dateTimeRemoved'))
+            ->andWhere($builder->expr()->isNull('it.userRemoved'))
             ->orderBy('it.dateTimeAdded', 'ASC');
 
         $query = $builder->getQuery();

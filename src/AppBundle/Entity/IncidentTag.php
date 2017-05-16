@@ -19,10 +19,16 @@ class IncidentTag
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="tagList")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="createdTagList")
+     * @ORM\JoinColumn(name="user_created_id", referencedColumnName="id")
      */
-    protected $user;
+    protected $userCreated;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="removedTagList")
+     * @ORM\JoinColumn(name="user_removed_id", referencedColumnName="id")
+     */
+    protected $userRemoved;
 
     /**
      * @ORM\ManyToOne(targetEntity="Incident", inversedBy="tagList")
@@ -56,16 +62,28 @@ class IncidentTag
         return $this->id;
     }
 
-    public function setUser(User $user): IncidentTag
+    public function setUserCreated(User $user): IncidentTag
     {
-        $this->user = $user;
+        $this->userCreated = $user;
 
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getUserCreated(): User
     {
-        return $this->user;
+        return $this->userCreated;
+    }
+
+    public function setUserRemoved(User $user = null): IncidentTag
+    {
+        $this->userRemoved = $user;
+
+        return $this;
+    }
+
+    public function getUserRemoved(): ?User
+    {
+        return $this->userRemoved;
     }
 
     public function setIncident(Incident $incident): IncidentTag
@@ -75,7 +93,7 @@ class IncidentTag
         return $this;
     }
 
-    public function getIncident(): ?Incident
+    public function getIncident(): Incident
     {
         return $this->incident;
     }

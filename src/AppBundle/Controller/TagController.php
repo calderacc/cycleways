@@ -64,7 +64,7 @@ class TagController extends AbstractController
 
         $incidentTag
             ->setIncident($incident)
-            ->setUser($user)
+            ->setUserCreated($user)
             ->setTag($tag)
         ;
 
@@ -77,6 +77,9 @@ class TagController extends AbstractController
 
     protected function removeIncidentTag(IncidentTag $incidentTag, User $user): void
     {
-        $incidentTag->setDateTimeRemoved(new \DateTime());
+        $incidentTag
+            ->setDateTimeRemoved(new \DateTime())
+            ->setUserRemoved($user)
+        ;
     }
 }
