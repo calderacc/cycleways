@@ -71,9 +71,4 @@ class Status
     {
         return $this->style;
     }
-
-    public function __toString(): string
-    {
-        return $this->caption;
-    }
 }
