@@ -1,5 +1,5 @@
 {% if app.user %}
-<select id="status-select" class="selectpicker" data-style="btn-secondary" data-icon-base="fa">
+<select id="status-select" class="selectpicker" data-style="btn-secondary"  data-icon-base="fa" data-tick-icon="fa-check" data-live-search="true">
     {% for status in statusList %}
     <option{% if status == incident.incidentStatus.status %} selected="selected"{% endif %} value="{{ status.id }}" data-content="<div class='incident-status' style='{{ status.style }}'>{{ status.caption }}</div>">
         {{ status.caption }}
