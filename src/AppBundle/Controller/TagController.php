@@ -41,7 +41,7 @@ class TagController extends AbstractController
 
             if  (!in_array($tagId, $tagIdList)) {
                 $this->removeIncidentTag($incidentTag, $user);
-
+            } else {
                 $key = array_search($tagId, $tagIdList);
                 unset($tagIdList[$key]);
             }
