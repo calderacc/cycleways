@@ -19,19 +19,19 @@ class IncidentTag
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="incident_tag")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="tagList")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Incident", inversedBy="incident_tag")
+     * @ORM\ManyToOne(targetEntity="Incident", inversedBy="tagList")
      * @ORM\JoinColumn(name="incident_id", referencedColumnName="id")
      */
     protected $incident;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Tag", inversedBy="incident_tag")
+     * @ORM\ManyToOne(targetEntity="Tag", inversedBy="tagList")
      * @ORM\JoinColumn(name="tag_id", referencedColumnName="id")
      */
     protected $tag;

@@ -19,19 +19,19 @@ class IncidentStatus
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="status")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="incidentStatusList")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Incident", inversedBy="status")
+     * @ORM\ManyToOne(targetEntity="Incident", inversedBy="incidentStatusList")
      * @ORM\JoinColumn(name="incident_id", referencedColumnName="id")
      */
     protected $incident;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Status", inversedBy="status")
+     * @ORM\ManyToOne(targetEntity="Status", inversedBy="incidentStatusList")
      * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     protected $status;

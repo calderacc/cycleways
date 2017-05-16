@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use AppBundle\EntityInterface\CoordinateInterface;
 use AppBundle\EntityInterface\ElasticSearchPinInterface;
 use AppBundle\EntityInterface\ViewableInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -83,22 +84,35 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="incidents")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="incidentList")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="IncidentStatus", inversedBy="incident")
-     * @ORM\JoinColumn(name="incident_status_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="IncidentStatus", mappedBy="incident")
      */
     protected $incidentStatus;
 
     /**
-     * @ORM\ManyToOne(targetEntity="IncidentUser", inversedBy="incident")
-     * @ORM\JoinColumn(name="incident_user_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="IncidentUser", mappedBy="incident")
      */
     protected $issuer;
+
+    /**
+     * @ORM\OneToMany(targetEntity="IncidentStatus", mappedBy="incident")
+     */
+    protected $incidentStatusList;
+
+    /**
+     * @ORM\OneToMany(targetEntity="IncidentTag", mappedBy="incident")
+     */
+    protected $tagList;
+
+    /**
+     * @ORM\OneToMany(targetEntity="IncidentUser", mappedBy="incident")
+     */
+    protected $userList;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -335,6 +349,10 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
         $this->dateTime = new \DateTime();
         $this->visibleFrom = new \DateTime();
         $this->visibleTo = new \DateTime();
+
+        $this->incidentStatusList = new ArrayCollection();
+        $this->tagList = new ArrayCollection();
+        $this->userList = new ArrayCollection();
     }
 
     public function getId(): int

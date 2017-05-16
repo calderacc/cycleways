@@ -25,7 +25,7 @@ class IncidentUser
     protected $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Incident", inversedBy="incident_user")
+     * @ORM\ManyToOne(targetEntity="Incident", inversedBy="userList")
      * @ORM\JoinColumn(name="incident_id", referencedColumnName="id")
      */
     protected $incident;

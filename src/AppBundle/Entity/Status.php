@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as JMS;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -32,9 +33,14 @@ class Status
      */
     protected $style;
 
+    /**
+     * @ORM\OneToMany(targetEntity="IncidentStatus", mappedBy="status")
+     */
+    protected $incidentStatusList;
+
     public function __construct()
     {
-
+        $this->incidentStatusList = new ArrayCollection();
     }
 
     public function getId(): ?int
