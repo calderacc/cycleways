@@ -188,7 +188,7 @@
                             Tags
                         </dt>
                         <dd>
-                            {{ render(controller('AppBundle:Tag:render', { 'incident': incident } )) }}
+                            {{ render(controller('AppBundle:Incident/Tag:render', { 'incident': incident } )) }}
                         </dd>
                         {% endif %}
                     </dl>
@@ -205,13 +205,13 @@
                             aktueller Status
                         </dt>
                         <dd>
-                            {{ render(controller('AppBundle:IncidentStatus:render', { 'incident': incident } )) }}
+                            {{ render(controller('AppBundle:Incident/Status:render', { 'incident': incident } )) }}
                         </dd>
                         <dt>
                             Bearbeiter
                         </dt>
                         <dd>
-                            {{ render(controller('AppBundle:Issuer:render', { 'incident': incident } )) }}
+                            {{ render(controller('AppBundle:Incident/Issuer:render', { 'incident': incident } )) }}
                         </dd>
                     </dl>
                 </div>

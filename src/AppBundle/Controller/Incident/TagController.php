@@ -1,11 +1,10 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Incident;
 
+use AppBundle\Controller\AbstractController;
 use AppBundle\Entity\Incident;
-use AppBundle\Entity\IncidentStatus;
 use AppBundle\Entity\IncidentTag;
-use AppBundle\Entity\IncidentUser;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;

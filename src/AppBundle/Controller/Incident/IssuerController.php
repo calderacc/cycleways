@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Incident;
 
+use AppBundle\Controller\AbstractController;
 use AppBundle\Entity\Incident;
 use AppBundle\Entity\IncidentStatus;
 use AppBundle\Entity\IncidentUser;

@@ -1,14 +1,15 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Incident;
 
+use AppBundle\Controller\AbstractController;
 use AppBundle\Entity\Incident;
 use AppBundle\Entity\IncidentStatus;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class IncidentStatusController extends AbstractController
+class StatusController extends AbstractController
 {
     public function renderAction(Request $request, Incident $incident): Response
     {
