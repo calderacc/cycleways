@@ -183,15 +183,18 @@
                             </dd>
                         {% endif %}
 
+                        {% if not (incident.incidentType is constant('INCIDENT_ACCIDENT', incident) or incident.incidentType is constant('INCIDENT_DEADLY_ACCIDENT', incident)) %}
                         <dt>
                             Tags
                         </dt>
                         <dd>
                             {{ render(controller('AppBundle:Tag:render', { 'incident': incident } )) }}
                         </dd>
+                        {% endif %}
                     </dl>
                 </div>
 
+                {% if not (incident.incidentType is constant('INCIDENT_ACCIDENT', incident) or incident.incidentType is constant('INCIDENT_DEADLY_ACCIDENT', incident)) %}
                 <div class="card card-block">
                     <h4 class="card-title">
                         Status
@@ -212,7 +215,8 @@
                         </dd>
                     </dl>
                 </div>
-
+                {% endif %}
+                
                 <div class="card card-block">
                     <h4 class="card-title">
                         Google Maps
