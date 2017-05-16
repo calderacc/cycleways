@@ -2,8 +2,8 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="incident_tag")
@@ -19,123 +19,88 @@ class IncidentTag
     protected $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Incident")
-     * @ORM\JoinTable(name="incident_incident_tag",
-     *      joinColumns={@ORM\JoinColumn(name="incident_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id")}
-     *      )
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="incident_tag")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
-    protected $incidents;
+    protected $user;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="Incident", inversedBy="incident_tag")
+     * @ORM\JoinColumn(name="incident_id", referencedColumnName="id")
      */
-    protected $title;
+    protected $incident;
 
     /**
-     * @ORM\Column(name="font_color", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="Tag", inversedBy="incident_tag")
+     * @ORM\JoinColumn(name="tag_id", referencedColumnName="id")
      */
-    protected $fontColor;
+    protected $tag;
 
     /**
-     * @ORM\Column(name="background_color", type="string", length=255, nullable=true)
+     * @ORM\Column(type="datetime")
      */
-    protected $backgroundColor;
+    protected $dateTimeAdded;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $dateTimeRemoved;
 
     public function __construct()
     {
-        $this->incidents = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dateTimeAdded = new \DateTime();
     }
 
-    /**
-     * @return integer
-     */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @param string $title
-     * @return IncidentTag
-     */
-    public function setTitle(string $title): IncidentTag
+    public function setUser(User $user): IncidentTag
     {
-        $this->title = $title;
+        $this->user = $user;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle(): string
+    public function getUser(): ?User
     {
-        return $this->title;
+        return $this->user;
     }
 
-    /**
-     * @param string $fontColor
-     * @return IncidentTag
-     */
-    public function setFontColor(string $fontColor): IncidentTag
+    public function setIncident(Incident $incident): IncidentTag
     {
-        $this->fontColor = $fontColor;
+        $this->incident = $incident;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getFontColor(): string
+    public function getIncident(): ?Incident
     {
-        return $this->fontColor;
+        return $this->incident;
     }
 
-    /**
-     * @param string $backgroundColor
-     * @return IncidentTag
-     */
-    public function setBackgroundColor($backgroundColor): IncidentTag
+    public function setDateTimeAdded(\DateTime $dateTimeAdded): IncidentTag
     {
-        $this->backgroundColor = $backgroundColor;
+        $this->dateTimeAdded = $dateTimeAdded;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getBackgroundColor(): string
+    public function getDateTimeAdded(): \DateTime
     {
-        return $this->backgroundColor;
+        return $this->dateTimeAdded;
     }
 
-    /**
-     * @param Incident $incident
-     * @return IncidentTag
-     */
-    public function addIncident(Incident $incident): IncidentTag
+    public function setDateTimeRemoved(\DateTime $dateTimeRemoved): IncidentTag
     {
-        $this->incidents[] = $incident;
+        $this->dateTimeRemoved = $dateTimeRemoved;
 
         return $this;
     }
 
-    /**
-     * @param Incident $incident
-     */
-    public function removeIncident(Incident $incident): void
+    public function getDateTimeRemoved(): \DateTime
     {
-        $this->incidents->removeElement($incident);
-    }
-
-    /**
-     * @return Collection
-     */
-    public function getIncidents(): Collection
-    {
-        return $this->incidents;
+        return $this->dateTimeRemoved;
     }
 }
