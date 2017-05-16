@@ -18,18 +18,6 @@ caldera_cycleways_incident:
     resource: "@AppBundle/Resources/config/routing/incident.yml"
     prefix: /
 
-caldera_cycleways_incident_status:
-    resource: "@AppBundle/Resources/config/routing/incident-status.yml"
-    prefix: /
-
-caldera_cycleways_incident_issuer:
-    resource: "@AppBundle/Resources/config/routing/issuer.yml"
-    prefix: /
-
-caldera_cycleways_incident_tag:
-    resource: "@AppBundle/Resources/config/routing/incident-tag.yml"
-    prefix: /
-
 caldera_cycleways_city:
     resource: "@AppBundle/Resources/config/routing/city.yml"
     prefix: /
