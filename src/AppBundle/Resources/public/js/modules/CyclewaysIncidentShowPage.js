@@ -65,12 +65,12 @@ define(['CriticalService', 'Map', 'IncidentEntity', 'bootstrap-select'], functio
         });
 
         $('#tag-select').on('changed.bs.select', function (event, clickedIndex, newValue, oldValue) {
-            var tagId = $(this).val();
+            var tagList = $(this).val();
 
             $.ajax({
                 method: 'POST',
                 url: Routing.generate('caldera_cycleways_incident_tag_update', { slug: 'ewf-1' }),
-                data: { tagId: tagId }
+                data: { tagList: tagList }
             });
         });
     };

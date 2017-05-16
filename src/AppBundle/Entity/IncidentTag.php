@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="incident_tag")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\IncidentTagRepository")
  */
 class IncidentTag
 {

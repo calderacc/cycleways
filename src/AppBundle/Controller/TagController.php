@@ -6,6 +6,8 @@ use AppBundle\Entity\Incident;
 use AppBundle\Entity\IncidentStatus;
 use AppBundle\Entity\IncidentTag;
 use AppBundle\Entity\IncidentUser;
+use AppBundle\Entity\Tag;
+use AppBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -26,13 +28,38 @@ class TagController extends AbstractController
 
     public function updateAction(Request $request, string $slug, UserInterface $user): Response
     {
-        $tagId = $request->request->getInt('tagId');
+        $tagIdList = $request->request->get('tagList', []);
 
         /** @var Incident $incident */
         $incident = $this->getIncidentRepository()->findOneBySlug($slug);
 
-        $tag = $this->getDoctrine()->getRepository('AppBundle:Tag')->find($tagId);
+        /** @var IncidentTag[] $incidentTags */
+        $incidentTags = $this->getDoctrine()->getRepository('AppBundle:IncidentTag')->findForIncident($incident);
 
+        foreach ($incidentTags as $incidentTag) {
+            $tagId = $incidentTag->getTag()->getId();
+
+            if  (!in_array($tagId, $tagIdList)) {
+                $this->removeIncidentTag($incidentTag, $user);
+
+                $key = array_search($tagId, $tagIdList);
+                unset($tagIdList[$key]);
+            }
+        }
+
+        foreach ($tagIdList as $tagId) {
+            $tag = $this->getDoctrine()->getRepository('AppBundle:Tag')->find($tagId);
+
+            $this->createIndidentTag($incident, $tag, $user);
+        }
+
+        $this->getDoctrine()->getManager()->flush();
+
+        return new Response();
+    }
+
+    protected function createIndidentTag(Incident $incident, Tag $tag, User $user): IncidentTag
+    {
         $incidentTag = new IncidentTag();
 
         $incidentTag
@@ -44,8 +71,12 @@ class TagController extends AbstractController
         $incident->addIncidentTag($incidentTag);
 
         $this->getDoctrine()->getManager()->persist($incidentTag);
-        $this->getDoctrine()->getManager()->flush();
 
-        return new Response();
+        return $incidentTag;
+    }
+
+    protected function removeIncidentTag(IncidentTag $incidentTag, User $user): void
+    {
+        $incidentTag->setDateTimeRemoved(new \DateTime());
     }
 }
