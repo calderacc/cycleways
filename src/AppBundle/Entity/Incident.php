@@ -92,11 +92,13 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
 
     /**
      * @ORM\OneToOne(targetEntity="IncidentStatus", mappedBy="incident")
+     * @ORM\JoinColumn(name="status_id", referencedColumnName="id")
      */
     protected $incidentStatus;
 
     /**
-     * @ORM\OneToOne(targetEntity="IncidentUser", mappedBy="incident")
+     * @ORM\OneToOne(targetEntity="IncidentUser", mappedBy="currentIssuer")
+     * @ORM\JoinColumn(name="issuer_id", referencedColumnName="id")
      */
     protected $issuer;
 
