@@ -182,6 +182,13 @@
                                 {{ incident.dateTime|date('d.m.Y H:i') }} Uhr
                             </dd>
                         {% endif %}
+
+                        <dt>
+                            Tags
+                        </dt>
+                        <dd>
+                            {{ render(controller('AppBundle:Tag:render', { 'incident': incident } )) }}
+                        </dd>
                     </dl>
                 </div>
 
