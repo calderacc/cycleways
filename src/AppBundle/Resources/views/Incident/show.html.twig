@@ -161,7 +161,12 @@
                         <dd>
                             {{ incident.street }}, {{ getCityName(incident) }}
                         </dd>
-
+                        <dt>
+                            gemeldet von
+                        </dt>
+                        <dd>
+                            {{ incident.user.username }}
+                        </dd>
                         <dt>
                             Zeitpunkt der Meldung
                         </dt>
@@ -191,12 +196,6 @@
                         </dt>
                         <dd>
                             {{ render(controller('AppBundle:IncidentStatus:render', { 'incident': incident } )) }}
-                        </dd>
-                        <dt>
-                            gemeldet von
-                        </dt>
-                        <dd>
-                            {{ incident.user.username }}
                         </dd>
                         <dt>
                             Bearbeiter
