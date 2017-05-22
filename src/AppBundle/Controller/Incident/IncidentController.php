@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Incident;
 
+use AppBundle\Controller\AbstractController;
 use AppBundle\Entity\Incident;
 use AppBundle\Form\Type\IncidentType;
 use AppBundle\SlugGenerator\SlugGenerator;
