@@ -1,6 +1,6 @@
 caldera_cycleways_incident_add:
     path:     /addincident
-    defaults: { _controller: AppBundle:Incident/Incident:add }
+    defaults: { _controller: AppBundle:Incident/Management:add }
 
 caldera_cycleways_incident_show:
     path:     /{slug}
