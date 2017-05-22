@@ -58,6 +58,6 @@ abstract class AbstractController extends Controller
 
     protected function getPostRepository(): PostRepository
     {
-        return $this->getDoctrine()->getRepository('CalderaBundle:Post');
+        return $this->getDoctrine()->getRepository('AppBundle:Post');
     }
 }

@@ -76,8 +76,11 @@ class PhotoRepository extends EntityRepository
         return $result;
     }
 
-    public function findForTimelinePhotoCollector(\DateTime $startDateTime = null, \DateTime $endDateTime = null, int $limit = null): array
-    {
+    public function findForTimelinePhotoCollector(
+        \DateTime $startDateTime = null,
+        \DateTime $endDateTime = null,
+        int $limit = null
+    ): array {
         $builder = $this->createQueryBuilder('photo');
 
         $builder->select('photo');
@@ -86,11 +89,15 @@ class PhotoRepository extends EntityRepository
         $builder->andWhere($builder->expr()->eq('photo.deleted', 0));
 
         if ($startDateTime) {
-            $builder->andWhere($builder->expr()->gte('photo.creationDateTime', '\'' . $startDateTime->format('Y-m-d H:i:s') . '\''));
+            $builder->andWhere(
+                $builder->expr()->gte('photo.creationDateTime', '\''.$startDateTime->format('Y-m-d H:i:s').'\'')
+            );
         }
 
         if ($endDateTime) {
-            $builder->andWhere($builder->expr()->lte('photo.creationDateTime', '\'' . $endDateTime->format('Y-m-d H:i:s') . '\''));
+            $builder->andWhere(
+                $builder->expr()->lte('photo.creationDateTime', '\''.$endDateTime->format('Y-m-d H:i:s').'\'')
+            );
         }
 
         if ($limit) {
@@ -98,6 +105,23 @@ class PhotoRepository extends EntityRepository
         }
 
         $builder->addOrderBy('photo.creationDateTime', 'DESC');
+
+        $query = $builder->getQuery();
+
+        return $query->getResult();
+    }
+
+    public function findLatestGroupedByIncident(int $limit = 10): array
+    {
+        $builder = $this->createQueryBuilder('p');
+
+        $builder
+            ->where($builder->expr()->eq('p.enabled', 1))
+            ->andWhere($builder->expr()->eq('p.deleted', 0))
+            ->groupBy('p.incident')
+            ->orderBy('p.dateTime', 'DESC')
+            ->setMaxResults($limit)
+        ;
 
         $query = $builder->getQuery();
 
