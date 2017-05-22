@@ -49,7 +49,7 @@ class SearchController extends AbstractController
             [
                 'incidents' => $results,
                 'resultSet' => $resultSet,
-                'query' => $queryPhrase
+                'queryPhrase' => $queryPhrase
             ]
         );
     }

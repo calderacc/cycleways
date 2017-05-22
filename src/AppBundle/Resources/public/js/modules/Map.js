@@ -94,6 +94,7 @@ define(['leaflet', 'leaflet-locate'], function () {
     };
 
     Map.prototype.disableInteraction = function () {
+        this._$mapContainer.find('.leaflet-control-zoom').hide();
         this._$mapContainer.css('cursor', 'default');
         this.map.dragging.disable();
         this.map.touchZoom.disable();
@@ -108,6 +109,7 @@ define(['leaflet', 'leaflet-locate'], function () {
     };
 
     Map.prototype.enableInteraction = function () {
+        this._$mapContainer.find('.leaflet-control-zoom').show();
         this._$mapContainer.css('cursor', 'move');
         this.map.dragging.enable();
         this.map.touchZoom.enable();

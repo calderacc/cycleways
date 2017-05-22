@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 use JMS\Serializer\Annotation as JMS;
@@ -38,11 +39,24 @@ class User extends BaseUser
      */
     protected $createdAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity="IncidentStatus", mappedBy="user")
+     */
+    protected $incidentStatusList;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Incident", mappedBy="user")
+     */
+    protected $incidentList;
+
     public function __construct()
     {
         parent::__construct();
 
         $this->createdAt = new \DateTime();
+
+        $this->incidentStatusList = new ArrayCollection();
+        $this->incidentList = new ArrayCollection();
     }
 
     /**
