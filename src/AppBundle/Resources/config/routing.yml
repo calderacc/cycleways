@@ -18,6 +18,10 @@ caldera_cycleways_incident:
     resource: "@AppBundle/Resources/config/routing/incident.yml"
     prefix: /
 
+caldera_cycleways_map:
+    resource: "@AppBundle/Resources/config/routing/map.yml"
+    prefix: /
+
 caldera_cycleways_city:
     resource: "@AppBundle/Resources/config/routing/city.yml"
     prefix: /

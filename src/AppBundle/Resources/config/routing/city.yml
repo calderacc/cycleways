@@ -9,10 +9,3 @@ caldera_cycleways_incident_add:
 caldera_cycleways_incident_list_city:
     path:     /{citySlug}/list
     defaults: { _controller: AppBundle:Incident:list }
-
-caldera_cycleways_incident_map_city:
-    path:     /{citySlug}
-    requirements:
-        citySlug: '([a-zA-Z-]*)'
-    defaults: { _controller: AppBundle:Incident:map }
-

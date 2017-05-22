@@ -6,6 +6,6 @@ caldera_cycleways_incident_streetview_check:
 
 caldera_cycleways_incident_source:
     path:     /incidents
-    defaults: { _controller: AppBundle:Incident:load }
+    defaults: { _controller: AppBundle:Map:load }
     options:
         expose: true
