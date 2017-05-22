@@ -930,4 +930,23 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
 
         return $this;
     }
+
+    public function getTags(): Collection
+    {
+        return $this->tagList;
+    }
+
+    public function addTag(Tag $tag): Incident
+    {
+        $this->tagList->add($tag);
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): Incident
+    {
+        $this->tagList->removeElement($tag);
+
+        return $this;
+    }
 }
