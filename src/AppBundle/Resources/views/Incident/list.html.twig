@@ -20,8 +20,13 @@
                             <th>
                                 Bezeichnung
                             </th>
+
                             <th>
-                                Erstellungsdatum
+                                erstellt
+                            </th>
+
+                            <th>
+                                zugewiesen an
                             </th>
                         </tr>
                     </thead>
@@ -33,8 +38,23 @@
                                     {{ incident.title }}
                                 </a>
                             </td>
+
                             <td>
-                                {{ incident.creationDateTime|date('d.m.Y') }}
+                                {{ incident.creationDateTime|date('d.m.Y H:i') }} Uhr
+                                <br />
+                                von {{ incident.user.username }}
+                            </td>
+
+                            <td>
+                                {% if incident.issuer %}
+                                {{ incident.issuer.user.username }}
+                                {% else %}
+                                <em>nicht zugewiesen</em>
+                                {% endif %}
+                            </td>
+
+                            <td>
+
                             </td>
                         </tr>
                         {% endfor %}
