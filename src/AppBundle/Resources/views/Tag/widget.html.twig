@@ -7,5 +7,5 @@
     {% endfor %}
 </select>
 {% else %}
-{{ include('AppBundle:Tag:_tag.html.twig', { tagList: incident.tags }) }}
+{{ include('AppBundle:Tag:list.html.twig', { tagList: incident.tags }) }}
 {% endif %}
