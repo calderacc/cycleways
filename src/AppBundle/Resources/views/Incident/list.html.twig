@@ -26,7 +26,7 @@
                             </th>
 
                             <th>
-                                zugewiesen an
+                                Status
                             </th>
                         </tr>
                     </thead>
@@ -51,10 +51,8 @@
                                 {% else %}
                                 <em>nicht zugewiesen</em>
                                 {% endif %}
-                            </td>
-
-                            <td>
-
+                                <br />
+                                {{ include('AppBundle:IncidentStatus:_incidentStatus.html.twig', { 'incidentStatus': incident.incidentStatus } ) }}
                             </td>
                         </tr>
                         {% endfor %}
