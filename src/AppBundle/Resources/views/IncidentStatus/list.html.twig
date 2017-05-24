@@ -13,5 +13,5 @@
     {% endfor %}
 </select>
 {% else %}
-    {{ render('AppBundle:IncidentStatus:_incidentStatus.html.twig', { incidentStatus: incident.incidentStatus }) }}
+{{ include('AppBundle:IncidentStatus:_incidentStatus.html.twig', { incidentStatus: incident.incidentStatus }) }}
 {% endif %}

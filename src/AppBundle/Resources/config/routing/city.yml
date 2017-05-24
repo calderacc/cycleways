@@ -2,17 +2,6 @@ caldera_cycleways_frontpage:
     path:     /
     defaults: { _controller: AppBundle:Frontpage:index }
 
-caldera_cycleways_incident_add:
-    path:     /addincident
-    defaults: { _controller: AppBundle:Incident:add }
-
 caldera_cycleways_incident_list_city:
     path:     /{citySlug}/list
-    defaults: { _controller: AppBundle:Incident:list }
-
-caldera_cycleways_incident_map_city:
-    path:     /{citySlug}
-    requirements:
-        citySlug: '([a-zA-Z-]*)'
-    defaults: { _controller: AppBundle:Incident:map }
-
+    defaults: { _controller: AppBundle:Incident/Incident:list }

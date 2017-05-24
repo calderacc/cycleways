@@ -1,6 +1,10 @@
+caldera_cycleways_incident_add:
+    path:     /addincident
+    defaults: { _controller: AppBundle:Incident/Management:add }
+
 caldera_cycleways_incident_show:
     path:     /{slug}
-    defaults: { _controller: AppBundle:Incident:show }
+    defaults: { _controller: AppBundle:Incident/Incident:show }
     requirements:
         slug: '(.*)\-([0-9]{1,6})'
     options:

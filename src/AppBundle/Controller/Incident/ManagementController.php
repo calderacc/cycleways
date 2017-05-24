@@ -1,69 +1,19 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Incident;
 
+use AppBundle\Controller\AbstractController;
 use AppBundle\Entity\Incident;
 use AppBundle\Form\Type\IncidentType;
 use AppBundle\SlugGenerator\SlugGenerator;
-use Caldera\GeoBasic\Bounds\Bounds;
-use Caldera\GeoBasic\Coord\Coord;
 use Curl\Curl;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class IncidentController extends AbstractController
+class ManagementController extends AbstractController
 {
-    public function mapAction(Request $request, $citySlug): Response
-    {
-        $city = $this->getCityBySlug($citySlug);
-
-        return $this->render(
-            'AppBundle:Incident:map.html.twig',
-            [
-                'city' => $city
-            ]
-        );
-    }
-
-    public function loadAction(Request $request): Response
-    {
-        if (
-            !$request->request->get('northWestLatitude') ||
-            !$request->request->get('northWestLongitude') ||
-            !$request->request->get('southEastLatitude') ||
-            !$request->request->get('southEastLongitude')
-        ) {
-            throw $this->createNotFoundException();
-        }
-
-        $northWest = new Coord(
-            $request->request->get('northWestLatitude'),
-            $request->request->get('northWestLongitude')
-        );
-        
-        $southEast = new Coord(
-            $request->request->get('southEastLatitude'),
-            $request->request->get('southEastLongitude')
-        );
-
-        if ($request->request->get('knownIndizes') && is_array($request->request->get('knownIndizes'))) {
-            $knownIndizes = $request->request->get('knownIndizes');
-        } else {
-            $knownIndizes = [];
-        }
-        
-        $bounds = new Bounds($northWest, $southEast);
-        
-        $results = $this->getIncidentManager()->getIncidentsInBounds($bounds, $knownIndizes);
-
-        $serializer = $this->get('jms_serializer');
-        $serializedData = $serializer->serialize($results, 'json');
-
-        return new Response($serializedData);
-    }
-
     public function addAction(Request $request)
     {
         $incident = new Incident();
@@ -141,50 +91,6 @@ class IncidentController extends AbstractController
         );
     }
 
-    public function showAction(Request $request, string $slug): Response
-    {
-        /** @var Incident $incident */
-        $incident = $this->getIncidentRepository()->findOneBySlug($slug);
-
-        if (!$incident) {
-            throw $this->createNotFoundException();
-        }
-
-        $posts = $this->getPostManager()->getPostsForIncident($incident);
-        $photos = $this->getPhotoRepository()->findByIncident($incident);
-
-        $this->storeView($incident);
-
-        /*$this->getMetadata()
-            ->setTitle($this->generatePageTitle($incident))
-            ->setDescription($incident->getDescription());
-*/
-        return $this->render(
-            'AppBundle:Incident:show.html.twig',
-            [
-                'incident' => $incident,
-                'posts' => $posts,
-                'photos' => $photos
-
-            ]
-        );
-    }
-    
-    public function listAction(Request $request, string $citySlug): Response
-    {
-        $city = $this->getCityBySlug($citySlug);
-
-        $incidents = $this->getIncidentManager()->getIncidentsForCity($city);
-
-        return $this->render(
-            'AppBundle:Incident:list.html.twig',
-            [
-                'incidents' => $incidents,
-                'city' => $city
-            ]
-        );
-    }
-
     protected function generatePageTitle(Incident $incident): string
     {
         $title = $incident->getTitle();
@@ -192,13 +98,6 @@ class IncidentController extends AbstractController
         $title .= ' &mdash; Cycleways.info';
 
         return $title;
-    }
-
-    protected function storeView(Incident $incident)
-    {
-        $viewStorage = $this->get('caldera.view_storage.cache');
-
-        $viewStorage->countView($incident);
     }
 
     public function googleMapsCoordAction(Request $request): JsonResponse

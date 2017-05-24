@@ -1,11 +1,11 @@
 caldera_cycleways_incident_streetview_check:
     path:     /streetviewcheck
-    defaults: { _controller: AppBundle:Incident:googleMapsCoord }
+    defaults: { _controller: AppBundle:Incident/Incident:googleMapsCoord }
     options:
         expose: true
 
 caldera_cycleways_incident_source:
     path:     /incidents
-    defaults: { _controller: AppBundle:Incident:load }
+    defaults: { _controller: AppBundle:Map:load }
     options:
         expose: true

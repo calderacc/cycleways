@@ -1,5 +1,7 @@
-{% if incidentStatus and incidentStatus.status %}
-<div class="incident-status" style="{{ incidentStatus.status.style }}">
-    {{ incidentStatus.status.caption }}
-</div>
+{% if tagList %}
+    {% for tag in tagList %}
+    <div class="tag" style="{{ tag.style }}">
+        {{ tag.caption }}
+    </div>
+    {% endfor %}
 {% endif %}
