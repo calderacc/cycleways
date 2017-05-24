@@ -13,12 +13,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class TagController extends AbstractController
 {
-    public function renderAction(Request $request, Incident $incident): Response
+    public function widgetAction(Request $request, Incident $incident): Response
     {
         $tagList = $this->getDoctrine()->getRepository('AppBundle:Tag')->findAll();
         $incidentTags = $this->getDoctrine()->getRepository('AppBundle:Tag')->findTagsForIncident($incident);
 
-        return $this->render('AppBundle:Tag:list.html.twig', [
+        return $this->render('AppBundle:Tag:widget.html.twig', [
             'tagList' => $tagList,
             'incident' => $incident,
             'incidentTagList' => $incidentTags,

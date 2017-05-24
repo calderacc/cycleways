@@ -12,11 +12,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class IssuerController extends AbstractController
 {
-    public function renderAction(Request $request, Incident $incident): Response
+    public function widgetAction(Request $request, Incident $incident): Response
     {
         $userList = $this->getDoctrine()->getRepository('AppBundle:User')->findAll();
 
-        return $this->render('AppBundle:Issuer:list.html.twig', [
+        return $this->render('AppBundle:Issuer:widget.html.twig', [
             'userList' => $userList,
             'incident' => $incident
         ]);

@@ -11,11 +11,11 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class StatusController extends AbstractController
 {
-    public function renderAction(Request $request, Incident $incident): Response
+    public function widgetAction(Request $request, Incident $incident): Response
     {
         $statusList = $this->getDoctrine()->getRepository('AppBundle:Status')->findAll();
 
-        return $this->render('AppBundle:IncidentStatus:list.html.twig', [
+        return $this->render('AppBundle:IncidentStatus:widget.html.twig', [
             'statusList' => $statusList,
             'incident' => $incident
         ]);
