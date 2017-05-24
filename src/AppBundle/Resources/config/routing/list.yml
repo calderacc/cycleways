@@ -1,0 +1,3 @@
+caldera_cycleways_incident_list:
+    path:     /list
+    defaults: { _controller: AppBundle:Incident/List:list }

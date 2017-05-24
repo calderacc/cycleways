@@ -37,21 +37,6 @@ class IncidentController extends AbstractController
             ]
         );
     }
-    
-    public function listAction(Request $request, string $citySlug): Response
-    {
-        $city = $this->getCityBySlug($citySlug);
-
-        $incidents = $this->getIncidentManager()->getIncidentsForCity($city);
-
-        return $this->render(
-            'AppBundle:Incident:list.html.twig',
-            [
-                'incidents' => $incidents,
-                'city' => $city
-            ]
-        );
-    }
 
     protected function storeView(Incident $incident)
     {
