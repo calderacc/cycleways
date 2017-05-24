@@ -1,11 +1,5 @@
-{% if app.user %}
-<select id="tag-select" class="selectpicker" data-style="btn-secondary"  data-icon-base="fa" data-tick-icon="fa-check" data-live-search="true" multiple="multiple">
-    {% for tag in tagList %}
-    <option{% if tag in incidentTagList %} selected="selected"{% endif %} value="{{ tag.id }}" data-content="<div class='tag incident-tag' style='{{ tag.style }}'>{{ tag.caption }}</div>">
-        {{ tag.caption }}
-    </option>
+{% if incidentTagList %}
+    {% for incidentTag in tagList %}
+        {{ include('AppBundle:Tag:_tag.html.twig', { tag: incidentTag.tag }) }}
     {% endfor %}
-</select>
-{% else %}
-{{ include('AppBundle:Tag:_tag.html.twig', { tagList: incident.tags }) }}
 {% endif %}
