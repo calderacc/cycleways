@@ -57,4 +57,9 @@ class IncidentManager extends AbstractElasticManager
     {
         return $this->incidentRepository->findByIncidentTypeYear($type, $year);
     }
+
+    public function findAll(): array
+    {
+        return $this->incidentRepository->findAll();
+    }
 }

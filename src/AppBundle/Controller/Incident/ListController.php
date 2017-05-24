@@ -8,17 +8,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ListController extends AbstractController
 {
-    public function listAction(Request $request, string $citySlug): Response
+    public function listAction(Request $request): Response
     {
-        $city = $this->getCityBySlug($citySlug);
-
-        $incidents = $this->getIncidentManager()->getIncidentsForCity($city);
+        $incidentList = $this->getIncidentManager()->findAll();
 
         return $this->render(
             'AppBundle:Incident:list.html.twig',
             [
-                'incidents' => $incidents,
-                'city' => $city
+                'incidentList' => $incidentList,
             ]
         );
     }
