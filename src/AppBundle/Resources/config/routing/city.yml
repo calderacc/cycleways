@@ -4,4 +4,4 @@ caldera_cycleways_frontpage:
 
 caldera_cycleways_incident_list_city:
     path:     /{citySlug}/list
-    defaults: { _controller: AppBundle:Incident:list }
+    defaults: { _controller: AppBundle:Incident/Incident:list }
