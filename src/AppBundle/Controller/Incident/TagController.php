@@ -25,6 +25,15 @@ class TagController extends AbstractController
         ]);
     }
 
+    public function listAction(Request $request, Incident $incident): Response
+    {
+        $tagList = $this->getDoctrine()->getRepository('AppBundle:Tag')->findTagsForIncident($incident);
+
+        return $this->render('AppBundle:Tag:tagList.html.twig', [
+            'tagList' => $tagList,
+        ]);
+    }
+
     public function updateAction(Request $request, string $slug, UserInterface $user): Response
     {
         $tagIdList = $request->request->get('tagList', []);

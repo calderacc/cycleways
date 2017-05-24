@@ -37,6 +37,8 @@
                                 <a href="{{ path('caldera_cycleways_incident_show', { slug: incident.slug }) }}">
                                     {{ incident.title }}
                                 </a>
+
+                                {{ render(controller('AppBundle:Incident/Tag:list', { 'incident': incident } )) }}
                             </td>
 
                             <td>

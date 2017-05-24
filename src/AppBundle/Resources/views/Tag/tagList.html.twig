@@ -1,0 +1,5 @@
+{% if tagList %}
+    {% for tag in tagList %}
+        {{ include('AppBundle:Tag:_tag.html.twig', { tag: tag }) }}
+    {% endfor %}
+{% endif %}
