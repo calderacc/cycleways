@@ -1,7 +1,8 @@
 define(['localforage', 'CriticalService', 'Container'], function (localforage, CriticalService) {
     LocalContainer = function () {
         this._storage = localforage.createInstance({
-            name: "incidents"
+            name: 'cycleways',
+            storeName: 'incidents'
         });
 
         this._layer = L.featureGroup();
@@ -18,19 +19,22 @@ define(['localforage', 'CriticalService', 'Container'], function (localforage, C
     LocalContainer.prototype._CriticalService = null;
 
     LocalContainer.prototype._restore = function () {
+        var that = this;
+
         this._storage.iterate(function(entityJson, key, iterationNumber) {
             var entity = CriticalService.factory.createIncident(entityJson);
 
-            entity.addToLayer(this._layer);
+            entity.addToLayer(that._layer);
         }.bind(this));
     };
 
     LocalContainer.prototype.addEntity = function (entity, index) {
         var onFound = function() {
-
+            console.log('onFound');
         }.bind(this);
 
         var onMissing = function () {
+            console.log('onMissing');
             this._storage.setItem(String(index), JSON.stringify(entity));
 
             entity.addToLayer(this._layer);

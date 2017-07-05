@@ -1,4 +1,4 @@
-define(['CriticalService', 'Map', 'Container', 'IncidentEntity'], function (CriticalService) {
+define(['CriticalService', 'Map', 'ClusterContainer', 'IncidentEntity'], function (CriticalService) {
     IncidentPage = function () {
         this._CriticalService = CriticalService;
 
@@ -7,7 +7,7 @@ define(['CriticalService', 'Map', 'Container', 'IncidentEntity'], function (Crit
 
     IncidentPage.prototype._CriticalService = null;
     IncidentPage.prototype._map = null;
-    IncidentPage.prototype._incidentContainer = new Container();
+    IncidentPage.prototype._incidentContainer = new ClusterContainer();
 
     IncidentPage.prototype._initMap = function () {
         this._map = new Map('map', []);
