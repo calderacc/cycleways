@@ -19,8 +19,8 @@ class IncidentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class, array('required' => false))
-            ->add('description', TextareaType::class, array('required' => false))
+            ->add('title', TextType::class, ['required' => false])
+            ->add('description', TextareaType::class, ['required' => false])
             ->add('polyline', HiddenType::class)
             ->add('geometryType', HiddenType::class)
             ->add('incidentType', ChoiceType::class,
