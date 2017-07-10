@@ -21,15 +21,15 @@ class IncidentType extends AbstractType
         $builder
             ->add('title', TextType::class, ['required' => false])
             ->add('description', TextareaType::class, ['required' => false])
-            ->add('polyline', HiddenType::class)
-            ->add('geometryType', HiddenType::class)
+            ->add('polyline', HiddenType::class, ['required' => false])
+            ->add('geometryType', HiddenType::class, ['required' => false])
             ->add('incidentType', ChoiceType::class,
                 [
                     'choices' => [
                         'Road Rage' => Incident::INCIDENT_RAGE,
                         'Gefahrenstelle' => Incident::INCIDENT_DANGER,
                         'Arbeitsstelle' => Incident::INCIDENT_ROADWORKS,
-                        'Unfall' => Incident::INCIDENT_ACCIDENT,
+                        'Unfall' => Incident::INCIDENT_ACCIDENT, 
                         'Tödlicher Unfall' => Incident::INCIDENT_DEADLY_ACCIDENT,
                         'Polizeikontrolle' => Incident::INCIDENT_POLICE,
                         'schlechte Infrastruktur' => Incident::INCIDENT_INFRASTRUCTURE
@@ -64,18 +64,18 @@ class IncidentType extends AbstractType
                     'model_timezone' => 'UTC',
                     'view_timezone' => 'Europe/Berlin',
                 ])
-            ->add('expires', CheckboxType::class)
-            ->add('street', TextType::class)
-            ->add('houseNumber', TextType::class)
-            ->add('suburb', HiddenType::class)
-            ->add('district', HiddenType::class)
-            ->add('town', HiddenType::class)
-            ->add('village', HiddenType::class)
-            ->add('city', HiddenType::class)
-            ->add('zipCode', HiddenType::class)
-            ->add('streetviewLink', TextType::class)
-            ->add('latitude', HiddenType::class)
-            ->add('longitude', HiddenType::class)
+            ->add('expires', CheckboxType::class, ['required' => false])
+            ->add('street', TextType::class, ['required' => false])
+            ->add('houseNumber', TextType::class, ['required' => false])
+            ->add('suburb', HiddenType::class, ['required' => false])
+            ->add('district', HiddenType::class, ['required' => false])
+            ->add('town', HiddenType::class, ['required' => false])
+            ->add('village', HiddenType::class, ['required' => false])
+            ->add('city', HiddenType::class, ['required' => false])
+            ->add('zipCode', HiddenType::class, ['required' => false])
+            ->add('streetviewLink', TextType::class, ['required' => false])
+            ->add('latitude', HiddenType::class, ['required' => false])
+            ->add('longitude', HiddenType::class, ['required' => false])
             ->add('accidentType', ChoiceType::class,
                 [
                     'choices' => [
@@ -146,7 +146,7 @@ class IncidentType extends AbstractType
                     ]
                 ]
             )
-            ->add('accidentAge', NumberType::class)
+            ->add('accidentAge', NumberType::class, ['required' => false])
             ->add('accidentPedelec', ChoiceType::class,
                 [
                     'choices' => [
