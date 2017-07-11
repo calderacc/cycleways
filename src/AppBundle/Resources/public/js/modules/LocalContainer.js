@@ -5,11 +5,7 @@ define(['localforage', 'CriticalService', 'Container'], function (localforage, C
             storeName: 'incidents'
         });
 
-        this._layer = L.featureGroup();
         this._CriticalService = CriticalService;
-
-        this._storage.clear();
-        this._restore();
     };
 
     LocalContainer.prototype = new Container();
