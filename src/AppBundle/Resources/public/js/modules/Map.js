@@ -8,8 +8,8 @@ define(['leaflet', 'leaflet-locate'], function () {
     };
 
     Map.prototype._defaults = {
-        tileLayerUrl: 'https://tiles.caldera.cc/wikimedia-map/{z}/{x}/{y}.png',
-        mapAttribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        tileLayerUrl: 'https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png',
+        mapAttribution: 'Wikimedia maps beta | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         stylesheetAddress: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css',
         detectRetina: true,
         defaultLatitude: 51.0851708,
