@@ -7,6 +7,8 @@ define(['leaflet', 'leaflet-markercluster', 'LocalContainer', 'leaflet-extramark
                 return L.divIcon({ className: 'cluster-counter-outer', html: '<div class="cluster-counter-inner">' + cluster.getChildCount() + '</div>' });
             }
         });
+
+        this._restore();
     };
 
     IncidentContainer.prototype = new LocalContainer();

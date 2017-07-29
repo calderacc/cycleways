@@ -735,7 +735,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
 
     /**
      * @JMS\VirtualProperty
-     * @JMS\SerializedName("Timestamp")
+     * @JMS\SerializedName("timestamp")
      */
     public function getTimestamp(): int
     {
@@ -744,7 +744,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
 
     /**
      * @JMS\VirtualProperty
-     * @JMS\SerializedName("CreationTimestamp")
+     * @JMS\SerializedName("creationTimestamp")
      */
     public function getCreationTimestamp(): int
     {
@@ -753,7 +753,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
 
     /**
      * @JMS\VirtualProperty
-     * @JMS\SerializedName("VisibleFromTimestamp")
+     * @JMS\SerializedName("visibleFromTimestamp")
      */
     public function getVisibleFromTimestamp(): int
     {
@@ -762,7 +762,7 @@ class Incident implements CoordinateInterface, ElasticSearchPinInterface, Viewab
 
     /**
      * @JMS\VirtualProperty
-     * @JMS\SerializedName("VisibleToTimestamp")
+     * @JMS\SerializedName("visibleToTimestamp")
      */
     public function getVisibleToTimestamp(): int
     {
