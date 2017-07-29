@@ -1,0 +1,7 @@
+caldera_cycleways_frontpage:
+    path:     /
+    defaults: { _controller: AppBundle:Frontpage:index }
+
+caldera_cycleways_incident_list_city:
+    path:     /{citySlug}/list
+    defaults: { _controller: AppBundle:Incident/Incident:list }

@@ -1,0 +1,5 @@
+{% if incidentTagList %}
+    {% for incidentTag in tagList %}
+        {{ include('AppBundle:Tag:_tag.html.twig', { tag: incidentTag.tag }) }}
+    {% endfor %}
+{% endif %}

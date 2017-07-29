@@ -1,0 +1,52 @@
+services:
+    caldera.cycleways.permalink_manager.sqibe:
+        class: AppBundle\PermalinkManager\SqibePermalinkManager
+        arguments: [ '@router', '%sqibe.api_url%', '%sqibe.api_username%', '%sqibe.api_password%' ]
+
+    caldera.cycleways.manager.incident_manager:
+        class: AppBundle\Manager\IncidentManager\IncidentManager
+        arguments: ['@doctrine', '@fos_elastica.manager']
+
+    caldera.cycleways.manager.post_manager:
+        class: AppBundle\Manager\PostManager\PostManager
+        arguments: ['@doctrine']
+
+    caldera.view_storage.cache:
+        class: AppBundle\ViewStorage\ViewStorageCache
+        arguments: ['@security.token_storage']
+
+    caldera.view_storage.persister:
+        class: AppBundle\ViewStorage\ViewStoragePersister
+        arguments: ['@doctrine']
+
+    caldera.parser.multistep:
+        class: AppBundle\Parser\MultiStepParser\MultiStepParser
+        calls:
+            - [ addStep, [ '@caldera.parser.multistep.link' ]]
+            - [ addStep, [ '@caldera.parser.multistep.markdown' ]]
+            - [ addStep, [ '@caldera.parser.multistep.anchor' ]]
+
+    caldera.parser.multistep.markdown:
+        class: AppBundle\Parser\MultiStepParser\Step\MarkdownParserStep
+        arguments: [ '@markdown.parser' ]
+
+    caldera.parser.multistep.link:
+        class: AppBundle\Parser\MultiStepParser\Step\LinkParserStep
+
+    caldera.parser.multistep.anchor:
+        class: AppBundle\Parser\MultiStepParser\Step\AnchorParserStep
+
+    caldera.cycleways.twig.extension.parse:
+        class: AppBundle\Twig\Extension\TwigParseExtension
+        arguments:
+            - '@caldera.parser.multistep'
+        tags:
+            - { name: twig.extension }
+
+    caldera.cycleways.twig.extension.cycleways:
+        class: AppBundle\Twig\Extension\TwigCyclewaysExtension
+        tags:
+            - { name: twig.extension }
+
+imports:
+  - { resource: ./services/timeline.yml }

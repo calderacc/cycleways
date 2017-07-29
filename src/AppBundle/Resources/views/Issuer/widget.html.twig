@@ -1,0 +1,17 @@
+{% if incident.issuer %}
+{% set incidentUser = incident.issuer.user %}
+{% else %}
+{% set incidentUser = null %}
+{% endif %}
+
+{% if app.user %}
+    <select id="issuer-select" class="selectpicker" data-style="btn-secondary" data-icon-base="fa" data-tick-icon="fa-check" data-live-search="true">
+        {% for user in userList %}
+            <option{% if user == incidentUser %} selected="selected"{% endif %} value="{{ user.id }}">
+                {{ user.username }}
+            </option>
+        {% endfor %}
+    </select>
+{% else %}
+    {{ include('AppBundle:Issuer:_issuer.html.twig', { issuer: incident.issuer }) }}
+{% endif %}

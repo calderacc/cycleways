@@ -1,0 +1,28 @@
+services:
+    cycleways.timeline.cached:
+        class: AppBundle\Timeline\CachedTimeline
+        arguments: [ '@doctrine', '@templating' ]
+        calls:
+            - [addCollector, ['@cycleways.timeline.collector.incident']]
+            - [addCollector, ['@cycleways.timeline.collector.incident_photo']]
+            - [addCollector, ['@cycleways.timeline.collector.incident_post']]
+
+    cycleways.timeline:
+        class: AppBundle\Timeline\Timeline
+        arguments: [ '@doctrine', '@templating' ]
+        calls:
+            - [addCollector, ['@cycleways.timeline.collector.incident']]
+            - [addCollector, ['@cycleways.timeline.collector.incident_photo']]
+            - [addCollector, ['@cycleways.timeline.collector.incident_post']]
+
+    cycleways.timeline.collector.incident:
+        class: AppBundle\Timeline\Collector\IncidentCollector
+        arguments: [ '@doctrine' ]
+
+    cycleways.timeline.collector.incident_photo:
+        class: AppBundle\Timeline\Collector\IncidentPhotoCollector
+        arguments: [ '@doctrine' ]
+
+    cycleways.timeline.collector.incident_post:
+        class: AppBundle\Timeline\Collector\IncidentPostCollector
+        arguments: [ '@doctrine' ]

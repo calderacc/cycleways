@@ -1,0 +1,142 @@
+{% extends 'AppBundle:Template:StandardTemplate.html.twig' %}
+
+{% block title %}{{ incident.title }}: Foto {{ photo.id }}{% endblock %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item">
+        <a href="{{ path('caldera_cycleways_incident_show', { slug: incident.slug }) }}">
+            {{ incident.title }}
+        </a>
+    </li>
+
+    <li class="breadcrumb-item active">
+        Foto {{ photo.id }}
+    </li>
+{% endblock %}
+
+{% block navigation %}
+    <div class="row mt-1 mb-1">
+        <div class="col-md-12">
+            {% if previousPhoto %}
+                <a href="{{ path('caldera_cycleways_incident_photo_show', { slug: incident.slug, photoId: previousPhoto.id }) }}" class="btn btn-secondary pull-left">
+                    Voriges Foto
+                </a>
+            {% else %}
+                <a href="#" class="btn btn-secondary pull-left disabled">
+                    Voriges Foto
+                </a>
+            {% endif %}
+
+            {% if nextPhoto %}
+                <a href="{{ path('caldera_cycleways_incident_photo_show', { slug: incident.slug, photoId: nextPhoto.id }) }}" class="btn btn-secondary pull-right">
+                    Nächstes Foto
+                </a>
+            {% else %}
+                <a href="#" class="btn btn-secondary pull-right disabled">
+                    Nächstes Foto
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% if app.request.cookies.get('cycleways-photo-full') == 'true' %}
+    {% set fullwidth = true %}
+{% else %}
+    {% set fullwidth = false %}
+{% endif %}
+
+{% block content %}
+    <div class="container">
+        {{ block('navigation') }}
+
+        <div class="row">
+            <div id="photo-col" class="{% if fullwidth %}col-md-12{% else %}col-md-9{% endif %}">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img id="photo" class="img-fluid" src="{{ vich_uploader_asset(photo, 'imageFile')|imagine_filter('gallery_photo_standard') }}"/>
+                    </div>
+                </div>
+
+                <div class="row mt-1">
+                    <div class="col-md-12">
+                        <h2 class="h3">
+                            {{ photo.incident.title }}
+                        </h2>
+
+                        <p>
+                            {{ photo.description|parse }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="detail-col" class="col-md-3"{% if fullwidth %} style="display: none;"{% endif %}>
+                <div class="card">
+                    <div class="card-header">
+                        Foto {{ photo.id }}
+                    </div>
+                    <div class="card-block">
+                        <dl>
+                            <dt>
+                                Aufnahmezeitpunkt:
+                            </dt>
+                            <dd>
+                                {{ photo.dateTime|date('d.m.Y H:i') }} Uhr
+                            </dd>
+                            <dt>
+                                Koordinaten
+                            </dt>
+                            <dd>
+                                {% if photo.latitude and photo.longitude %}
+                                    <a href="http://www.openstreetmap.org/#map=19/{{ photo.latitude }}/{{ photo.longitude }}">
+                                        {{ photo.latitude }}, {{ photo.longitude }}
+                                    </a>
+                                {% else %}
+                                    nicht gespeichert
+                                {% endif %}
+                            </dd>
+                            <dt>
+                                Ansichten
+                            </dt>
+                            <dd>
+                                {{ photo.views }}
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                {% if app.user and app.user == photo.user or is_granted('ROLE_ADMIN') %}
+                <div class="card">
+                    <div class="card-header">
+                        Einstellungen
+                    </div>
+                    <div class="card-block">
+                        <div class="btn-group">
+                            <a href="{{ path('caldera_cycleways_incident_photo_feature', { slug: incident.slug, photoId: photo.id }) }}" class="btn btn-secondary" title="Als Hauptfoto festlegen">
+                                <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                            </a>
+
+                            <a href="{{ path('caldera_cycleways_incident_photo_delete', { slug: incident.slug, photoId: photo.id }) }}" class="btn btn-secondary" title="Foto deaktiveren">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </a>
+
+                            <a href="#" class="btn btn-secondary" title="Beschreibung bearbeiten" data-toggle="modal" data-target="#edit-modal">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {{ block('navigation') }}
+    </div>
+
+    {{ render(controller('AppBundle:Photo/Management:editDescription', {'slug': incident.slug, 'photoId': photo.id})) }}
+
+    <script>
+        Cycleways.loadModule('PhotoShowPage');
+    </script>
+{% endblock %}

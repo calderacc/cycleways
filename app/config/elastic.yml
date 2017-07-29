@@ -26,7 +26,7 @@ fos_elastica:
                         pin: { type: geo_point }
                     persistence:
                         driver: orm
-                        model: Caldera\Bundle\CyclewaysBundle\Entity\Incident
+                        model: AppBundle\Entity\Incident
                         provider: ~
                         listener: ~
                         finder: ~

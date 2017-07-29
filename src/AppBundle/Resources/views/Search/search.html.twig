@@ -1,0 +1,31 @@
+{% extends 'AppBundle:Template:StandardTemplate.html.twig' %}
+
+{% block title %}Suchergebnisse{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>
+                    Deine Suchergebnisse zu „{{ queryPhrase }}“
+                </h1>
+            </div>
+        </div>
+
+        <div class="row mt-1">
+            {% for incident in incidents %}
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                {{ include('AppBundle:Incident:_card.html.twig', { 'incident': incident }) }}
+            </div>
+            {% endfor %}
+
+            {% if incidents|length == 0 %}
+                <div class="col-md-12">
+                    <div class="alert alert-info">
+                        <strong>Schade:</strong> Zu deinem Suchbegriff „{{ queryPhrase }}“ gibt es leider keine Suchergebnisse.
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
