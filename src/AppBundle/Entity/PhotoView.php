@@ -64,10 +64,6 @@ class PhotoView implements ViewInterface
         return $this->dateTime;
     }
 
-    /**
-     * @param Photo $photo
-     * @return PhotoView
-     */
     public function setPhoto(Photo $photo = null): PhotoView
     {
         $this->photo = $photo;
@@ -75,9 +71,6 @@ class PhotoView implements ViewInterface
         return $this;
     }
 
-    /**
-     * @return Photo
-     */
     public function getPhoto(): ?Photo
     {
         return $this->photo;

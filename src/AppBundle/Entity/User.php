@@ -59,10 +59,6 @@ class User extends BaseUser
         $this->incidentList = new ArrayCollection();
     }
 
-    /**
-     * @param \DateTime $updatedAt
-     * @return User
-     */
     public function setUpdatedAt(\DateTime $updatedAt): User
     {
         $this->updatedAt = $updatedAt;
@@ -70,18 +66,11 @@ class User extends BaseUser
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
     public function getUpdatedAt(): \DateTime
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTime $createdAt
-     * @return User
-     */
     public function setCreatedAt(\DateTime $createdAt): User
     {
         $this->createdAt = $createdAt;
@@ -89,9 +78,6 @@ class User extends BaseUser
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
     public function getCreatedAt(): \DateTime
     {
         return $this->createdAt;
