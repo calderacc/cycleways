@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<routes xmlns="http://symfony.com/schema/routing"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://symfony.com/schema/routing
+        http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="caldera_cycleways_incident_add" path="/addincident">
+        <default key="_controller">AppBundle:Incident/Management:add</default>
+    </route>
+
+    <route id="caldera_cycleways_incident_show" path="/{slug}">
+        <default key="_controller">AppBundle:Incident/Incident:show</default>
+        <requirement key="slug">(.*)\-([0-9]{1,6})</requirement>
+        <option key="expose">true</option>
+    </route>
+
+    <route id="caldera_cycleways_incident_comment_add" path="/{slug}/addcomment">
+        <default key="_controller">AppBundle:Post:write</default>
+        <requirement key="slug">([a-zA-Z-]*)</requirement>
+    </route>
+
+    <route id="caldera_cycleways_incident_status_update" path="/{slug}/update-status">
+        <default key="_controller">AppBundle:Incident/Status:update</default>
+        <requirement key="slug">(.*)\-([0-9]{1,6})</requirement>
+        <option key="expose">true</option>
+    </route>
+
+    <route id="caldera_cycleways_incident_tag_update" path="/{slug}/update-tag">
+        <default key="_controller">AppBundle:Incident/Tag:update</default>
+        <requirement key="slug">(.*)\-([0-9]{1,6})</requirement>
+        <option key="expose">true</option>
+    </route>
+
+    <route id="caldera_cycleways_incident_issuer_update" path="/{slug}/update-issuer">
+        <default key="_controller">AppBundle:Incident/Issuer:update</default>
+        <requirement key="slug">(.*)\-([0-9]{1,6})</requirement>
+        <option key="expose">true</option>
+    </route>
+</routes>
