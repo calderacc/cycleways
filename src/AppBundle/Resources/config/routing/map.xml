@@ -6,6 +6,6 @@
 
     <route id="caldera_cycleways_incident_map_city" path="/{citySlug}">
         <default key="_controller">AppBundle:Map:map</default>
-        <requirement key="citySlug">'([a-zA-Z-]*)'</requirement>
+        <requirement key="citySlug">([a-zA-Z-]*)</requirement>
     </route>
 </routes>

@@ -6,26 +6,26 @@
 
     <route id="caldera_cycleways_incident_photo_upload" path="/{slug}/photoupload">
         <default key="_controller">AppBundle:Photo/Upload:upload</default>
-        <requirement key="slug">'(.*)\-([0-9]{1,6})'</requirement>
+        <requirement key="slug">(.*)\-([0-9]{1,6})</requirement>
     </route>
 
     <route id="caldera_cycleways_incident_photo_show" path="/{slug}/photo/{photoId}">
         <default key="_controller">AAppBundle:Photo/Photo:show</default>
-        <requirement key="slug">'(.*)\-([0-9]{1,6})'</requirement>
+        <requirement key="slug">(.*)\-([0-9]{1,6})</requirement>
     </route>
 
     <route id="caldera_cycleways_incident_photo_feature" path="/{slug}/photo/{photoId}/feature">
         <default key="_controller">AppBundle:Photo/Management:featuredPhoto</default>
-        <requirement key="slug">'(.*)\-([0-9]{1,6})'</requirement>
+        <requirement key="slug">(.*)\-([0-9]{1,6})</requirement>
     </route>
 
     <route id="caldera_cycleways_incident_photo_delete" path="/{slug}/photo/{photoId}/delete">
         <default key="_controller">AppBundle:Photo/Management:delete</default>
-        <requirement key="slug">'(.*)\-([0-9]{1,6})'</requirement>
+        <requirement key="slug">(.*)\-([0-9]{1,6})</requirement>
     </route>
 
     <route id="caldera_cycleways_photo_edit_description" path="/{slug}/photo/{photoId}/editDescription">
         <default key="_controller">AppBundle:Photo/Management:editDescription</default>
-        <requirement key="slug">'(.*)\-([0-9]{1,6})'</requirement>
+        <requirement key="slug">(.*)\-([0-9]{1,6})</requirement>
     </route>
 </routes>
