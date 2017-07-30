@@ -32,6 +32,6 @@ _liip_imagine:
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
-caldera_cycleways:
-    resource: "@AppBundle/Resources/config/routing.yml"
+cycleways:
+    resource: "@AppBundle/Resources/config/routing.xml"
     prefix:   /
