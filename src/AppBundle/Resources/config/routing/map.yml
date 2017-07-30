@@ -1,6 +1,0 @@
-caldera_cycleways_incident_map_city:
-    path:     /{citySlug}
-    requirements:
-        citySlug: '([a-zA-Z-]*)'
-    defaults: { _controller: AppBundle:Map:map }
-
