@@ -16,7 +16,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class IncidentType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('title', TextType::class, ['required' => false])
@@ -29,7 +29,7 @@ class IncidentType extends AbstractType
                         'Road Rage' => Incident::INCIDENT_RAGE,
                         'Gefahrenstelle' => Incident::INCIDENT_DANGER,
                         'Arbeitsstelle' => Incident::INCIDENT_ROADWORKS,
-                        'Unfall' => Incident::INCIDENT_ACCIDENT,
+                        'Unfall' => Incident::INCIDENT_ACCIDENT, 
                         'Tödlicher Unfall' => Incident::INCIDENT_DEADLY_ACCIDENT,
                         'Polizeikontrolle' => Incident::INCIDENT_POLICE,
                         'schlechte Infrastruktur' => Incident::INCIDENT_INFRASTRUCTURE
@@ -190,7 +190,7 @@ class IncidentType extends AbstractType
         ;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return 'incident';
     }
