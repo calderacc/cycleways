@@ -84,7 +84,6 @@ define(['CriticalService', 'DrawMap', 'leaflet-polyline', 'leaflet-extramarkers'
 
     CyclewaysIncidentEditPage.prototype._toggleDrawControl = function() {
         if (this._drawnItems.getLayers().length > 0) {
-            alert('disable');
             this._drawControl.setDrawingOptions({
                 polyline: false,
                 marker: false
