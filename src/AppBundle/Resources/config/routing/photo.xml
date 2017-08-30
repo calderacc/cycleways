@@ -10,7 +10,7 @@
     </route>
 
     <route id="caldera_cycleways_incident_photo_show" path="/{slug}/photo/{photoId}">
-        <default key="_controller">AAppBundle:Photo/Photo:show</default>
+        <default key="_controller">AppBundle:Photo/Photo:show</default>
         <requirement key="slug">(.*)\-([0-9]{1,6})</requirement>
     </route>
 
