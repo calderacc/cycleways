@@ -60,7 +60,7 @@ class ViewStoragePersister implements ViewStoragePersisterInterface
 
         $viewStorage = $viewStorageItem->get();
 
-        $this->cache->deleteItem('view_storage');
+        $this->cache->deleteItem('cycleways_view_storage');
 
         foreach ($viewStorage as $view) {
             $this->storeView($view);
