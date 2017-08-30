@@ -36,6 +36,7 @@ require.config({
         "leaflet-snapping-polyline": "/bundles/app/js/external/leaflet/Polyline.Snapping",
         "bootstrap-slider": "/bundles/app/js/external/bootstrap/bootstrap-slider",
         "dropzone": "/bundles/app/js/external/dropzone/dropzone.min",
+        "js-cookie": "/bundles/app/js/external/js-cookie/js-cookie",
         "typeahead": "/bundles/app/js/external/typeahead/typeahead",
         "bloodhound": "/bundles/app/js/external/typeahead/bloodhound",
         "jquery": "/bundles/app/js/external/jquery/jquery-2.1.4.min",
