@@ -19,3 +19,14 @@ parameters:
     sqibe.api_url: http://sqi.be/yourls-api.php
     sqibe.api_username: username
     sqibe.api_password: password
+
+    strava.client_id: 234qt35zr6tjzrgrergerg
+    strava.token: 234qt35zr6tjzrgrergerg
+    strava.secret: 234qt35zr6tjzrgrergerg
+
+    facebook.app_id: 234qt35zr6tjzrgrergerg
+    facebook.app_secret: 234qt35zr6tjzrgrergerg
+    facebook.default_token: 234qt35zr6tjzrgrergerg|234qt35zr6tjzrgrergerg
+
+    runkeeper.client_id: 234qt35zr6tjzrgrergerg
+    runkeeper.secret: 234qt35zr6tjzrgrergerg

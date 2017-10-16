@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),
         ];

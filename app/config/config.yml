@@ -14,3 +14,4 @@ imports:
     - { resource: translation.yml }
     - { resource: services.yml }
     - { resource: sonata.yml }
+    - { resource: hwi.yml }

@@ -48,5 +48,9 @@ services:
         tags:
             - { name: twig.extension }
 
+    caldera.user_provider:
+        class: AppBundle\UserProvider\FOSUBUserProvider
+        arguments: ['@fos_user.user_manager', {facebook: facebookId, strava: stravaId, runkeeper: runkeeperId}]
+
 imports:
   - { resource: ./services/timeline.yml }

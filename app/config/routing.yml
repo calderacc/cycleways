@@ -32,6 +32,27 @@ _liip_imagine:
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
+facebook_login:
+    path: /login/check-facebook
+
+strava_login:
+    path: /login/check-strava
+
+runkeeper_login:
+    path: /login/check-runkeeper
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /login
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /login
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
+
 cycleways:
     resource: "@AppBundle/Resources/config/routing.xml"
     prefix:   /
