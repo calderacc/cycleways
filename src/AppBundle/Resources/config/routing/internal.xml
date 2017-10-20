@@ -5,7 +5,7 @@
         http://symfony.com/schema/routing/routing-1.0.xsd">
 
     <route id="caldera_cycleways_incident_streetview_check" path="/streetviewcheck">
-        <default key="_controller">AppBundle:Incident/Incident:googleMapsCoord</default>
+        <default key="_controller">AppBundle:Internal:googleMapsCoord</default>
         <option key="expose">true</option>
     </route>
 
